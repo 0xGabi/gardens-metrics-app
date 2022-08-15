@@ -2,10 +2,20 @@ import { RADIUS, useViewport, GU, useTheme } from "@blossom-labs/rosette-ui";
 import type { Theme } from "@uniswap/widgets";
 import { SwapWidget } from "@uniswap/widgets";
 import { useCatch } from "@remix-run/react";
+import { json, LoaderFunction } from "@remix-run/node";
 import styled from "styled-components";
 import { useSigner } from "wagmi";
 import { AppScreen } from "~/components/AppLayout/AppScreen";
 import { SmoothDisplayContainer } from "~/components/SmoothDisplayContainer";
+import { fetchFnEntries } from "~/utils/server/subgraph.server";
+
+export const loader: LoaderFunction = async () => {
+  const fnsSubgraphData = await fetchFnEntries();
+
+  console.log(fnsSubgraphData);
+
+  return json({ fnsSubgraphData });
+};
 
 export default function Home() {
   const { below } = useViewport();
