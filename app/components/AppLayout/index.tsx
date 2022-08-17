@@ -1,4 +1,4 @@
-import { useViewport } from "@blossom-labs/rosette-ui";
+import { useViewport } from "@1hive/1hive-ui";
 import type { ReactNode } from "react";
 import styled from "styled-components";
 import { BottomBar } from "./BottomBar";

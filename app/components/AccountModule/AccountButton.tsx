@@ -8,7 +8,7 @@ import {
   textStyle,
   useTheme,
   useViewport,
-} from "@blossom-labs/rosette-ui";
+} from "@1hive/1hive-ui";
 import { Fragment } from "react";
 import type { ReactNode } from "react";
 import styled from "styled-components";

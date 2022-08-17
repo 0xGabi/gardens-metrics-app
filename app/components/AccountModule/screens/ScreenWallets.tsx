@@ -1,10 +1,4 @@
-import {
-  ButtonBase,
-  GU,
-  Link,
-  RADIUS,
-  textStyle,
-} from "@blossom-labs/rosette-ui";
+import { ButtonBase, GU, Link, RADIUS, textStyle } from "@1hive/1hive-ui";
 import styled from "styled-components";
 import { useConnect } from "wagmi";
 import type { Connector } from "wagmi";

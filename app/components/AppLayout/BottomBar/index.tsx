@@ -1,4 +1,4 @@
-import { GU, useTheme, useViewport } from "@blossom-labs/rosette-ui";
+import { GU, useTheme, useViewport } from "@1hive/1hive-ui";
 import { a } from "@react-spring/web";
 import styled from "styled-components";
 import { useAppReady } from "~/providers/AppReady";
@@ -20,8 +20,8 @@ export const BottomBar = () => {
               $compactMode={compactMode}
             >
               <div style={{ color: theme.surfaceContent }}>
-                <span style={{ opacity: 0.4 }}>powered by</span>{" "}
-                <BlossomLabsLogo />
+                <span style={{ opacity: 0.4 }}></span>&copy; Copyright 2022,
+                Gardens - Metrics <BlossomLabsLogo />
               </div>
             </AnimatedContainer>
           )

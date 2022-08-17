@@ -8,7 +8,7 @@ import {
   RADIUS,
   textStyle,
   useTheme,
-} from "@blossom-labs/rosette-ui";
+} from "@1hive/1hive-ui";
 import { useCallback, useEffect } from "react";
 import styled from "styled-components";
 import { useAccount, useNetwork } from "wagmi";

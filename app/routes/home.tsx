@@ -1,6 +1,4 @@
-import { RADIUS, useViewport, GU, useTheme } from "@blossom-labs/rosette-ui";
-import type { Theme } from "@uniswap/widgets";
-import { SwapWidget } from "@uniswap/widgets";
+import { RADIUS, useViewport, GU, useTheme } from "@1hive/1hive-ui";
 import { useCatch } from "@remix-run/react";
 import styled from "styled-components";
 import { useSigner } from "wagmi";
@@ -12,33 +10,10 @@ export default function Home() {
   const theme = useTheme();
   const [{ data }] = useSigner();
 
-  const uniswapTheme: Theme = {
-    primary: `${theme.content}`,
-    secondary: `${theme.contentSecondary}`,
-    interactive: `${theme.border}`,
-    container: `${theme.surface.alpha(0.5)}`,
-    module: `${theme.floatingContent}`,
-    accent: `${theme.accent}`,
-    outline: `${theme.borderDark}`,
-    dialog: `${theme.surface}`,
-    fontFamily: "rosette-ui",
-    borderRadius: RADIUS,
-    active: `${theme.selected}`,
-    error: `${theme.negative}`,
-    success: `${theme.positive}`,
-    warning: `${theme.warning}`,
-  };
-
   return (
     <AppScreen>
       <SmoothDisplayContainer>
-        <MainContainer compactMode={below("medium")}>
-          <SwapWidget
-            provider={data?.provider as any}
-            jsonRpcEndpoint={window.ENV.RPC_URL}
-            theme={uniswapTheme}
-          />
-        </MainContainer>
+        <MainContainer compactMode={below("medium")}></MainContainer>
       </SmoothDisplayContainer>
     </AppScreen>
   );

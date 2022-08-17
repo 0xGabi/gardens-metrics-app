@@ -1,4 +1,4 @@
-import { useTheme } from "@blossom-labs/rosette-ui";
+import { useTheme } from "@1hive/1hive-ui";
 import { ThemeProvider } from "styled-components";
 import { useState } from "react";
 
