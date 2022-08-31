@@ -1,21 +1,23 @@
 import { RADIUS, useViewport, GU, useTheme } from "@1hive/1hive-ui";
-import { useCatch } from "@remix-run/react";
-import { json, LoaderFunction } from "@remix-run/node";
+import { useCatch, useLoaderData } from "@remix-run/react";
+import type { LoaderFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
 import styled from "styled-components";
 import { useSigner } from "wagmi";
 import { AppScreen } from "~/components/AppLayout/AppScreen";
 import { SmoothDisplayContainer } from "~/components/SmoothDisplayContainer";
-import { fetchFnEntries } from "~/utils/server/subgraph.server";
+import { fetchGardensEntries } from "~/utils/server/subgraph.server";
 
 export const loader: LoaderFunction = async () => {
-  const fnsSubgraphData = await fetchFnEntries();
+  const gardensData = await fetchGardensEntries();
 
-  console.log(fnsSubgraphData);
+  console.log(gardensData)
 
-  return json({ fnsSubgraphData });
+  return json({ gardensData });
 };
 
 export default function Home() {
+  const {gardensData} = useLoaderData()
   const { below } = useViewport();
   const theme = useTheme();
   const [{ data }] = useSigner();

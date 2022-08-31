@@ -1,27 +1,22 @@
-import type { FnEntrySubgraphData } from "~/types";
-import { FnDescriptionStatus } from "~/types";
-
-type FunctionResult = {
+type GardenResult = {
   id: string;
-  cid: string;
-  contract: {
-    scope: string;
+  address: string;
+  createdAt: number;
+  requestToken: {
+    id: string;
+    name: string;
   };
-  sigHash: string;
-  submitter: string;
-  upsertAt: number;
+  outflows: {
+    transferAt: string;
+    beneficiary: string;
+    requestedAmount: number;
+    stable: boolean;
+  };
 };
 
-type QueryFnsResult = {
+type QueryGardensResult = {
   data: {
-    functions: FunctionResult[];
-  };
-  errors?: { message: string }[];
-};
-
-type QueryFnResult = {
-  data: {
-    function: FunctionResult;
+    gardens: GardenResult[];
   };
   errors?: { message: string }[];
 };
@@ -42,40 +37,32 @@ const fetchFromGraphQL = async (query: string) => {
   });
 };
 
-const parseFnResult = (fnResult: FunctionResult): FnEntrySubgraphData => {
-  const { id, cid, contract, sigHash, submitter, upsertAt } = fnResult;
-
-  return {
-    id,
-    cid,
-    contract: contract.scope,
-    sigHash,
-    status: FnDescriptionStatus.Added,
-    submitter,
-    upsertAt,
-  };
+const parseGardenResult = (gardenResult: GardenResult): GardenResult => {
+  return gardenResult;
 };
 
-export const fetchFnEntries = async (): Promise<FnEntrySubgraphData[]> => {
+export const fetchGardensEntries = async (): Promise<GardenResult[]> => {
   try {
     const rawResponse = await fetchFromGraphQL(
       gql`
         {
-          functions {
+          gardens {
             id
-            contract {
-              scope
+            address
+            createdAt
+            requestToken {
+              id
             }
-            cid
-            sigHash
-            submitter
-            upsertAt
+            outflows {
+              transferAt
+              beneficiary
+            }
           }
         }
       `
     );
 
-    const result = (await rawResponse.json()) as QueryFnsResult;
+    const result = (await rawResponse.json()) as QueryGardensResult;
 
     if (result.errors?.length) {
       const err = result.errors[0];
@@ -83,11 +70,11 @@ export const fetchFnEntries = async (): Promise<FnEntrySubgraphData[]> => {
       throw new Error(err.message);
     }
 
-    if (!result.data.functions) {
+    if (!result.data.gardens) {
       return [];
     }
 
-    return result.data.functions.map(parseFnResult);
+    return result.data.gardens.map(parseGardenResult);
   } catch (err) {
     throw new Response(
       "There was an error fetching the contract's function descriptions",
