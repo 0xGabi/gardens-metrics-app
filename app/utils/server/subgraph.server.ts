@@ -12,6 +12,17 @@ type GardenResult = {
     requestedAmount: number;
     stable: boolean;
   };
+  beneficiaries: {
+    requestTokenBalance: number;
+    transfers: {
+      amount: number;
+      createdAt: number;
+      contributor: {
+        address: string;
+        requestTokenBalance: number;
+      };
+    };
+  };
 };
 
 type QueryGardensResult = {
@@ -52,10 +63,24 @@ export const fetchGardensEntries = async (): Promise<GardenResult[]> => {
             createdAt
             requestToken {
               id
+              name
             }
             outflows {
               transferAt
               beneficiary
+              requestedAmount
+              stable
+            }
+            beneficiaries {
+              requestTokenBalance
+              transfers {
+                amount
+                createdAt
+                contributor {
+                  address
+                  requestTokenBalance
+                }
+              }
             }
           }
         }

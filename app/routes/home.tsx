@@ -11,7 +11,7 @@ import { fetchGardensEntries } from "~/utils/server/subgraph.server";
 export const loader: LoaderFunction = async () => {
   const gardensData = await fetchGardensEntries();
 
-  console.log(gardensData)
+  console.log(gardensData[0].beneficiaries[1].transfers)
 
   return json({ gardensData });
 };
