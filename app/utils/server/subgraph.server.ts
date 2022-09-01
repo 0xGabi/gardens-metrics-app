@@ -1,38 +1,5 @@
 import { AllData, GardensData } from "~/queries/AllData";
-
-type GardenResult = {
-  id: string;
-  address: string;
-  createdAt: number;
-  requestToken: {
-    id: string;
-    name: string;
-  };
-  outflows: {
-    transferAt: string;
-    beneficiary: string;
-    requestedAmount: number;
-    stable: boolean;
-  };
-  beneficiaries: {
-    requestTokenBalance: number;
-    transfers: {
-      amount: number;
-      createdAt: number;
-      contributor: {
-        address: string;
-        requestTokenBalance: number;
-      };
-    };
-  };
-};
-
-type QueryGardensResult = {
-  data: {
-    gardens: GardenResult[];
-  };
-  errors?: { message: string }[];
-};
+import { GardenResult, QueryGardensResult } from "~/types";
 
 const gql = String.raw;
 
