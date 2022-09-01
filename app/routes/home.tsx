@@ -11,13 +11,13 @@ import { fetchGardensEntries } from "~/utils/server/subgraph.server";
 export const loader: LoaderFunction = async () => {
   const gardensData = await fetchGardensEntries();
 
-  console.log(gardensData[0].beneficiaries[1].transfers)
+  console.log(gardensData[0]);
 
   return json({ gardensData });
 };
 
 export default function Home() {
-  const {gardensData} = useLoaderData()
+  const { gardensData } = useLoaderData();
   const { below } = useViewport();
   const theme = useTheme();
   const [{ data }] = useSigner();
