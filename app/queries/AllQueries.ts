@@ -1,6 +1,8 @@
 const gql = String.raw;
 
-export const AllData = gql`
+//TO DO: Insert a comment description for each item in the queires to undersantd what Im fetching
+
+export const AllQueries = gql`
   {
     gardens {
       id
@@ -26,20 +28,6 @@ export const AllData = gql`
             requestTokenBalance
           }
         }
-      }
-    }
-  }
-`;
-
-export const GardensData = gql`
-  {
-    gardens {
-      id
-      address
-      createdAt
-      requestToken {
-        id
-        name
       }
     }
   }

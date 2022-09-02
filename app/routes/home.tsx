@@ -11,7 +11,7 @@ import { fetchGardensEntries } from "~/utils/server/subgraph.server";
 export const loader: LoaderFunction = async () => {
   const gardensData = await fetchGardensEntries();
 
-  console.log(gardensData[0]);
+  console.log(gardensData);
 
   return json({ gardensData });
 };
@@ -25,7 +25,22 @@ export default function Home() {
   return (
     <AppScreen>
       <SmoothDisplayContainer>
-        <MainContainer compactMode={below("medium")}></MainContainer>
+        <h1>Data Fetch Example</h1>
+        <h2>Gardens Data Querie:</h2>
+        <br />
+        {gardensData.map((garden: any) => (
+          <>
+            <div>id: {garden.id}</div>
+            <br />
+            <div>address: {garden.address}</div>
+            <br />
+            <div>creartedAt: {garden.createdAt}</div>
+            <br />
+            <div>requestedToken: {garden.requestToken.id}</div>
+            <br />
+            <div>name: {garden.requestToken.name}</div>
+          </>
+        ))}
       </SmoothDisplayContainer>
     </AppScreen>
   );

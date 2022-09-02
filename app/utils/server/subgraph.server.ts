@@ -1,8 +1,10 @@
-import { AllData, GardensData } from "~/queries/AllData";
+import { AllQueries } from "~/queries/AllQueries";
+import { GardensData } from "~/queries/Queries";
 import { GardenResult, QueryGardensResult } from "~/types";
 
 const gql = String.raw;
 
+//
 const fetchFromGraphQL = async (query: string) => {
   if (!process.env.SUBGRAPH_URI) {
     throw new Error("SUBGRAPH_URI is required");
