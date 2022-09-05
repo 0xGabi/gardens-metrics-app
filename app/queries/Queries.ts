@@ -16,11 +16,13 @@ export const GardensData = gql`
 
 export const OutflowsData = gql`
   {
-    outflows {
-      transferAt
-      beneficiary
-      requestedAmount
-      stable
+    gardens {
+      outflows {
+        id
+        requestedAmount
+        beneficiary
+        transferAt
+      }
     }
   }
 `;

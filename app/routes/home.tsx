@@ -7,11 +7,12 @@ import { useSigner } from "wagmi";
 import { AppScreen } from "~/components/AppLayout/AppScreen";
 import { SmoothDisplayContainer } from "~/components/SmoothDisplayContainer";
 import { fetchGardensEntries } from "~/utils/server/subgraph.server";
+import { map } from "public/aragon-ui/types";
 
 export const loader: LoaderFunction = async () => {
   const gardensData = await fetchGardensEntries();
 
-  console.log(gardensData);
+  // console.log(gardensData);
 
   return json({ gardensData });
 };
@@ -22,23 +23,31 @@ export default function Home() {
   const theme = useTheme();
   const [{ data }] = useSigner();
 
+  // const parseGardensData = gardensData[0].outflows;
+
+  const entries = gardensData[0].outflows.map((garden: any) =>
+    Object.values(garden)
+  );
+
+  console.log(entries);
+
   return (
     <AppScreen>
       <SmoothDisplayContainer>
         <h1>Data Fetch Example</h1>
-        <h2>Gardens Data Querie:</h2>
+        <h2>Outflows Data Querie:</h2>
         <br />
-        {gardensData.map((garden: any) => (
+        {/* {parseGardensData.map((garden: any) => (
+          <p>hello</p>
+        ))} */}
+
+        {entries.map((entry) => (
           <>
-            <div>id: {garden.id}</div>
-            <br />
-            <div>address: {garden.address}</div>
-            <br />
-            <div>creartedAt: {garden.createdAt}</div>
-            <br />
-            <div>requestedToken: {garden.requestToken.id}</div>
-            <br />
-            <div>name: {garden.requestToken.name}</div>
+            <p>{entry[0]}</p>
+            <p>{entry[1]}</p>
+            <p>{entry[2]}</p>
+            <p>{entry[3]}</p>
+            <br></br>
           </>
         ))}
       </SmoothDisplayContainer>

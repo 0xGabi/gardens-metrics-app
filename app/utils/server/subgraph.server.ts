@@ -1,5 +1,9 @@
 import { AllQueries } from "~/queries/AllQueries";
-import { GardensData } from "~/queries/Queries";
+import {
+  GardensData,
+  OutflowsData,
+  BeneficiariesData,
+} from "~/queries/Queries";
 import { GardenResult, QueryGardensResult } from "~/types";
 
 const gql = String.raw;
@@ -25,7 +29,7 @@ const parseGardenResult = (gardenResult: GardenResult): GardenResult => {
 
 export const fetchGardensEntries = async (): Promise<GardenResult[]> => {
   try {
-    const rawResponse = await fetchFromGraphQL(GardensData);
+    const rawResponse = await fetchFromGraphQL(OutflowsData);
 
     const result = (await rawResponse.json()) as QueryGardensResult;
 
