@@ -4,55 +4,66 @@ import { useCatch, useLoaderData } from "@remix-run/react";
 
 import { useTheme } from "@1hive/1hive-ui";
 import { fetchGardensEntries } from "~/utils/server/subgraph.server";
-import { formatDate, formatAmount, formatAddress } from "~/utils/format";
+import {
+  formatDate,
+  formatDate_TWO,
+  formatAmount,
+  formatAddress,
+} from "~/utils/format";
 import { BigNumber } from "ethers";
 
 // export const loader: LoaderFunction = async () => {
 //   const gardensData = await fetchGardensEntries();
-
 //   return json({ gardensData });
+
+// Why the loader works and render de UI if it is in the home component ???
 // };
 
 const Outflows = ({}) => {
   const { gardensData } = useLoaderData();
   const theme = useTheme();
 
-  //Declare outflows varibale to work with:
-  const outflows = gardensData[0].outflows.map((garden: any) =>
+  //Declare ALL_outflows varibale to work with:
+  const outflows_ALL = gardensData[0].outflows.map((garden: any) =>
     Object.values(garden)
   );
+  //Declare HONEY_outflows && filter Cancelled Porposals
+  const outflows_HNY = outflows_ALL.filter(
+    (stable: any) => stable[4] === false && stable[3] !== null
+  );
 
-  //FUNDING PROPOSALS in HNY (79 of 91)
-  const TOTAL_HNY_FUNDING_PROPOSALS = outflows
-    .filter((stable: any) => stable[4] === false)
+  //TOTAL SUM of FUNDING PROPOSALS in HNY
+  const TOTAL_HNY_FUNDING_SUM = outflows_ALL
+    .filter((stable: any) => stable[4] === false && stable[3] !== null)
     .map((amount: any) => formatAmount(amount[1]))
     .reduce(
       (previousValue: number, currentValue: number) =>
         previousValue + currentValue,
       0
     );
-  //FUNDING PROPOSALS STABLE (12 of 91) ==> ????
-  // const STABLE_FUNDING_PROPOSALS = outflows
+  //FUNDING_SUM STABLE (12 of 91) ==> ????
+  // const STABLE_FUNDING_SUM = outflows
   //   .filter((stable: any) => stable[4] === true)
   //   .map((amount: any) => formatAmount_STRING(amount[1]));
-  // console.log(Number(STABLE_FUNDING_PROPOSALS);
-
+  // console.log(Number(STABLE_FUNDING_SUM);
   return (
     <>
       <h2>Outflows Data Querie:</h2>
-      <div>TOTAL HNY FUNDING: {TOTAL_HNY_FUNDING_PROPOSALS} </div>
+      <div>TOTAL HNY FUNDING: {TOTAL_HNY_FUNDING_SUM} </div>
       <br />
 
-      {outflows.map((entry: any) => (
+      {outflows_HNY.map((outflow: any) => (
         <>
-          <p style={{ color: theme.content }}>ID :{entry[0]}</p>
-          <p>AMOUNT: {entry[1]}</p>
-          <div>READABLE-AMOUNT = {formatAmount(entry[1])} hny</div>
-          <p>BENEFICIARY address: {formatAddress(entry[2])}</p>
-          <p style={{ color: entry[3] === null ? "red" : "" }}>
-            DATE: {entry[3] === null ? "NO DATE" : entry[3]}
+          <p style={{ color: theme.content }}>ID :{outflow[0]}</p>
+          <p>AMOUNT: {outflow[1]}</p>
+          <div>READABLE-AMOUNT = {formatAmount(outflow[1])} hny</div>
+          <p>BENEFICIARY address: {formatAddress(outflow[2])}</p>
+          <p style={{ color: outflow[3] === null ? "red" : "" }}>
+            DATE:{" "}
+            {outflow[3] === null ? "No Date, Status: Cancelled" : outflow[3]}
           </p>
-          <div>READABLE-DATE : {formatDate(entry[3])}</div>
+          <div>READABLE-DATE : {formatDate(outflow[3])}</div>
+          <div>READABLE-DATE-TWO : {formatDate_TWO(outflow[3])}</div>
           <br></br>
         </>
       ))}

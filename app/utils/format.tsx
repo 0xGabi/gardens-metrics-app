@@ -6,6 +6,11 @@ export const formatDate = (date: any) => {
 
   return newDate;
 };
+export const formatDate_TWO = (date: any) => {
+  const newDate = new Date(date * 1000).toLocaleDateString();
+
+  return newDate;
+};
 
 export const formatAmount = (
   value: string,
@@ -20,7 +25,7 @@ export const formatAmount = (
   return Number(commas ? formatedAmount : formatedAmount.replace(",", ""));
 };
 
-//Same func from above but it retruns STRING
+//Same func from above, returns STRING
 export const formatAmount_STRING = (
   value: string,
   { decimals = 18, commas = true, precision = 3, displaySign = false } = {}
@@ -33,7 +38,7 @@ export const formatAmount_STRING = (
   return commas ? formatedAmount : formatedAmount.replace(",", "");
 };
 
-export function formatAddress(address: any, charsLength = 4) {
+export function formatAddress(address: string, charsLength = 4) {
   const prefixLength = 2; // "0x"
   if (!address) {
     return "";

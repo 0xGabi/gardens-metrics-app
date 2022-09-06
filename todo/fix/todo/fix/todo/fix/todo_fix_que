@@ -7,7 +7,7 @@ Hay algunas pocas proposals que son en XDAI, alguna fue aceptada ?, Ver como man
 TODOs: {
 Como queremos expresar las fehcas mm dd yyy ? dd mm yyyy ?
 
-Fix when transferAt == null, it returns 31 dic 1969 by defect
+Fix when transferAt == null, it returns 31 dic 1969 by defect // WHEN TRASNFERT == null IS BECAUSE THE PROPOSAL WAS CANCELLED, CHECKed ALL OF THEM IN 1HIVE, DONE
 }
 
 QUESTIONS:{
