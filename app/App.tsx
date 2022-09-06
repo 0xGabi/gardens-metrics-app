@@ -1,7 +1,6 @@
 import { useTheme } from "@1hive/1hive-ui";
 import { ThemeProvider } from "styled-components";
 import { useState } from "react";
-
 import { AppReady } from "~/providers/AppReady";
 import Wagmi from "~/providers/Wagmi";
 import { AppLayout } from "~/components/AppLayout";
