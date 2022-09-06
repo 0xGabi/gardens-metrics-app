@@ -9,12 +9,9 @@ import Outflows from "~/components/Outflows";
 import { fetchGardensEntries } from "~/utils/server/subgraph.server";
 import type { LoaderFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import { GardensData } from "~/queries/Queries";
 
 export const loader: LoaderFunction = async () => {
   const gardensData = await fetchGardensEntries();
-
-  console.log(gardensData);
 
   return json({ gardensData });
 };

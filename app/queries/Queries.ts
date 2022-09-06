@@ -22,6 +22,7 @@ export const OutflowsData = gql`
         requestedAmount
         beneficiary
         transferAt
+        stable
       }
     }
   }

@@ -4,42 +4,55 @@ import { useCatch, useLoaderData } from "@remix-run/react";
 
 import { useTheme } from "@1hive/1hive-ui";
 import { fetchGardensEntries } from "~/utils/server/subgraph.server";
-import { formatDate, formatAmount } from "~/utils/format";
+import { formatDate, formatAmount, formatAddress } from "~/utils/format";
+import { BigNumber } from "ethers";
 
-export const loader: LoaderFunction = async () => {
-  const gardensData = await fetchGardensEntries();
+// export const loader: LoaderFunction = async () => {
+//   const gardensData = await fetchGardensEntries();
 
-  return json({ gardensData });
-};
+//   return json({ gardensData });
+// };
 
 const Outflows = ({}) => {
   const { gardensData } = useLoaderData();
-
   const theme = useTheme();
 
-  const entries = gardensData[0].outflows.map((garden: any) =>
+  //Declare outflows varibale to work with:
+  const outflows = gardensData[0].outflows.map((garden: any) =>
     Object.values(garden)
   );
 
-  // const sum = entries.map((amount) => console.log(formatAmount(amount[1])));
+  //FUNDING PROPOSALS in HNY (79 of 91)
+  const TOTAL_HNY_FUNDING_PROPOSALS = outflows
+    .filter((stable: any) => stable[4] === false)
+    .map((amount: any) => formatAmount(amount[1]))
+    .reduce(
+      (previousValue: number, currentValue: number) =>
+        previousValue + currentValue,
+      0
+    );
+  //FUNDING PROPOSALS STABLE (12 of 91) ==> ????
+  // const STABLE_FUNDING_PROPOSALS = outflows
+  //   .filter((stable: any) => stable[4] === true)
+  //   .map((amount: any) => formatAmount_STRING(amount[1]));
+  // console.log(Number(STABLE_FUNDING_PROPOSALS);
 
   return (
     <>
-      <h1>Data Fetch Example</h1>
       <h2>Outflows Data Querie:</h2>
-      <div>{formatDate(1622812220)}</div>
+      <div>TOTAL HNY FUNDING: {TOTAL_HNY_FUNDING_PROPOSALS} </div>
       <br />
 
-      {entries.map((entry: any) => (
+      {outflows.map((entry: any) => (
         <>
           <p style={{ color: theme.content }}>ID :{entry[0]}</p>
           <p>AMOUNT: {entry[1]}</p>
-          <div>READABLE-AMOUNT {formatAmount(entry[1])}</div>
-          <p>ADDRESS: {entry[2]}</p>
+          <div>READABLE-AMOUNT = {formatAmount(entry[1])} hny</div>
+          <p>BENEFICIARY address: {formatAddress(entry[2])}</p>
           <p style={{ color: entry[3] === null ? "red" : "" }}>
             DATE: {entry[3] === null ? "NO DATE" : entry[3]}
           </p>
-          <div>READABLE-DATE:{formatDate(entry[3])}</div>
+          <div>READABLE-DATE : {formatDate(entry[3])}</div>
           <br></br>
         </>
       ))}

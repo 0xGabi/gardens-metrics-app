@@ -1,0 +1,17 @@
+TODO / FIXES / QUESTIONS:
+
+FIXES: {
+Hay algunas pocas proposals que son en XDAI, alguna fue aceptada ?, Ver como manejar estos numeros en la UI porque son 15k, 40k, 100k,
+}
+
+TODOs: {
+Como queremos expresar las fehcas mm dd yyy ? dd mm yyyy ?
+
+Fix when transferAt == null, it returns 31 dic 1969 by defect
+}
+
+QUESTIONS:{
+tema con el loader data ..esta el home.tsx pero la data la estoy renderizando en outflows.tsx, la app funciona pero no se como hace para detectar la data ..
+
+En 1hive, en las proposals hay un created by..un beneficiary ...y otra address en el titulo, que quiere decir bien cada una .. ?
+}
