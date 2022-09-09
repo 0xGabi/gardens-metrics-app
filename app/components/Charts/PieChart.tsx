@@ -1,63 +1,68 @@
 import { ResponsivePie } from "@nivo/pie";
+import { useViewport, GU } from "@1hive/1hive-ui";
+import styled from "styled-components";
+import { useTheme } from "@1hive/1hive-ui";
+import { theme } from "public/aragon-ui/types";
 
 const PieChart = () => {
+  const theme = useTheme();
+  //DEMO data
   const data = [
     {
-      id: "hack",
-      label: "hack",
-      value: 236,
+      id: "JUN",
+      label: "June",
+      value: 150,
       color: "hsl(20, 70%, 50%)",
     },
     {
-      id: "elixir",
-      label: "elixir",
-      value: 406,
+      id: "JUL",
+      label: "July",
+      value: 376,
       color: "hsl(40, 70%, 50%)",
     },
     {
-      id: "rust",
-      label: "rust",
-      value: 408,
+      id: "AGO",
+      label: "August",
+      value: 509,
       color: "hsl(153, 70%, 50%)",
     },
     {
-      id: "java",
-      label: "java",
-      value: 480,
+      id: "SEP",
+      label: "September",
+      value: 455,
       color: "hsl(79, 70%, 50%)",
     },
     {
-      id: "python",
-      label: "python",
-      value: 599,
+      id: "OCT",
+      label: "October",
+      value: 633,
       color: "hsl(360, 70%, 50%)",
     },
   ];
 
-  console.log(data);
   return (
     <div style={{ height: "600px", border: "3px solid red" }}>
       <ResponsivePie
         data={data}
         margin={{ top: 50, right: 150, bottom: 150, left: 150 }}
-        startAngle={29}
+        startAngle={76}
         innerRadius={0.5}
         padAngle={2}
         cornerRadius={10}
-        activeOuterRadiusOffset={8}
+        activeOuterRadiusOffset={45}
         borderWidth={3}
         borderColor={{
           from: "color",
           modifiers: [["darker", 0.4]],
         }}
         arcLinkLabelsSkipAngle={10}
-        arcLinkLabelsTextColor="#333333"
-        arcLinkLabelsThickness={2}
+        arcLinkLabelsTextColor={theme.content}
+        arcLinkLabelsThickness={4}
         arcLinkLabelsColor={{ from: "color" }}
         arcLabelsSkipAngle={10}
         arcLabelsTextColor={{
           from: "color",
-          modifiers: [["darker", 2]],
+          modifiers: [["darker", 20]],
         }}
         defs={[
           {
@@ -106,12 +111,6 @@ const PieChart = () => {
           },
           {
             match: {
-              id: "scala",
-            },
-            id: "lines",
-          },
-          {
-            match: {
               id: "lisp",
             },
             id: "lines",
@@ -129,31 +128,31 @@ const PieChart = () => {
             id: "lines",
           },
         ]}
-        legends={[
-          {
-            anchor: "bottom",
-            direction: "row",
-            justify: false,
-            translateX: 0,
-            translateY: 56,
-            itemsSpacing: 0,
-            itemWidth: 100,
-            itemHeight: 18,
-            itemTextColor: "#999",
-            itemDirection: "left-to-right",
-            itemOpacity: 1,
-            symbolSize: 18,
-            symbolShape: "circle",
-            effects: [
-              {
-                on: "hover",
-                style: {
-                  itemTextColor: "#000",
-                },
-              },
-            ],
-          },
-        ]}
+        // legends={[
+        //   {
+        //     anchor: "bottom",
+        //     direction: "row",
+        //     justify: false,
+        //     translateX: 0,
+        //     translateY: 56,
+        //     itemsSpacing: 0,
+        //     itemWidth: 100,
+        //     itemHeight: 18,
+        //     itemTextColor: "#999",
+        //     itemDirection: "left-to-right",
+        //     itemOpacity: 1,
+        //     symbolSize: 18,
+        //     symbolShape: "circle",
+        //     effects: [
+        //       {
+        //         on: "hover",
+        //         style: {
+        //           itemTextColor: "#000",
+        //         },
+        //       },
+        //     ],
+        //   },
+        // ]}
       />
     </div>
   );

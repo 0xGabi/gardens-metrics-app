@@ -14,6 +14,8 @@ import {
   formatAddress,
 } from "~/utils/format";
 import PieChart from "./Charts/PieChart";
+import RadialChart from "./Charts/RadialChart";
+import NetworkChart from "./Charts/NetworkChart";
 
 const Outflows = ({}) => {
   const { gardensData } = useLoaderData();
@@ -58,7 +60,9 @@ const Outflows = ({}) => {
       </Data>
       <DisplayData>
         <h1>Display-Data</h1>
+        <NetworkChart />
         <PieChart />
+        <RadialChart />
       </DisplayData>
     </Wrapper>
   );
