@@ -61,8 +61,8 @@ const Outflows = ({}) => {
       <DisplayData>
         <h1>Display-Data</h1>
         <NetworkChart />
-        <PieChart />
         <RadialChart />
+        <PieChart />
       </DisplayData>
     </Wrapper>
   );

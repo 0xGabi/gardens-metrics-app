@@ -27,57 +27,155 @@ const data = [
       },
     ],
   },
+  {
+    id: "2022",
+    data: [
+      {
+        x: "June",
+        y: 446,
+      },
+      {
+        x: "July",
+        y: 477,
+      },
+      {
+        x: "Ago",
+        y: 55,
+      },
+      {
+        x: "Sep",
+        y: 226,
+      },
+      {
+        x: "Oct",
+        y: 900,
+      },
+    ],
+  },
 ];
 const data2 = [
   {
-    id: "Supermarket",
+    id: "2021",
     data: [
       {
-        x: "Vegetables",
-        y: 257,
+        x: "June",
+        y: 376,
       },
       {
-        x: "Fruits",
-        y: 159,
+        x: "July",
+        y: 290,
       },
       {
-        x: "Meat",
-        y: 201,
-      },
-    ],
-  },
-  {
-    id: "Combini",
-    data: [
-      {
-        x: "Vegetables",
-        y: 207,
+        x: "Ago",
+        y: 120,
       },
       {
-        x: "Fruits",
-        y: 254,
+        x: "Sep",
+        y: 443,
       },
       {
-        x: "Meat",
-        y: 46,
-      },
-    ],
-  },
-
-  {
-    id: "Marché",
-    data: [
-      {
-        x: "Vegetables",
-        y: 30,
-      },
-      {
-        x: "Fruits",
-        y: 87,
+        x: "Oct",
+        y: 567,
       },
     ],
   },
 ];
+
+const theme = {
+  background: "#2C3A58",
+  textColor: "#333333",
+  fontSize: 11,
+  axis: {
+    domain: {
+      line: {
+        stroke: "#777777",
+        strokeWidth: 1,
+      },
+    },
+    legend: {
+      text: {
+        fontSize: 12,
+        fill: "#333333",
+      },
+    },
+    ticks: {
+      line: {
+        stroke: "#777777",
+        strokeWidth: 0,
+      },
+      text: {
+        fontSize: 17,
+        fill: "#e01a1a",
+      },
+    },
+  },
+  grid: {
+    line: {
+      stroke: "#dddddd",
+      strokeWidth: 3,
+    },
+  },
+  legends: {
+    title: {
+      text: {
+        fontSize: 19,
+        fill: "#333333",
+      },
+    },
+    text: {
+      fontSize: 13,
+      fill: "#333333",
+    },
+    ticks: {
+      line: {},
+      text: {
+        fontSize: 10,
+        fill: "#333333",
+      },
+    },
+  },
+  annotations: {
+    text: {
+      fontSize: 13,
+      fill: "#333333",
+      outlineWidth: 2,
+      outlineColor: "#ffffff",
+      outlineOpacity: 1,
+    },
+    link: {
+      stroke: "#000000",
+      strokeWidth: 1,
+      outlineWidth: 2,
+      outlineColor: "#ffffff",
+      outlineOpacity: 1,
+    },
+    outline: {
+      stroke: "#000000",
+      strokeWidth: 7,
+      outlineWidth: 4,
+      outlineColor: "#ffffff",
+      outlineOpacity: 0.65,
+    },
+    symbol: {
+      fill: "#000000",
+      outlineWidth: 2,
+      outlineColor: "#ffffff",
+      outlineOpacity: 1,
+    },
+  },
+  tooltip: {
+    container: {
+      background: "#28449a",
+      color: "#333333",
+      fontSize: 6,
+    },
+    basic: {},
+    chip: {},
+    table: {},
+    tableCell: {},
+    tableCellValue: {},
+  },
+};
 
 const MyResponsiveRadialBar = () => {
   const [datish, setDatish] = useState(data);
@@ -98,6 +196,7 @@ const MyResponsiveRadialBar = () => {
         startAngle={92}
         endAngle={-183}
         innerRadius={0.4}
+        theme={theme}
         padding={0.1}
         padAngle={3}
         margin={{ top: 40, right: 120, bottom: 40, left: 40 }}
@@ -115,9 +214,9 @@ const MyResponsiveRadialBar = () => {
         label="value"
         labelsSkipAngle={11}
         motionConfig={{
-          mass: 99,
-          tension: 31,
-          friction: 126,
+          mass: 184,
+          tension: 223,
+          friction: 31,
           clamp: true,
           precision: 0.01,
           velocity: 0,

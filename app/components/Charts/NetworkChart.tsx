@@ -5,7 +5,7 @@ import { useState } from "react";
 const data = {
   nodes: [
     {
-      id: "Node 1",
+      id: "0x661b…e7ef",
       height: 1,
       size: 24,
       color: "rgb(97, 205, 187)",
@@ -290,51 +290,51 @@ const data = {
   links: [
     {
       source: "1Hive",
-      target: "Node 1",
+      target: "0x661b…e7ef",
       distance: 80,
     },
     {
-      source: "Node 1",
+      source: "0x661b…e7ef",
       target: "Node 1.0",
       distance: 50,
     },
     {
-      source: "Node 1",
+      source: "0x661b…e7ef",
       target: "Node 1.1",
       distance: 50,
     },
     {
-      source: "Node 1",
+      source: "0x661b…e7ef",
       target: "Node 1.2",
       distance: 50,
     },
     {
-      source: "Node 1",
+      source: "0x661b…e7ef",
       target: "Node 1.3",
       distance: 50,
     },
     {
-      source: "Node 1",
+      source: "0x661b…e7ef",
       target: "Node 1.4",
       distance: 50,
     },
     {
-      source: "Node 1",
+      source: "0x661b…e7ef",
       target: "Node 1.5",
       distance: 50,
     },
     {
-      source: "Node 1",
+      source: "0x661b…e7ef",
       target: "Node 1.6",
       distance: 50,
     },
     {
-      source: "Node 1",
+      source: "0x661b…e7ef",
       target: "Node 1.7",
       distance: 50,
     },
     {
-      source: "Node 1",
+      source: "0x661b…e7ef",
       target: "Node 1.8",
       distance: 50,
     },
@@ -612,7 +612,7 @@ const theme = {
     container: {
       background: "#ffffff",
       color: "#333333",
-      fontSize: 36,
+      fontSize: 18,
     },
     basic: {},
     chip: {},
@@ -629,6 +629,18 @@ const MyResponsiveNetwork = () => {
     <div
       style={{ height: "600px", border: "3px solid red", marginTop: "20px" }}
     >
+      <button
+        style={{ color: "#042940", backgroundColor: "#f4f4f4" }}
+        onClick={() => setRepul(repul + 10)}
+      >
+        +
+      </button>
+      <button
+        style={{ color: "#042940", backgroundColor: "#f4f4f4" }}
+        onClick={() => setRepul(repul - 10)}
+      >
+        -
+      </button>
       <ResponsiveNetwork
         data={data}
         margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
@@ -637,6 +649,10 @@ const MyResponsiveNetwork = () => {
         }}
         theme={theme}
         centeringStrength={0.1}
+        //
+        distanceMin={1}
+        distanceMax={Infinity}
+        //
         repulsivity={repul}
         nodeSize={function (n) {
           return n.size;
@@ -650,13 +666,15 @@ const MyResponsiveNetwork = () => {
         nodeBorderWidth={0}
         nodeBorderColor={{
           from: "color",
-          modifiers: [["darker", 0.8]],
+          modifiers: [["darker", 0]],
         }}
         linkThickness={function (n) {
           return 2 + 2 * n.target.data.height;
         }}
+        linkColor="#affb8e
+        "
         linkBlendMode="multiply"
-        motionConfig="wobbly"
+        motionConfig="molasses"
       />
     </div>
   );
