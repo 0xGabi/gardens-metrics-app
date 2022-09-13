@@ -182,7 +182,7 @@ const MyResponsiveRadialBar = () => {
   const [motion, setMotion] = useState("gentle");
   return (
     <div
-      style={{ height: "600px", border: "3px solid red", marginTop: "20px" }}
+      style={{ height: "600px", border: "3px solid red", marginTop: "80px" }}
     >
       <button
         style={{ color: "#042940", backgroundColor: "#f4f4f4" }}

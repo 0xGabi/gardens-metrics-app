@@ -25,7 +25,7 @@ const Outflows = ({}) => {
   const outflows_ALL = gardensData[0].outflows.map((garden: any) =>
     Object.values(garden)
   );
-  //Declare HONEY_outflows && filter Cancelled Porposals
+  //Declare HONEY outflows && filter Cancelled Porposals
   const outflows_HNY = outflows_ALL.filter(
     (stable: any) => stable[4] === false && stable[3] !== null
   );
