@@ -8,8 +8,14 @@ import {
 } from "~/utils/format";
 import { Network, ResponsiveNetwork } from "@nivo/network";
 import { useState } from "react";
+import { GardensData } from "~/queries/Queries";
+import { id } from "ethers/lib/utils";
+import {
+  identity,
+  xor,
+} from ".pnpm/@types+lodash@4.14.182/node_modules/@types/lodash";
 
-const MyResponsiveNetwork = ({}) => {
+const MyResponsiveNetwork = () => {
   const data = {
     nodes: [
       {
@@ -297,11 +303,6 @@ const MyResponsiveNetwork = ({}) => {
     ],
     links: [
       {
-        source: "1Hive",
-        target: "0x661b…e7ef",
-        distance: 80,
-      },
-      {
         source: "0x661b…e7ef",
         target: "Node 1.0",
         distance: 50,
@@ -322,6 +323,11 @@ const MyResponsiveNetwork = ({}) => {
         distance: 50,
       },
       {
+        source: "1Hive",
+        target: "0x661b…e7ef",
+        distance: 80,
+      },
+      {
         source: "0x661b…e7ef",
         target: "Node 1.4",
         distance: 50,
@@ -336,16 +342,7 @@ const MyResponsiveNetwork = ({}) => {
         target: "Node 1.6",
         distance: 50,
       },
-      {
-        source: "0x661b…e7ef",
-        target: "Node 1.7",
-        distance: 50,
-      },
-      {
-        source: "0x661b…e7ef",
-        target: "Node 1.8",
-        distance: 50,
-      },
+
       {
         source: "1Hive",
         target: "Node 2",
@@ -364,6 +361,16 @@ const MyResponsiveNetwork = ({}) => {
       {
         source: "Node 2",
         target: "Node 2.2",
+        distance: 50,
+      },
+      {
+        source: "0x661b…e7ef",
+        target: "Node 1.7",
+        distance: 50,
+      },
+      {
+        source: "0x661b…e7ef",
+        target: "Node 1.8",
         distance: 50,
       },
       {
@@ -416,16 +423,7 @@ const MyResponsiveNetwork = ({}) => {
         target: "Node 4.4",
         distance: 50,
       },
-      {
-        source: "Node 4",
-        target: "Node 4.5",
-        distance: 50,
-      },
-      {
-        source: "Node 4",
-        target: "Node 4.6",
-        distance: 50,
-      },
+
       {
         source: "Node 4",
         target: "Node 4.7",
@@ -441,16 +439,7 @@ const MyResponsiveNetwork = ({}) => {
         target: "Node 3",
         distance: 80,
       },
-      {
-        source: "Node 5",
-        target: "Node 5.0",
-        distance: 50,
-      },
-      {
-        source: "Node 5",
-        target: "Node 5.1",
-        distance: 50,
-      },
+
       {
         source: "Node 5",
         target: "Node 5.2",
@@ -492,6 +481,16 @@ const MyResponsiveNetwork = ({}) => {
         distance: 80,
       },
       {
+        source: "Node 5",
+        target: "Node 5.0",
+        distance: 50,
+      },
+      {
+        source: "Node 5",
+        target: "Node 5.1",
+        distance: 50,
+      },
+      {
         source: "Node 6",
         target: "Node 6.0",
         distance: 50,
@@ -504,6 +503,16 @@ const MyResponsiveNetwork = ({}) => {
       {
         source: "Node 6",
         target: "Node 6.2",
+        distance: 50,
+      },
+      {
+        source: "Node 4",
+        target: "Node 4.5",
+        distance: 50,
+      },
+      {
+        source: "Node 4",
+        target: "Node 4.6",
         distance: 50,
       },
       {
@@ -628,8 +637,549 @@ const MyResponsiveNetwork = ({}) => {
       tableCellValue: {},
     },
   };
+
+  const datashi = {
+    nodes: [
+      {
+        id: "Node 7.2",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.3",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.4",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.5",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.6",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.7",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.8",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.9",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.10",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.11",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.12",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.13",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.14",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.15",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.16",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.17",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.18",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.16",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.16",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.19",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.20",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.21",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.22",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.23",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.24",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.25",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.26",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.27",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.28",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.29",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.30",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.31",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.32",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.33",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.34",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.35",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.36",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.37",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.38",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.39",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.40",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.41",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.42",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.43",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.44",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.45",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.46",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "Node 7.47",
+        height: 0,
+        size: 12,
+        color: "rgb(232, 193, 160)",
+      },
+      {
+        id: "1Hive",
+        height: 0,
+        size: 24,
+        color: "rgb(194, 160, 232)",
+      },
+    ],
+    links: [
+      {
+        source: "1Hive",
+        target: "Node 7.2",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.3",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.4",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.2",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.5",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.6",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.2",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.2",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.7",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.8",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.9",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.10",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.11",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.12",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.13",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.2",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.2",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.2",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.14",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.15",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.16",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.17",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.18",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.19",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.20",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.21",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.22",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.23",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.24",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.25",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.26",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.27",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.28",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.29",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.30",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.31",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.32",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.33",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.34",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.35",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.36",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.37",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.38",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.39",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.40",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.41",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.42",
+        distance: 50,
+      },
+      {
+        source: "1Hive",
+        target: "Node 7.43",
+        distance: 50,
+      },
+    ],
+  };
   const [nodeId, setNodeId] = useState<string | null>(null);
-  const [repul, setRepul] = useState<number>(44);
+  const [repul, setRepul] = useState<number>(100);
 
   const { gardensData } = useLoaderData();
 
@@ -642,66 +1192,146 @@ const MyResponsiveNetwork = ({}) => {
     (stable: any) => stable[4] === false && stable[3] !== null
   );
 
-  let todoList = [
-    {
-      item_name: "Apple",
-      price: "$5",
-      quantity: 1,
-      brand_details: { name: "Golden Delicious", location: "San Francisco" },
-      isChecked: true,
-    },
+  const addressFrom_outflows_HNY = outflows_HNY.map((address) =>
+    formatAddress(address[2])
+  );
+  const dataaa = () => {
+    const dataaaaaa = {
+      nodes: [
+        {
+          id: "1Hive",
+          height: 1,
+          size: 36,
+          color: "rgb(97, 205, 187)",
+        },
+        {
+          id: "0x661b…e7ef",
+          height: 1,
+          size: 24,
+          color: "rgb(97, 205, 187)",
+        },
+        {
+          id: "Node 3",
+          height: 1,
+          size: 24,
+          color: "rgb(97, 205, 187)",
+        },
+        {
+          id: "Node 2",
+          height: 1,
+          size: 24,
+          color: "rgb(97, 205, 187)",
+        },
+        {
+          id: "Node 1.0",
+          height: 1,
+          size: 24,
+          color: "rgb(232, 193, 160)",
+        },
+        {
+          id: "Node 1.1",
+          height: 1,
+          size: 24,
+          color: "rgb(232, 193, 160)",
+        },
+      ],
+      links: [
+        {
+          source: "1Hive",
+          target: "0x661b…e7ef",
+          distance: 80,
+        },
+        {
+          source: "1Hive",
+          target: "Node 2",
+          distance: 80,
+        },
+        {
+          source: "1Hive",
+          target: "Node 3",
+          distance: 80,
+        },
+        {
+          source: "0x661b…e7ef",
+          target: "Node 1.0",
+          distance: 50,
+        },
+        {
+          source: "0x661b…e7ef",
+          target: "Node 1.1",
+          distance: 50,
+        },
+      ],
+    };
 
-    {
-      item_name: "Bannana",
-      price: "$3",
-      quantity: 2,
-      brand_details: { name: "Fuji", location: "San Diego" },
-      isChecked: false,
-    },
+    return dataaaaaa;
+  };
 
-    {
-      item_name: "Pears",
-      price: "$7",
-      quantity: 4,
-      brand_details: { name: "Golden Delicious", location: "San Francisco" },
-      isChecked: true,
-    },
+  let dataNode = {
+    nodes: [
+      {
+        id: "0x661b…e7ef",
+        height: 1,
+        size: 24,
+        color: "rgb(97, 205, 187)",
+      },
+      {
+        id: "1hive",
+        height: 1,
+        size: 24,
+        color: "rgb(97, 205, 187)",
+      },
+    ],
+    links: [
+      {
+        source: "1Hive",
+        target: "0x661b…e7ef",
+        distance: 80,
+      },
+    ],
+  };
 
-    {
-      item_name: "Milk",
-      price: "$4",
-      quantity: 3,
-      brand_details: { name: "Mother Dairy", location: "California" },
-      isChecked: false,
-    },
-  ];
+  const TESTING = dataaa();
   //   beneficiary
   //   id: "gardenAddress
   //   requestedAmount:
   //   stable:
   //   transferAt:
+  let nodes = [];
+  let links = [];
+  const LETSSEE = (address: any) => {
+    for (let i = 0; i <= address.length; i++) {
+      nodes[i] = {
+        id: address[i] || "1Hive",
+        height: 0,
+        size: 12,
+        color: "rgb(216, 41, 164)",
+      };
+      links[i] = {
+        source: "1Hive",
+        target: address[i] || address[i - 1],
+        distance: 50,
+      };
+    }
+    return { nodes, links };
+  };
 
-  const daaaa = todoList.map(({ item_name, price, quantity }) => {
-    console.log(`${item_name} with quantity ${quantity} with price ${price}`);
-  });
+  const datunnn = LETSSEE(addressFrom_outflows_HNY);
+  // console.log(addressFrom_outflows_HNY.length);
 
-  const data_TEST = gardensData[0].outflows.map(({ beneficiary }) => {
-    console.log({
-      id: formatAddress(beneficiary),
-    });
-  });
-
-  console.log(data_TEST);
-
-  //Address Beneficiaries:
-  const addressFrom_outflows_HNY = outflows_HNY.map((address) => address[2]);
+  // console.log("DATUN", datunnn);
+  // console.log("DATA", data);
 
   return (
     <div
-      style={{ height: "600px", border: "3px solid red", marginTop: "20px" }}
+      style={{ height: "400px", border: "3px solid red", marginTop: "20px" }}
     >
       <button
-        style={{ color: "#042940", backgroundColor: "#f4f4f4" }}
+        style={{
+          color: "#042940",
+          backgroundColor: "#f4f4f4",
+          overflow: "hidden",
+        }}
         onClick={() => setRepul(repul + 10)}
       >
         +
@@ -714,16 +1344,16 @@ const MyResponsiveNetwork = ({}) => {
       </button>
       {nodeId && <h2>node: {nodeId}</h2>}
       <ResponsiveNetwork
-        data={data}
-        margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
+        data={datunnn}
+        margin={{ top: 76, right: 0, bottom: 0, left: 0 }}
         linkDistance={function (e) {
           return e.distance;
         }}
         theme={theme}
-        centeringStrength={0.3}
+        centeringStrength={0.1}
         //
-        distanceMin={1}
-        distanceMax={Infinity}
+        distanceMin={500}
+        distanceMax={300}
         //obtengo el ID del nodo!!!
         onClick={(node) => {
           setNodeId(nodeId === node.id ? null : node.id);
@@ -749,8 +1379,6 @@ const MyResponsiveNetwork = ({}) => {
         }}
         linkColor="#affb8e
         "
-        linkBlendMode="multiply"
-        motionConfig="molasses"
       />
     </div>
   );

@@ -16,19 +16,45 @@ import {
 import PieChart from "./Charts/PieChart";
 import RadialChart from "./Charts/RadialChart";
 import NetworkChart from "./Charts/NetworkChart";
-
+import Test from "../components/Test";
 const Outflows = ({}) => {
   const { gardensData } = useLoaderData();
   const theme = useTheme();
-
-  //Declare ALL_outflows varibale to work with:
-  const outflows_ALL = gardensData[0].outflows.map((garden: any) =>
-    Object.values(garden)
-  );
+  console.log(gardensData);
+  //Declare ALL_outflows varibale
+  const outflows_ALL = gardensData.map((garden: any) => Object.values(garden));
   //Declare HONEY outflows && filter Cancelled Porposals
   const outflows_HNY = outflows_ALL.filter(
     (stable: any) => stable[4] === false && stable[3] !== null
   );
+  const outflows = gardensData[0].outflows;
+
+  const outflowsFormatted = outflows.filter((outflow: any) => {
+    outflow.stable !== true && outflow.transferAt !== null;
+  });
+
+  // const outflowsFormatted = outflows.map((outflows: any) => {
+  //   let arr = {
+  //     id: outflows.id,
+  //     beneficiary: formatAddress(outflows.beneficiary),
+  //     requestAmount: formatAmount(outflows.requestedAmount),
+  //     date: formatDate(outflows.transferAt),
+  //     stable: outflows.stable,
+  //   };
+  //   return arr;
+  // });
+
+  // console.log(outflows);
+  // console.log(outflowsFormatted);
+
+  //New obj that loop all beneficary and sum the HNY for each one
+  let result = outflows.reduce(function (acc: any, v: any) {
+    acc[v.beneficiary] = (acc[v.beneficiary] || 0) + v.requestAmount;
+    return acc;
+  }, {});
+
+  // console.log("RESULT", result);
+  // console.log(outflows);
 
   //TOTAL SUM of FUNDING PROPOSALS in HNY
   const TOTAL_HNY_FUNDING_SUM = outflows_HNY
@@ -40,6 +66,7 @@ const Outflows = ({}) => {
       <Data>
         <h2>Outflows Data Querie:</h2>
         <h3>TOTAL HNY FUNDING: {TOTAL_HNY_FUNDING_SUM} </h3>
+        <Test />
         <br />
 
         {outflows_HNY.map((outflow: any) => (

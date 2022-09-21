@@ -5,11 +5,12 @@ import {
   BeneficiariesData,
 } from "~/queries/Queries";
 import { GardenResult, QueryGardensResult } from "~/types";
+import { formatAddress, formatAmount, formatDate } from "../format";
 
 const gql = String.raw;
 
 //
-const fetchFromGraphQL = async (query: string) => {
+const fetchFromGraphQL = async (query: any) => {
   if (!process.env.SUBGRAPH_URI) {
     throw new Error("SUBGRAPH_URI is required");
   }
@@ -23,8 +24,21 @@ const fetchFromGraphQL = async (query: string) => {
   });
 };
 
-const parseGardenResult = (gardenResult: GardenResult): GardenResult => {
-  return gardenResult;
+const parseGardenResult = (gardenResult: GardenResult) => {
+  const data = gardenResult;
+  // return {
+  //   id,
+  //   beneficiary: formatAddress(beneficiary),
+  //   requestedAmount: formatAmount(requestedAmount),
+  //   stable: stable,
+  //   transferAt,
+  // };
+
+  return {
+    ...data,
+    // beneficiary: formatAddress(data.beneficiary),
+    // stable: FnDescriptionStatus.StableFalse,
+  };
 };
 
 export const fetchGardensEntries = async (): Promise<GardenResult[]> => {
@@ -43,7 +57,7 @@ export const fetchGardensEntries = async (): Promise<GardenResult[]> => {
       return [];
     }
 
-    return result.data.gardens.map(parseGardenResult);
+    return result.data.gardens[0].outflows.map(parseGardenResult);
   } catch (err) {
     throw new Response(
       "There was an error fetching the contract's function descriptions",

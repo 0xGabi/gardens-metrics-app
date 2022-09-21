@@ -14,10 +14,12 @@ export const GardensData = gql`
   }
 `;
 
+//       outflows (where: {stable:false},and: {transferAt: Int}){
+
 export const OutflowsData = gql`
   {
     gardens {
-      outflows {
+      outflows(where: { stable: false, transferAt_not: null }) {
         id
         requestedAmount
         beneficiary

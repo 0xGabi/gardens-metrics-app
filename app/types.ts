@@ -1,5 +1,3 @@
-export type { Chain } from "wagmi";
-
 export type ValueOrArray<T> = T | ValueOrArray<T>[];
 
 export type GardenResult = {
@@ -11,6 +9,7 @@ export type GardenResult = {
     name: string;
   };
   outflows: {
+    id: any;
     transferAt: string;
     beneficiary: string;
     requestedAmount: number;
