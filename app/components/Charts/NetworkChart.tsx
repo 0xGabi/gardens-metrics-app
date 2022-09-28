@@ -1291,12 +1291,6 @@ const MyResponsiveNetwork = () => {
     ],
   };
 
-  const TESTING = dataaa();
-  //   beneficiary
-  //   id: "gardenAddress
-  //   requestedAmount:
-  //   stable:
-  //   transferAt:
   let nodes = [];
   let links = [];
   const LETSSEE = (address: any) => {
@@ -1316,11 +1310,7 @@ const MyResponsiveNetwork = () => {
     return { nodes, links };
   };
 
-  const datunnn = LETSSEE(addressFrom_outflows_HNY);
-  // console.log(addressFrom_outflows_HNY.length);
-
-  // console.log("DATUN", datunnn);
-  // console.log("DATA", data);
+  const datun = LETSSEE(addressFrom_outflows_HNY);
 
   return (
     <div
@@ -1344,7 +1334,7 @@ const MyResponsiveNetwork = () => {
       </button>
       {nodeId && <h2>node: {nodeId}</h2>}
       <ResponsiveNetwork
-        data={datunnn}
+        data={datun}
         margin={{ top: 76, right: 0, bottom: 0, left: 0 }}
         linkDistance={function (e) {
           return e.distance;

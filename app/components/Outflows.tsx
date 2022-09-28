@@ -1,18 +1,7 @@
-//providrs
-//hooks
-//helpers
-//utils
-//assets
 import { useLoaderData } from "@remix-run/react";
 import { useTheme, GU } from "@1hive/1hive-ui";
 import styled from "styled-components";
 
-import {
-  formatDate,
-  formatDate_TWO,
-  formatAmount,
-  formatAddress,
-} from "~/utils/format";
 import PieChart from "./Charts/PieChart";
 import RadialChart from "./Charts/RadialChart";
 import NetworkChart from "./Charts/NetworkChart";
@@ -20,46 +9,111 @@ import Test from "../components/Test";
 const Outflows = ({}) => {
   const { gardensData } = useLoaderData();
   const theme = useTheme();
-  console.log(gardensData);
-  //Declare ALL_outflows varibale
-  const outflows_ALL = gardensData.map((garden: any) => Object.values(garden));
-  //Declare HONEY outflows && filter Cancelled Porposals
-  const outflows_HNY = outflows_ALL.filter(
-    (stable: any) => stable[4] === false && stable[3] !== null
-  );
-  const outflows = gardensData[0].outflows;
 
-  const outflowsFormatted = outflows.filter((outflow: any) => {
-    outflow.stable !== true && outflow.transferAt !== null;
-  });
+  const outflows = gardensData;
 
-  // const outflowsFormatted = outflows.map((outflows: any) => {
-  //   let arr = {
-  //     id: outflows.id,
-  //     beneficiary: formatAddress(outflows.beneficiary),
-  //     requestAmount: formatAmount(outflows.requestedAmount),
-  //     date: formatDate(outflows.transferAt),
-  //     stable: outflows.stable,
-  //   };
-  //   return arr;
-  // });
+  // TOTAL SUM of FUNDING PROPOSALS in HNY, OK
+  const TOTAL_HNY_FUNDING_SUM = outflows
+    .map((amount: any) => Number(amount.requestedAmount))
+    .reduce((prev: number, curr: number) => prev + curr, 0);
 
-  // console.log(outflows);
-  // console.log(outflowsFormatted);
+  //New obj that loop all beneficary and sum the HNY for each one, OK
+  const filterMonth_Year = (outflows: any) => {
+    outflows.reduce(function (acc: any, v: any) {
+      acc[v.beneficiary] =
+        (acc[v.beneficiary] || 0) + Number(v.requestedAmount);
+      return acc;
+    }, {});
+  };
 
-  //New obj that loop all beneficary and sum the HNY for each one
-  let result = outflows.reduce(function (acc: any, v: any) {
-    acc[v.beneficiary] = (acc[v.beneficiary] || 0) + v.requestAmount;
+  const result = outflows.reduce(function (acc: any, v: any) {
+    acc[v.beneficiary] = (acc[v.beneficiary] || 0) + Number(v.requestedAmount);
     return acc;
   }, {});
 
-  // console.log("RESULT", result);
-  // console.log(outflows);
+  //Func filters month and year as return total Funding for each month in the year
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Ago",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  const filtereByMonthAndYearTEST_2021 = (
+    obj: any,
+    month: any,
+    year: string
+  ) => {
+    const data1 = [];
 
-  //TOTAL SUM of FUNDING PROPOSALS in HNY
-  const TOTAL_HNY_FUNDING_SUM = outflows_HNY
-    .map((amount: any) => formatAmount(amount[1]))
-    .reduce((prev: number, curr: number) => prev + curr, 0);
+    for (let i = 0; i <= month.length; i++) {
+      //filter month and year
+      const byMonthAndyear = obj.filter((out: any) => {
+        return (
+          out.transferAt.month === month[i] && out.transferAt.year === year
+        );
+      });
+      if (byMonthAndyear.length !== 0) data1.push(byMonthAndyear);
+    }
+
+    //sum total of byMonthAndyear requested amount
+    const SUM_byMonthAndyear = data1.map((any) =>
+      any.reduce(function (acc: any, v: any) {
+        acc[v.transferAt.month] =
+          (acc[v.transferAt.month] || 0) + Number(v.requestedAmount);
+        return acc;
+      }, {})
+    );
+    //
+    const xMonth_yValue = SUM_byMonthAndyear.map((xAndy) => ({
+      x: Object.keys(xAndy).toString(),
+      y: Number(Object.values(xAndy)),
+    }));
+
+    const data = [
+      {
+        id: year,
+        data: xMonth_yValue,
+      },
+    ];
+
+    return data;
+  };
+
+  const datafrom2021 = filtereByMonthAndYearTEST_2021(outflows, months, "2021");
+
+  console.log(datafrom2021);
+
+  //
+  const filtereByMonthAndYear = (obj: any, month: any, year: string) => {
+    //filter month and year
+    const byMonthAndyear = obj.filter((out: any) => {
+      return out.transferAt.month === month && out.transferAt.year === year;
+    });
+    //sum total of byMonthAndyear requested amount
+    const SUM_byMonthAndyear = byMonthAndyear.reduce(
+      function (acc: any, v: any) {
+        acc[v.transferAt.month] =
+          (acc[v.transferAt.month] || 0) + Number(v.requestedAmount);
+        return acc;
+      },
+      //return object with month and total requ amou od that month
+      {}
+    );
+
+    return SUM_byMonthAndyear;
+  };
+
+  // const my = filtereByMonthAndYear(outflows, "Jun", "2021")
+
+  // console.log(filtereByMonthAndYear(outflows, "Jun", "2021"));
 
   return (
     <Wrapper>
@@ -69,27 +123,27 @@ const Outflows = ({}) => {
         <Test />
         <br />
 
-        {outflows_HNY.map((outflow: any) => (
+        {outflows.map((outflow: any) => (
           <>
-            <p style={{ color: theme.content }}>ID :{outflow[0]}</p>
-            <p>AMOUNT: {outflow[1]}</p>
-            <div>READABLE-AMOUNT = {formatAmount(outflow[1])} hny</div>
-            <p>BENEFICIARY address: {formatAddress(outflow[2])}</p>
-            <p style={{ color: outflow[3] === null ? "red" : "" }}>
-              DATE:{" "}
-              {outflow[3] === null ? "No Date, Status: Cancelled" : outflow[3]}
+            <p style={{ color: theme.content }}>ID :{outflow.id}</p>
+            <p>
+              AMOUNT: {outflow.requestedAmount},{typeof outflow.requestedAmount}
             </p>
-            <div>READABLE-DATE : {formatDate(outflow[3])}</div>
-            <div>READABLE-DATE-TWO : {formatDate_TWO(outflow[3])}</div>
+            <p>BENEFICIARY address: {outflow.beneficiary}</p>
+            <div>
+              DATA : month: {outflow.transferAt.month}, year:{" "}
+              {outflow.transferAt.year}
+            </div>
             <br></br>
           </>
         ))}
       </Data>
       <DisplayData>
         <h1>Display-Data</h1>
-        <NetworkChart />
-        <RadialChart />
-        <PieChart />
+
+        {/* <NetworkChart /> */}
+        <RadialChart datishun={datafrom2021} />
+        {/* <PieChart /> */}
       </DisplayData>
     </Wrapper>
   );

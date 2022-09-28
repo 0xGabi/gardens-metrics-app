@@ -2,7 +2,7 @@ import { formatTokenAmount as formatUnits } from "@1hive/1hive-ui";
 
 //TO DO
 export const formatDate = (date: any) => {
-  const newDate = new Date(date * 1000).toDateString().substring(3);
+  const newDate = new Date(date * 1000).toDateString().substring(4);
 
   return newDate;
 };

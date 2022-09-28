@@ -1,11 +1,6 @@
-import { AllQueries } from "~/queries/AllQueries";
-import {
-  GardensData,
-  OutflowsData,
-  BeneficiariesData,
-} from "~/queries/Queries";
+import { OutflowsData } from "~/queries/Queries";
 import { GardenResult, QueryGardensResult } from "~/types";
-import { formatAddress, formatAmount, formatDate } from "../format";
+import { formatAddress, formatAmount_STRING, formatDate } from "../format";
 
 const gql = String.raw;
 
@@ -26,18 +21,13 @@ const fetchFromGraphQL = async (query: any) => {
 
 const parseGardenResult = (gardenResult: GardenResult) => {
   const data = gardenResult;
-  // return {
-  //   id,
-  //   beneficiary: formatAddress(beneficiary),
-  //   requestedAmount: formatAmount(requestedAmount),
-  //   stable: stable,
-  //   transferAt,
-  // };
-
   return {
-    ...data,
-    // beneficiary: formatAddress(data.beneficiary),
-    // stable: FnDescriptionStatus.StableFalse,
+    beneficiary: formatAddress(data.beneficiary),
+    requestedAmount: formatAmount_STRING(data.requestedAmount),
+    transferAt: {
+      month: formatDate(data.transferAt).slice(0, 3),
+      year: formatDate(data.transferAt).slice(-4),
+    },
   };
 };
 

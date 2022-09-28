@@ -7,7 +7,7 @@ const data = [
     data: [
       {
         x: "June",
-        y: 376,
+        y: 376.4,
       },
       {
         x: "July",
@@ -19,7 +19,7 @@ const data = [
       },
       {
         x: "Sep",
-        y: 443,
+        y: 443.09,
       },
       {
         x: "Oct",
@@ -177,7 +177,8 @@ const theme = {
   },
 };
 
-const MyResponsiveRadialBar = () => {
+const MyResponsiveRadialBar = ({ datishun }) => {
+  console.log("datishun", datishun);
   const [datish, setDatish] = useState(data);
   const [motion, setMotion] = useState("gentle");
   return (
@@ -186,7 +187,9 @@ const MyResponsiveRadialBar = () => {
     >
       <button
         style={{ color: "#042940", backgroundColor: "#f4f4f4" }}
-        onClick={() => (datish === data ? setDatish(data2) : setDatish(data))}
+        onClick={() =>
+          datish === data ? setDatish(datishun) : setDatish(data)
+        }
       >
         CHANGE DATA
       </button>
