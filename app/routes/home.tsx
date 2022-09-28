@@ -1,6 +1,9 @@
 import type { LoaderFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import { fetchGardensEntries } from "~/utils/server/subgraph.server";
+import {
+  fetchGardensOutflows,
+  fetchGardensBeneficiaries,
+} from "~/utils/server/subgraph.server";
 import { useViewport, GU } from "@1hive/1hive-ui";
 import { useCatch } from "@remix-run/react";
 import { useSigner } from "wagmi";
@@ -10,8 +13,9 @@ import { SmoothDisplayContainer } from "~/components/SmoothDisplayContainer";
 import Outflows from "~/components/Outflows";
 
 export const loader: LoaderFunction = async () => {
-  const gardensData = await fetchGardensEntries();
-  return json({ gardensData });
+  const gardensOutflows = await fetchGardensOutflows();
+  const gardensBeneficiaries = await fetchGardensBeneficiaries();
+  return json({ gardensOutflows, gardensBeneficiaries });
 };
 
 export default function Home() {

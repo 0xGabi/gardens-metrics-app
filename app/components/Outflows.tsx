@@ -2,22 +2,33 @@ import { useLoaderData } from "@remix-run/react";
 import { useTheme, GU } from "@1hive/1hive-ui";
 import styled from "styled-components";
 
+import { useState } from "react";
+
 import PieChart from "./Charts/PieChart";
 import RadialChart from "./Charts/RadialChart";
 import NetworkChart from "./Charts/NetworkChart";
 import Test from "../components/Test";
-const Outflows = ({}) => {
-  const { gardensData } = useLoaderData();
+
+const Outflows = () => {
+  const { gardensOutflows, gardensBeneficiaries } = useLoaderData();
   const theme = useTheme();
+  const outflows = gardensOutflows;
+  const beneficiaries = gardensBeneficiaries;
 
-  const outflows = gardensData;
+  // console.log(beneficiaries);
 
-  // TOTAL SUM of FUNDING PROPOSALS in HNY, OK
+  // TOTAL SUM of FUNDING PROPOSALS in HNY --- OK
   const TOTAL_HNY_FUNDING_SUM = outflows
     .map((amount: any) => Number(amount.requestedAmount))
     .reduce((prev: number, curr: number) => prev + curr, 0);
 
-  //New obj that loop all beneficary and sum the HNY for each one, OK
+  const TOTAL_HNY_FUNDING_SUM_fromBeneficiaries = beneficiaries.map((elem) =>
+    elem.transfers.map((elem) => elem.amount)
+  );
+
+  console.log(TOTAL_HNY_FUNDING_SUM_fromBeneficiaries);
+
+  //Func that loop all beneficary(ADDRESSES) and sum the HNY for each one
   const filterMonth_Year = (outflows: any) => {
     outflows.reduce(function (acc: any, v: any) {
       acc[v.beneficiary] =
@@ -26,6 +37,7 @@ const Outflows = ({}) => {
     }, {});
   };
 
+  //Func that loop all beneficary(ADDRESSES) and return the sum of  all HNY each one
   const result = outflows.reduce(function (acc: any, v: any) {
     acc[v.beneficiary] = (acc[v.beneficiary] || 0) + Number(v.requestedAmount);
     return acc;
@@ -46,11 +58,8 @@ const Outflows = ({}) => {
     "Nov",
     "Dec",
   ];
-  const filtereByMonthAndYearTEST_2021 = (
-    obj: any,
-    month: any,
-    year: string
-  ) => {
+  const year = ["2021", "2022"];
+  const filtereByMonthAndYearTEST_2021 = (obj: any, month: any, year: any) => {
     const data1 = [];
 
     for (let i = 0; i <= month.length; i++) {
@@ -87,9 +96,7 @@ const Outflows = ({}) => {
     return data;
   };
 
-  const datafrom2021 = filtereByMonthAndYearTEST_2021(outflows, months, "2021");
-
-  console.log(datafrom2021);
+  const datafrom2021 = filtereByMonthAndYearTEST_2021(outflows, months, "2022");
 
   //
   const filtereByMonthAndYear = (obj: any, month: any, year: string) => {

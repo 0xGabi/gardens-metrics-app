@@ -1,6 +1,11 @@
-import { OutflowsData } from "~/queries/Queries";
+import { OutflowsData, BeneficiariesData } from "~/queries/Queries";
 import { GardenResult, QueryGardensResult } from "~/types";
-import { formatAddress, formatAmount_STRING, formatDate } from "../format";
+import {
+  formatAddress,
+  formatAmount_STRING,
+  formatAmount,
+  formatDate,
+} from "../format";
 
 const gql = String.raw;
 
@@ -18,8 +23,8 @@ const fetchFromGraphQL = async (query: any) => {
     method: "POST",
   });
 };
-
-const parseGardenResult = (gardenResult: GardenResult) => {
+//Outflows
+const parseGardensOutflowsResult = (gardenResult: GardenResult) => {
   const data = gardenResult;
   return {
     beneficiary: formatAddress(data.beneficiary),
@@ -30,8 +35,8 @@ const parseGardenResult = (gardenResult: GardenResult) => {
     },
   };
 };
-
-export const fetchGardensEntries = async (): Promise<GardenResult[]> => {
+//Outflows
+export const fetchGardensOutflows = async (): Promise<GardenResult[]> => {
   try {
     const rawResponse = await fetchFromGraphQL(OutflowsData);
 
@@ -47,11 +52,49 @@ export const fetchGardensEntries = async (): Promise<GardenResult[]> => {
       return [];
     }
 
-    return result.data.gardens[0].outflows.map(parseGardenResult);
+    return result.data.gardens[0].outflows.map(parseGardensOutflowsResult);
   } catch (err) {
-    throw new Response(
-      "There was an error fetching the contract's function descriptions",
-      { status: 500, statusText: "Subgraph Error" }
+    throw new Response("There was an error fetching Outflows", {
+      status: 500,
+      statusText: "Subgraph Error",
+    });
+  }
+};
+// --------   --------  --------  ---------  --------
+//Beneficiaries
+const parseGardensBeneficiariesResult = (gardenResult: GardenResult) => {
+  const data = gardenResult;
+  return {
+    address: formatAddress(data.address),
+    transfers: data.transfers.map((elem) => ({
+      amount: formatAmount(elem.amount),
+    })),
+  };
+};
+//Beneficiaries
+export const fetchGardensBeneficiaries = async (): Promise<GardenResult[]> => {
+  try {
+    const rawResponse = await fetchFromGraphQL(BeneficiariesData);
+
+    const result = await rawResponse.json();
+
+    if (result.errors?.length) {
+      const err = result.errors[0];
+      console.error(err);
+      throw new Error(err.message);
+    }
+
+    if (!result.data.gardens) {
+      return [];
+    }
+
+    return result.data.gardens[0].beneficiaries.map(
+      parseGardensBeneficiariesResult
     );
+  } catch (err) {
+    throw new Response("There was an error fetching Beneficiaries", {
+      status: 500,
+      statusText: "Subgraph Error",
+    });
   }
 };

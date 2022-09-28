@@ -178,7 +178,6 @@ const theme = {
 };
 
 const MyResponsiveRadialBar = ({ datishun }) => {
-  console.log("datishun", datishun);
   const [datish, setDatish] = useState(data);
   const [motion, setMotion] = useState("gentle");
   return (

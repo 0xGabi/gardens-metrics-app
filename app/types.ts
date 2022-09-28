@@ -16,7 +16,7 @@ export type GardenResult = {
     stable: boolean;
   };
   beneficiaries: {
-    requestTokenBalance: number;
+    address: string;
     transfers: {
       amount: number;
       createdAt: number;

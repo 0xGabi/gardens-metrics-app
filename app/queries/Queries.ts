@@ -32,14 +32,15 @@ export const OutflowsData = gql`
 
 export const BeneficiariesData = gql`
   {
-    beneficiaries {
-      requestTokenBalance
-      transfers {
-        amount
-        createdAt
-        contributor {
-          address
-          requestTokenBalance
+    gardens {
+      beneficiaries {
+        address
+        transfers {
+          amount
+          createdAt
+          contributor {
+            address
+          }
         }
       }
     }
