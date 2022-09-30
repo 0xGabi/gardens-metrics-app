@@ -1183,18 +1183,8 @@ const MyResponsiveNetwork = () => {
 
   const { gardensData } = useLoaderData();
 
-  //Declare ALL_outflows varibale to work with:
-  const outflows_ALL = gardensData[0].outflows.map((garden: any) =>
-    Object.values(garden)
-  );
-  //Declare HONEY outflows && filter Cancelled Porposals
-  const outflows_HNY = outflows_ALL.filter(
-    (stable: any) => stable[4] === false && stable[3] !== null
-  );
+  console.log(gardensData);
 
-  const addressFrom_outflows_HNY = outflows_HNY.map((address) =>
-    formatAddress(address[2])
-  );
   const dataaa = () => {
     const dataaaaaa = {
       nodes: [
@@ -1267,50 +1257,24 @@ const MyResponsiveNetwork = () => {
     return dataaaaaa;
   };
 
-  let dataNode = {
-    nodes: [
-      {
-        id: "0x661b…e7ef",
-        height: 1,
-        size: 24,
-        color: "rgb(97, 205, 187)",
-      },
-      {
-        id: "1hive",
-        height: 1,
-        size: 24,
-        color: "rgb(97, 205, 187)",
-      },
-    ],
-    links: [
-      {
-        source: "1Hive",
-        target: "0x661b…e7ef",
-        distance: 80,
-      },
-    ],
-  };
-
-  let nodes = [];
-  let links = [];
-  const LETSSEE = (address: any) => {
-    for (let i = 0; i <= address.length; i++) {
-      nodes[i] = {
-        id: address[i] || "1Hive",
-        height: 0,
-        size: 12,
-        color: "rgb(216, 41, 164)",
-      };
-      links[i] = {
-        source: "1Hive",
-        target: address[i] || address[i - 1],
-        distance: 50,
-      };
-    }
-    return { nodes, links };
-  };
-
-  const datun = LETSSEE(addressFrom_outflows_HNY);
+  // let nodes = [];
+  // let links = [];
+  // const LETSSEE = (address: any) => {
+  //   for (let i = 0; i <= address.length; i++) {
+  //     nodes[i] = {
+  //       id: address[i] || "1Hive",
+  //       height: 0,
+  //       size: 12,
+  //       color: "rgb(216, 41, 164)",
+  //     };
+  //     links[i] = {
+  //       source: "1Hive",
+  //       target: address[i] || address[i - 1],
+  //       distance: 50,
+  //     };
+  //   }
+  //   return { nodes, links };
+  // };
 
   return (
     <div
@@ -1334,7 +1298,7 @@ const MyResponsiveNetwork = () => {
       </button>
       {nodeId && <h2>node: {nodeId}</h2>}
       <ResponsiveNetwork
-        data={datun}
+        data={data}
         margin={{ top: 76, right: 0, bottom: 0, left: 0 }}
         linkDistance={function (e) {
           return e.distance;

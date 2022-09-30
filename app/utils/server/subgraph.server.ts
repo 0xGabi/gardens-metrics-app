@@ -67,7 +67,7 @@ const parseGardensBeneficiariesResult = (gardenResult: GardenResult) => {
   return {
     address: formatAddress(data.address),
     transfers: data.transfers.map((elem) => ({
-      amount: formatAmount(elem.amount),
+      amount: formatAmount_STRING(elem.amount),
     })),
   };
 };
@@ -88,9 +88,10 @@ export const fetchGardensBeneficiaries = async (): Promise<GardenResult[]> => {
       return [];
     }
 
-    return result.data.gardens[0].beneficiaries.map(
-      parseGardensBeneficiariesResult
-    );
+    return result.data.gardens[0].beneficiaries;
+    // .map(
+    //   parseGardensBeneficiariesResult
+    // );
   } catch (err) {
     throw new Response("There was an error fetching Beneficiaries", {
       status: 500,

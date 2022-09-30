@@ -11,6 +11,7 @@ import {
 import type { MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { App } from "~/App";
+import { theme } from "public/aragon-ui/types";
 
 export const meta: MetaFunction = () => {
   return {

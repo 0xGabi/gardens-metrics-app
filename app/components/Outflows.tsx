@@ -1,34 +1,46 @@
 import { useLoaderData } from "@remix-run/react";
-import { useTheme, GU } from "@1hive/1hive-ui";
+import {
+  useTheme,
+  GU,
+  Box,
+  Split,
+  DataView,
+  IdentityBadge,
+  Tag,
+  Card,
+  Accordion,
+  TokenBadge,
+  EthIdenticon,
+} from "@1hive/1hive-ui";
 import styled from "styled-components";
 
 import { useState } from "react";
 
+import CardDashboard from "../components/Card";
+
 import PieChart from "./Charts/PieChart";
 import RadialChart from "./Charts/RadialChart";
 import NetworkChart from "./Charts/NetworkChart";
-import Test from "../components/Test";
 
+import DisplayChart from "../components/DisplayChart";
 const Outflows = () => {
   const { gardensOutflows, gardensBeneficiaries } = useLoaderData();
   const theme = useTheme();
   const outflows = gardensOutflows;
-  const beneficiaries = gardensBeneficiaries;
-
-  // console.log(beneficiaries);
+  // const beneficiaries = gardensBeneficiaries;
 
   // TOTAL SUM of FUNDING PROPOSALS in HNY --- OK
   const TOTAL_HNY_FUNDING_SUM = outflows
     .map((amount: any) => Number(amount.requestedAmount))
     .reduce((prev: number, curr: number) => prev + curr, 0);
 
-  const TOTAL_HNY_FUNDING_SUM_fromBeneficiaries = beneficiaries.map((elem) =>
-    elem.transfers.map((elem) => elem.amount)
-  );
+  //TOTAL --- FIX
+  // const TOTAL_HNY_FUNDING_SUM_fromBeneficiaries = beneficiaries.map(
+  //   (elem) => elem
+  //   // .transfers.map((elem) => elem)
+  // );
 
-  console.log(TOTAL_HNY_FUNDING_SUM_fromBeneficiaries);
-
-  //Func that loop all beneficary(ADDRESSES) and sum the HNY for each one
+  //Func that loop all beneficary(ADDRESSES) and sum the HNY for each one --- OK
   const filterMonth_Year = (outflows: any) => {
     outflows.reduce(function (acc: any, v: any) {
       acc[v.beneficiary] =
@@ -37,13 +49,26 @@ const Outflows = () => {
     }, {});
   };
 
-  //Func that loop all beneficary(ADDRESSES) and return the sum of  all HNY each one
-  const result = outflows.reduce(function (acc: any, v: any) {
+  //Var that loop all beneficary(ADDRESSES) and return the sum of  all HNY recieved for each one ---OK
+  const Beneficary_SUM = outflows.reduce(function (acc: any, v: any) {
     acc[v.beneficiary] = (acc[v.beneficiary] || 0) + Number(v.requestedAmount);
     return acc;
   }, {});
 
-  //Func filters month and year as return total Funding for each month in the year
+  // //Contributors ADDRESS
+  // const contAddress = beneficiaries.map((contributor) =>
+  //   contributor.transfers.map((transfer) => transfer.contributor.address)
+  // );
+
+  // //TESTING contributors sum for each address -- TO FIX
+  // const contAddress_SUM = beneficiaries.reduce(function (acc: any, v: any) {
+  //   acc[v.transfers.map((transfer) => transfer.contributor.address)] =
+  //     (acc[v.transfers.map((transfer) => transfer.contributor.address)] || 0) +
+  //     Number(v.transfers.map((transfer) => transfer.amount));
+  //   return acc;
+  // }, {});
+
+  //Func filters month and year an return total Funding for each month in the year
   const months = [
     "Jan",
     "Feb",
@@ -71,7 +96,6 @@ const Outflows = () => {
       });
       if (byMonthAndyear.length !== 0) data1.push(byMonthAndyear);
     }
-
     //sum total of byMonthAndyear requested amount
     const SUM_byMonthAndyear = data1.map((any) =>
       any.reduce(function (acc: any, v: any) {
@@ -124,34 +148,8 @@ const Outflows = () => {
 
   return (
     <Wrapper>
-      <Data>
-        <h2>Outflows Data Querie:</h2>
-        <h3>TOTAL HNY FUNDING: {TOTAL_HNY_FUNDING_SUM} </h3>
-        <Test />
-        <br />
-
-        {outflows.map((outflow: any) => (
-          <>
-            <p style={{ color: theme.content }}>ID :{outflow.id}</p>
-            <p>
-              AMOUNT: {outflow.requestedAmount},{typeof outflow.requestedAmount}
-            </p>
-            <p>BENEFICIARY address: {outflow.beneficiary}</p>
-            <div>
-              DATA : month: {outflow.transferAt.month}, year:{" "}
-              {outflow.transferAt.year}
-            </div>
-            <br></br>
-          </>
-        ))}
-      </Data>
-      <DisplayData>
-        <h1>Display-Data</h1>
-
-        {/* <NetworkChart /> */}
-        <RadialChart datishun={datafrom2021} />
-        {/* <PieChart /> */}
-      </DisplayData>
+      <CardDashboard />
+      <DisplayChart total={TOTAL_HNY_FUNDING_SUM} />
     </Wrapper>
   );
 };
@@ -159,25 +157,18 @@ const Outflows = () => {
 export default Outflows;
 
 const Wrapper = styled.div`
-  border: 3px solid red;
   display: flex;
-  padding: ${1 * GU}px;
+  flex-direction: column;
+  padding: ${4 * GU}px;
 
   & h1,
   h2,
   h3 {
     text-align: center;
-    color: ${({ theme }) => theme.content};
+    color: ${({ theme }) => theme.surface};
   }
 `;
 
-const Data = styled.div`
-  border-right: 3px solid yellow;
-  flex: 1;
-  padding: ${1.5 * GU}px;
-`;
-
 const DisplayData = styled.div`
-  flex: 2;
-  padding: ${1.5 * GU}px;
+  width: 100vw;
 `;

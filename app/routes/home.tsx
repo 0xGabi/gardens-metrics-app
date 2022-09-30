@@ -14,8 +14,8 @@ import Outflows from "~/components/Outflows";
 
 export const loader: LoaderFunction = async () => {
   const gardensOutflows = await fetchGardensOutflows();
-  const gardensBeneficiaries = await fetchGardensBeneficiaries();
-  return json({ gardensOutflows, gardensBeneficiaries });
+  // const gardensBeneficiaries = await fetchGardensBeneficiaries();
+  return json({ gardensOutflows });
 };
 
 export default function Home() {

@@ -2,7 +2,6 @@ import { GU, useTheme, useViewport } from "@1hive/1hive-ui";
 import { a } from "@react-spring/web";
 import styled from "styled-components";
 import { useAppReady } from "~/providers/AppReady";
-import { BlossomLabsLogo } from "./BlossomLabsLogo";
 
 export const BottomBar = () => {
   const { below } = useViewport();
@@ -19,10 +18,10 @@ export const BottomBar = () => {
               style={{ opacity: progress, transform: bottomBarTransform }}
               $compactMode={compactMode}
             >
-              <div style={{ color: theme.surfaceContent }}>
+              {/* <div style={{ color: theme.surfaceContent }}>
                 <span style={{ opacity: 0.4 }}></span>&copy; Copyright 2022,
                 Gardens - Metrics <BlossomLabsLogo />
-              </div>
+              </div> */}
             </AnimatedContainer>
           )
       )}
