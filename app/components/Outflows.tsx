@@ -1,28 +1,9 @@
 import { useLoaderData } from "@remix-run/react";
-import {
-  useTheme,
-  GU,
-  Box,
-  Split,
-  DataView,
-  IdentityBadge,
-  Tag,
-  Card,
-  Accordion,
-  TokenBadge,
-  EthIdenticon,
-} from "@1hive/1hive-ui";
+import { useTheme, GU } from "@1hive/1hive-ui";
 import styled from "styled-components";
-
-import { useState } from "react";
-
 import CardDashboard from "../components/Card";
-
-import PieChart from "./Charts/PieChart";
-import RadialChart from "./Charts/RadialChart";
-import NetworkChart from "./Charts/NetworkChart";
-
 import DisplayChart from "../components/DisplayChart";
+
 const Outflows = () => {
   const { gardensOutflows, gardensBeneficiaries } = useLoaderData();
   const theme = useTheme();
@@ -83,7 +64,7 @@ const Outflows = () => {
     "Nov",
     "Dec",
   ];
-  const year = ["2021", "2022"];
+
   const filtereByMonthAndYearTEST_2021 = (obj: any, month: any, year: any) => {
     const data1 = [];
 
@@ -122,6 +103,8 @@ const Outflows = () => {
 
   const datafrom2021 = filtereByMonthAndYearTEST_2021(outflows, months, "2022");
 
+  console.log(datafrom2021);
+
   //
   const filtereByMonthAndYear = (obj: any, month: any, year: string) => {
     //filter month and year
@@ -149,7 +132,7 @@ const Outflows = () => {
   return (
     <Wrapper>
       <CardDashboard />
-      <DisplayChart total={TOTAL_HNY_FUNDING_SUM} />
+      <DisplayChart total={TOTAL_HNY_FUNDING_SUM} data={datafrom2021} />
     </Wrapper>
   );
 };

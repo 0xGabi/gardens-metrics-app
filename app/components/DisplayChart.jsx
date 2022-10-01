@@ -1,22 +1,10 @@
-import {
-  Card,
-  Tag,
-  GU,
-  useViewport,
-  IconGroup,
-  IconUser,
-  IconCoin,
-  Split,
-  Box,
-  CircleGraph,
-  TokenBadge,
-} from "@1hive/1hive-ui";
+import { Card, GU } from "@1hive/1hive-ui";
 
 import styled from "styled-components";
 
 import RadialChart from "../components/Charts/RadialChart";
 
-const DisplayChart = ({ total }) => {
+const DisplayChart = ({ total, data }) => {
   return (
     <Wrapper>
       <Card width="300px">
@@ -26,7 +14,7 @@ const DisplayChart = ({ total }) => {
         </CardContent>
       </Card>
       <Card width="720px" height="400px">
-        <RadialChart />
+        <RadialChart data={data} />
       </Card>
     </Wrapper>
   );

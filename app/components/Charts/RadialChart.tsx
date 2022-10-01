@@ -1,90 +1,10 @@
 import { useTheme } from "@1hive/1hive-ui";
 import { ResponsiveRadialBar } from "@nivo/radial-bar";
-import { useState } from "react";
-const data = [
-  {
-    id: "2021",
-    data: [
-      {
-        x: "June",
-        y: 376.4,
-      },
-      {
-        x: "July",
-        y: 290,
-      },
-      {
-        x: "Ago",
-        y: 120,
-      },
-      {
-        x: "Sep",
-        y: 443.09,
-      },
-      {
-        x: "Oct",
-        y: 567,
-      },
-    ],
-  },
-  {
-    id: "2022",
-    data: [
-      {
-        x: "June",
-        y: 446,
-      },
-      {
-        x: "July",
-        y: 477,
-      },
-      {
-        x: "Ago",
-        y: 55,
-      },
-      {
-        x: "Sep",
-        y: 226,
-      },
-      {
-        x: "Oct",
-        y: 900,
-      },
-    ],
-  },
-];
-const data2 = [
-  {
-    id: "2021",
-    data: [
-      {
-        x: "June",
-        y: 376,
-      },
-      {
-        x: "July",
-        y: 290,
-      },
-      {
-        x: "Ago",
-        y: 120,
-      },
-      {
-        x: "Sep",
-        y: 443,
-      },
-      {
-        x: "Oct",
-        y: 567,
-      },
-    ],
-  },
-];
 
 const theme = {
   background: "#041F46",
   textColor: "#333333",
-  fontSize: 15,
+  fontSize: 25,
   axis: {
     domain: {
       line: {
@@ -94,7 +14,7 @@ const theme = {
     },
     legend: {
       text: {
-        fontSize: 12,
+        fontSize: 16,
         fill: "#333333",
       },
     },
@@ -104,8 +24,8 @@ const theme = {
         strokeWidth: 0,
       },
       text: {
-        fontSize: 17,
-        fill: "#e01a1a",
+        fontSize: 22,
+        fill: "#DFE3EA",
       },
     },
   },
@@ -177,62 +97,49 @@ const theme = {
   },
 };
 
-const MyResponsiveRadialBar = ({ datishun }) => {
-  const [datish, setDatish] = useState(data);
-  const [motion, setMotion] = useState("gentle");
+const MyResponsiveRadialBar = ({ data }) => {
+  const theme = useTheme();
   return (
     <ResponsiveRadialBar
-      data={datish}
-      valueFormat=" >-.2f"
-      startAngle={92}
-      endAngle={-183}
-      innerRadius={0.4}
-      theme={theme}
-      padding={0.1}
-      padAngle={3}
+      data={data}
+      startAngle={-136}
+      endAngle={184}
+      padding={0.35}
       margin={{ top: 40, right: 120, bottom: 40, left: 40 }}
-      colors={{ scheme: "greens" }}
-      borderWidth={2}
+      colors={{ scheme: "blues" }}
       borderColor={{
         from: "color",
-        modifiers: [["darker", 3]],
+        modifiers: [["darker", "0.7"]],
       }}
-      tracksColor="#eceaea"
-      enableRadialGrid={true}
-      enableCircularGrid={true}
-      radialAxisStart={{ tickSize: 7, tickPadding: 9, tickRotation: 1 }}
+      borderWidth={1}
+      enableTracks={false}
+      tracksColor="#fffafa"
+      enableRadialGrid={false}
+      enableCircularGrid={false}
+      radialAxisStart={{ tickSize: 5, tickPadding: 5, tickRotation: 0 }}
+      circularAxisOuter={{ tickSize: 5, tickPadding: 12, tickRotation: 0 }}
       enableLabels={true}
-      label="value"
-      labelsSkipAngle={11}
-      motionConfig={{
-        mass: 184,
-        tension: 223,
-        friction: 31,
-        clamp: true,
-        precision: 0.01,
-        velocity: 0,
-      }}
-      transitionMode="startAngle"
-      ariaLabel="grid"
+      labelsSkipAngle={3}
+      labelsTextColor={theme.helpContent}
       legends={[
         {
           anchor: "right",
           direction: "column",
           justify: false,
-          translateX: 75,
+          translateX: 60,
           translateY: 0,
-          itemsSpacing: 2,
-          itemDirection: "left-to-right",
-          itemWidth: 124,
+          itemsSpacing: 14,
+          itemDirection: "right-to-left",
+          itemWidth: 100,
           itemHeight: 18,
-          itemTextColor: "#999",
+          itemTextColor: "#DEE2E7",
           symbolSize: 18,
-          symbolShape: "square",
+          symbolShape: "circle",
           effects: [
             {
               on: "hover",
               style: {
-                itemTextColor: "#DBF227",
+                itemTextColor: "#000",
               },
             },
           ],
