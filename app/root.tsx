@@ -1,4 +1,4 @@
-import { Main } from "@blossom-labs/rosette-ui";
+import { Main } from "@1hive/1hive-ui";
 import {
   Links,
   LiveReload,
@@ -11,10 +11,11 @@ import {
 import type { MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { App } from "~/App";
+import { theme } from "public/aragon-ui/types";
 
 export const meta: MetaFunction = () => {
   return {
-    title: "Ethereum",
+    title: "Gardens-Metrics",
     charset: "utf-8",
     viewport: "width=device-width,initial-scale=1",
   };

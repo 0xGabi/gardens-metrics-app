@@ -1,4 +1,4 @@
-import { springs } from "@blossom-labs/rosette-ui";
+import { springs } from "@1hive/1hive-ui";
 import styled from "styled-components";
 import { createContext, useContext, useState } from "react";
 import type { ReactNode } from "react";

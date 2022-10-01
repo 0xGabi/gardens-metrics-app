@@ -1,7 +1,6 @@
-import { GU, useViewport } from "@blossom-labs/rosette-ui";
+import { GU, useViewport, textStyle } from "@1hive/1hive-ui";
 import { a } from "@react-spring/web";
 import styled from "styled-components";
-
 import { useAppReady } from "~/providers/AppReady";
 import { AccountModule } from "~/components/AccountModule";
 import { NavSection } from "./NavSection";
@@ -24,8 +23,10 @@ export const TopBar = () => {
               }}
               $compactMode={compactMode}
             >
-              <NavSection compact={compactMode} />
-              <AccountModule compact={mobileMode} />
+              {/* <NavSection compact={compactMode} /> */}
+              <Title>Gardens-Metrics</Title>
+
+              {/* <AccountModule compact={mobileMode} /> */}
             </AnimatedContainer>
           )
       )}
@@ -37,6 +38,7 @@ const NavContainer = styled.nav`
   position: relative;
   margin: 0 auto;
   height: ${8 * GU}px;
+  background-color: ${(props) => props.theme.surface};
 `;
 
 const AnimatedContainer = styled(a.div)<{ $compactMode: boolean }>`
@@ -55,5 +57,11 @@ const AnimatedContainer = styled(a.div)<{ $compactMode: boolean }>`
     padding-left: ${6 * GU}px;
   `};
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Title = styled.h1`
+  text-align: center;
+  font-size: 2rem;
 `;

@@ -1,44 +1,31 @@
-import { RADIUS, useViewport, GU, useTheme } from "@blossom-labs/rosette-ui";
-import type { Theme } from "@uniswap/widgets";
-import { SwapWidget } from "@uniswap/widgets";
+import type { LoaderFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
+import {
+  fetchGardensOutflows,
+  fetchGardensBeneficiaries,
+} from "~/utils/server/subgraph.server";
+import { useViewport, GU } from "@1hive/1hive-ui";
 import { useCatch } from "@remix-run/react";
-import styled from "styled-components";
 import { useSigner } from "wagmi";
+import styled from "styled-components";
 import { AppScreen } from "~/components/AppLayout/AppScreen";
 import { SmoothDisplayContainer } from "~/components/SmoothDisplayContainer";
+import Outflows from "~/components/Outflows";
+
+export const loader: LoaderFunction = async () => {
+  const gardensOutflows = await fetchGardensOutflows();
+  // const gardensBeneficiaries = await fetchGardensBeneficiaries();
+  return json({ gardensOutflows });
+};
 
 export default function Home() {
   const { below } = useViewport();
-  const theme = useTheme();
   const [{ data }] = useSigner();
-
-  const uniswapTheme: Theme = {
-    primary: `${theme.content}`,
-    secondary: `${theme.contentSecondary}`,
-    interactive: `${theme.border}`,
-    container: `${theme.surface.alpha(0.5)}`,
-    module: `${theme.floatingContent}`,
-    accent: `${theme.accent}`,
-    outline: `${theme.borderDark}`,
-    dialog: `${theme.surface}`,
-    fontFamily: "rosette-ui",
-    borderRadius: RADIUS,
-    active: `${theme.selected}`,
-    error: `${theme.negative}`,
-    success: `${theme.positive}`,
-    warning: `${theme.warning}`,
-  };
 
   return (
     <AppScreen>
       <SmoothDisplayContainer>
-        <MainContainer compactMode={below("medium")}>
-          <SwapWidget
-            provider={data?.provider as any}
-            jsonRpcEndpoint={window.ENV.RPC_URL}
-            theme={uniswapTheme}
-          />
-        </MainContainer>
+        <Outflows />
       </SmoothDisplayContainer>
     </AppScreen>
   );

@@ -1,4 +1,4 @@
-import { GU, Popover, springs, useViewport } from "@blossom-labs/rosette-ui";
+import { GU, Popover, springs, useViewport } from "@1hive/1hive-ui";
 import { useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { a, Spring, useTransition } from "@react-spring/web";

@@ -1,0 +1,19 @@
+TODO / FIXES / QUESTIONS:
+
+FIXES: {
+Hay algunas pocas proposals que son en XDAI, alguna fue aceptada ?, Ver como manejar estos numeros en la UI porque son 15k, 40k, 100k, --->FIXED
+}
+
+TODOs: {
+Como queremos expresar las fehcas mm dd yyy ? dd mm yyyy ? only mm yyyy ? ---> por resolver
+}
+
+QUESTIONS:{
+
+}
+
+//providers
+//hooks
+//helpers
+//utils
+//assets

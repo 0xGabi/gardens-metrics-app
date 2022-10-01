@@ -1,4 +1,4 @@
-import { GU, textStyle } from "@blossom-labs/rosette-ui";
+import { GU, textStyle } from "@1hive/1hive-ui";
 import { NavLink, useLocation } from "@remix-run/react";
 import styled from "styled-components";
 import { CompactMenu } from "./CompactMenu";
