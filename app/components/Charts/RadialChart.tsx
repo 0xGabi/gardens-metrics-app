@@ -113,7 +113,7 @@ const MyResponsiveRadialBar = ({ data }) => {
       }}
       borderWidth={1}
       enableTracks={false}
-      tracksColor="#fffafa"
+      tracksColor="#FF6D6D"
       enableRadialGrid={false}
       enableCircularGrid={false}
       radialAxisStart={{ tickSize: 5, tickPadding: 5, tickRotation: 0 }}

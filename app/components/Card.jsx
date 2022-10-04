@@ -12,12 +12,13 @@ import styled from "styled-components";
 export const EachCard = ({
   title,
   width = "300px",
-  height = "110px",
+  height = "100px",
   Icon,
   tagValue,
   mode,
+  compactMode,
 }) => (
-  <Card width={width} height={height}>
+  <Card width={width} height={height} compactMode>
     <CardContent>
       <div>{Icon}</div>
       <Wrapper style={{ flexDirection: "column" }}>
@@ -34,6 +35,7 @@ const CardDashboard = ({}) => {
     <>
       <Wrapper>
         <EachCard
+          compactMode={below("medium")}
           title={"Funding Proposals"}
           tagValue={"67"}
           mode={"new"}
@@ -57,7 +59,10 @@ const CardDashboard = ({}) => {
 const Wrapper = styled.div`
   margin-top: ${4 * GU}px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  & > div {
+    margin-right: ${GU}px;
+  }
 `;
 
 const CardContent = styled.div`
