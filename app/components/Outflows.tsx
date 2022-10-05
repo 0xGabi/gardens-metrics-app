@@ -1,5 +1,5 @@
 import { useLoaderData } from "@remix-run/react";
-import { useTheme, GU } from "@1hive/1hive-ui";
+import { useTheme, GU, useViewport } from "@1hive/1hive-ui";
 import styled from "styled-components";
 import CardDashboard from "../components/Card";
 import DisplayChart from "../components/DisplayChart";
@@ -8,6 +8,11 @@ const Outflows = () => {
   const { gardensOutflows, gardensBeneficiaries } = useLoaderData();
   const theme = useTheme();
   const outflows = gardensOutflows;
+
+  console.log(gardensOutflows);
+
+  const { below, within, above } = useViewport();
+
   // const beneficiaries = gardensBeneficiaries;
 
   // TOTAL SUM of FUNDING PROPOSALS in HNY --- OK
@@ -32,7 +37,7 @@ const Outflows = () => {
 
   //Var that loop all beneficary(ADDRESSES) and return the sum of  all HNY recieved for each one ---OK
   const Beneficary_SUM = outflows.reduce(function (acc: any, v: any) {
-    acc[v.beneficiary] = (acc[v.beneficiary] || 0) + Number(v.requestedAmount);
+    acc[v.address] = (acc[v.address] || 0) + Number(v.requestedAmount);
     return acc;
   }, {});
 
@@ -101,9 +106,8 @@ const Outflows = () => {
     return data;
   };
 
-  const datafrom2021 = filtereByMonthAndYearTEST_2021(outflows, months, "2022");
-
-  console.log(datafrom2021);
+  const datafrom2021 = filtereByMonthAndYearTEST_2021(outflows, months, "2021");
+  const datafrom2022 = filtereByMonthAndYearTEST_2021(outflows, months, "2022");
 
   //
   const filtereByMonthAndYear = (obj: any, month: any, year: string) => {
@@ -128,27 +132,43 @@ const Outflows = () => {
   // const my = filtereByMonthAndYear(outflows, "Jun", "2021")
 
   // console.log(filtereByMonthAndYear(outflows, "Jun", "2021"));
-
   return (
-    <Wrapper>
+    <Wrapper compactMode={below("medium")}>
+      {below("medium") && <div>small</div>}
+      {within("medium", "large") && <div>medium</div>}
+      {above("large") && <div>large</div>}
       <CardDashboard />
-      <DisplayChart total={TOTAL_HNY_FUNDING_SUM} data={datafrom2021} />
+      <DisplayChart
+        total={TOTAL_HNY_FUNDING_SUM}
+        data={datafrom2021}
+        data2={datafrom2022}
+        data3={Beneficary_SUM}
+      />
     </Wrapper>
   );
 };
 
 export default Outflows;
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ compactMode: boolean }>`
   display: flex;
   flex-direction: column;
+  max-width: 1444px;
+  margin: auto;
   padding: ${4 * GU}px;
+  padding-top: ${({ compactMode }) => (compactMode ? 7 * GU : 16 * GU)}px;
 
   & h1,
   h2,
   h3 {
     text-align: center;
     color: ${({ theme }) => theme.surface};
+  }
+
+  & > div:not(:first-child) {
+    width: 100%;
+    margin: auto;
+    margin-top: ${({ compactMode }) => (compactMode ? 2 * GU : 4 * GU)}px;
   }
 `;
 

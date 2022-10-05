@@ -12,7 +12,7 @@ import styled from "styled-components";
 export const EachCard = ({
   title,
   width = "300px",
-  height = "110px",
+  height = "100px",
   Icon,
   tagValue,
   mode,
@@ -28,12 +28,13 @@ export const EachCard = ({
   </Card>
 );
 
-const CardDashboard = ({}) => {
-  const { within, below, above } = useViewport();
+const CardDashboard = () => {
+  const { below } = useViewport();
   return (
     <>
       <Wrapper>
         <EachCard
+          compactMode={below("medium")}
           title={"Funding Proposals"}
           tagValue={"67"}
           mode={"new"}
@@ -57,7 +58,10 @@ const CardDashboard = ({}) => {
 const Wrapper = styled.div`
   margin-top: ${4 * GU}px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  & > div {
+    margin-right: ${GU}px;
+  }
 `;
 
 const CardContent = styled.div`
