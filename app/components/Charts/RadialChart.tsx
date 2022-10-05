@@ -1,5 +1,7 @@
-import { useTheme } from "@1hive/1hive-ui";
+import { useTheme, Accordion } from "@1hive/1hive-ui";
 import { ResponsiveRadialBar } from "@nivo/radial-bar";
+import { useState } from "react";
+import styled from "styled-components";
 
 const theme = {
   background: "#041F46",
@@ -97,56 +99,115 @@ const theme = {
   },
 };
 
-const MyResponsiveRadialBar = ({ data }) => {
+const MyResponsiveRadialBar = ({ data, data2 }) => {
+  const [dataChart, setDataChart] = useState(data);
+  const [year, setYear] = useState("2021");
+
+  const set = (data: any, selectedYear: string) => {
+    setDataChart(data);
+    setYear(selectedYear);
+  };
   const theme = useTheme();
   return (
-    <ResponsiveRadialBar
-      data={data}
-      startAngle={-136}
-      endAngle={184}
-      padding={0.35}
-      margin={{ top: 40, right: 120, bottom: 40, left: 40 }}
-      colors={{ scheme: "blues" }}
-      borderColor={{
-        from: "color",
-        modifiers: [["darker", "0.7"]],
-      }}
-      borderWidth={1}
-      enableTracks={false}
-      tracksColor="#FF6D6D"
-      enableRadialGrid={false}
-      enableCircularGrid={false}
-      radialAxisStart={{ tickSize: 5, tickPadding: 5, tickRotation: 0 }}
-      circularAxisOuter={{ tickSize: 5, tickPadding: 12, tickRotation: 0 }}
-      enableLabels={true}
-      labelsSkipAngle={3}
-      labelsTextColor={theme.helpContent}
-      legends={[
-        {
-          anchor: "right",
-          direction: "column",
-          justify: false,
-          translateX: 60,
-          translateY: 0,
-          itemsSpacing: 14,
-          itemDirection: "right-to-left",
-          itemWidth: 100,
-          itemHeight: 18,
-          itemTextColor: "#DEE2E7",
-          symbolSize: 18,
-          symbolShape: "circle",
-          effects: [
-            {
-              on: "hover",
-              style: {
-                itemTextColor: "#000",
-              },
-            },
+    <>
+      <Accordion
+        items={[
+          [
+            <div>Filtered year</div>,
+            [
+              <ButtonYear onClick={() => set(data2, "2022")}>2022</ButtonYear>,
+              <ButtonYear22 onClick={() => set(data, "2021")}>
+                2021
+              </ButtonYear22>,
+            ],
           ],
-        },
-      ]}
-    />
+        ]}
+      />
+      <Year>{year}</Year>
+      <ResponsiveRadialBar
+        data={dataChart}
+        startAngle={-136}
+        endAngle={184}
+        padding={0.35}
+        margin={{ top: 40, right: 120, bottom: 40, left: 40 }}
+        colors={{ scheme: "blues" }}
+        borderColor={{
+          from: "color",
+          modifiers: [["darker", "0.7"]],
+        }}
+        borderWidth={1}
+        enableTracks={false}
+        tracksColor="#fffafa"
+        enableRadialGrid={false}
+        enableCircularGrid={false}
+        radialAxisStart={{ tickSize: 5, tickPadding: 5, tickRotation: 0 }}
+        circularAxisOuter={{ tickSize: 5, tickPadding: 12, tickRotation: 0 }}
+        enableLabels={true}
+        labelsSkipAngle={3}
+        labelsTextColor={theme.helpContent}
+        legends={[
+          {
+            anchor: "right",
+            direction: "column",
+            justify: false,
+            translateX: 60,
+            translateY: 0,
+            itemsSpacing: 14,
+            itemDirection: "right-to-left",
+            itemWidth: 100,
+            itemHeight: 18,
+            itemTextColor: "#DEE2E7",
+            symbolSize: 18,
+            symbolShape: "circle",
+            effects: [
+              {
+                on: "hover",
+                style: {
+                  itemTextColor: "#000",
+                },
+              },
+            ],
+          },
+        ]}
+      />
+    </>
   );
 };
+
+const Year = styled.p`
+  position: absolute;
+  padding: 10px, 15px;
+  top: 100px;
+  left: 50px;
+  z-index: 100;
+  background-color: ${({ theme }) => theme.surfaceUnder};
+`;
+
+const ButtonYear = styled.button`
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0px;
+  border: none;
+  padding: 10px 15px;
+  color: ${({ theme }) => theme.surfaceContent};
+  background-color: ${({ theme }) => theme.surfaceUnder};
+
+  cursor: pointer;
+  z-index: 100;
+`;
+const ButtonYear22 = styled.button`
+  position: absolute;
+  width: 100%;
+  top: 50px;
+  left: 0px;
+  border: none;
+  padding: 10px 15px;
+  color: ${({ theme }) => theme.surfaceContent};
+  background-color: ${({ theme }) => theme.surfaceUnder};
+
+  cursor: pointer;
+  z-index: 100;
+`;
 
 export default MyResponsiveRadialBar;

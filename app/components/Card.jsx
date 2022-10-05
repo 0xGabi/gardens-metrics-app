@@ -16,9 +16,8 @@ export const EachCard = ({
   Icon,
   tagValue,
   mode,
-  compactMode,
 }) => (
-  <Card width={width} height={height} compactMode>
+  <Card width={width} height={height}>
     <CardContent>
       <div>{Icon}</div>
       <Wrapper style={{ flexDirection: "column" }}>
@@ -29,8 +28,8 @@ export const EachCard = ({
   </Card>
 );
 
-const CardDashboard = ({}) => {
-  const { within, below, above } = useViewport();
+const CardDashboard = () => {
+  const { below } = useViewport();
   return (
     <>
       <Wrapper>

@@ -27,6 +27,7 @@ const fetchFromGraphQL = async (query: any) => {
 const parseGardensOutflowsResult = (gardenResult: GardenResult) => {
   const data = gardenResult;
   return {
+    address: data.beneficiary,
     beneficiary: formatAddress(data.beneficiary),
     requestedAmount: formatAmount_STRING(data.requestedAmount),
     transferAt: {

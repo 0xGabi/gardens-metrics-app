@@ -9,6 +9,8 @@ const Outflows = () => {
   const theme = useTheme();
   const outflows = gardensOutflows;
 
+  console.log(gardensOutflows);
+
   const { below, within, above } = useViewport();
 
   // const beneficiaries = gardensBeneficiaries;
@@ -35,7 +37,7 @@ const Outflows = () => {
 
   //Var that loop all beneficary(ADDRESSES) and return the sum of  all HNY recieved for each one ---OK
   const Beneficary_SUM = outflows.reduce(function (acc: any, v: any) {
-    acc[v.beneficiary] = (acc[v.beneficiary] || 0) + Number(v.requestedAmount);
+    acc[v.address] = (acc[v.address] || 0) + Number(v.requestedAmount);
     return acc;
   }, {});
 
@@ -104,7 +106,8 @@ const Outflows = () => {
     return data;
   };
 
-  const datafrom2021 = filtereByMonthAndYearTEST_2021(outflows, months, "2022");
+  const datafrom2021 = filtereByMonthAndYearTEST_2021(outflows, months, "2021");
+  const datafrom2022 = filtereByMonthAndYearTEST_2021(outflows, months, "2022");
 
   //
   const filtereByMonthAndYear = (obj: any, month: any, year: string) => {
@@ -135,7 +138,12 @@ const Outflows = () => {
       {within("medium", "large") && <div>medium</div>}
       {above("large") && <div>large</div>}
       <CardDashboard />
-      <DisplayChart total={TOTAL_HNY_FUNDING_SUM} data={datafrom2021} />
+      <DisplayChart
+        total={TOTAL_HNY_FUNDING_SUM}
+        data={datafrom2021}
+        data2={datafrom2022}
+        data3={Beneficary_SUM}
+      />
     </Wrapper>
   );
 };
