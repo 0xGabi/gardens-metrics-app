@@ -3,6 +3,7 @@ import { useTheme, GU, useViewport } from "@1hive/1hive-ui";
 import styled from "styled-components";
 import CardDashboard from "../components/Card";
 import DisplayChart from "../components/DisplayChart";
+import Test from "../components/Test";
 
 const Outflows = () => {
   const { gardensOutflows, gardensBeneficiaries } = useLoaderData();
@@ -134,6 +135,7 @@ const Outflows = () => {
   // console.log(filtereByMonthAndYear(outflows, "Jun", "2021"));
   return (
     <Wrapper compactMode={below("medium")}>
+      {/* <Test /> */}
       {below("medium") && <div>small</div>}
       {within("medium", "large") && <div>medium</div>}
       {above("large") && <div>large</div>}

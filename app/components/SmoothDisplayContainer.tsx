@@ -13,6 +13,7 @@ export const SmoothDisplayContainer = ({
 
   return (
     <a.div
+    
       style={{
         ...smoothDisplayStyles,
         width: "100%",
