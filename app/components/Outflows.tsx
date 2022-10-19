@@ -134,19 +134,22 @@ const Outflows = () => {
 
   // console.log(filtereByMonthAndYear(outflows, "Jun", "2021"));
   return (
-    <Wrapper compactMode={below("medium")}>
-      {/* <Test /> */}
-      {below("medium") && <div>small</div>}
-      {within("medium", "large") && <div>medium</div>}
-      {above("large") && <div>large</div>}
-      <CardDashboard />
-      <DisplayChart
-        total={TOTAL_HNY_FUNDING_SUM}
-        data={datafrom2021}
-        data2={datafrom2022}
-        data3={Beneficary_SUM}
-      />
-    </Wrapper>
+    <>
+      <Test />
+      <Wrapper compactMode={below("medium")}>
+        {/* <Test /> */}
+        {below("medium") && <div>small</div>}
+        {within("medium", "large") && <div>medium</div>}
+        {above("large") && <div>large</div>}
+        <CardDashboard />
+        <DisplayChart
+          total={TOTAL_HNY_FUNDING_SUM}
+          data={datafrom2021}
+          data2={datafrom2022}
+          data3={Beneficary_SUM}
+        />
+      </Wrapper>
+    </>
   );
 };
 
@@ -160,11 +163,11 @@ const Wrapper = styled.div<{ compactMode: boolean }>`
   padding: ${4 * GU}px;
   padding-top: ${({ compactMode }) => (compactMode ? 7 * GU : 16 * GU)}px;
 
-  & h1,
+  h1,
   h2,
   h3 {
     text-align: center;
-    color: ${({ theme }) => theme.surface};
+    color: ${({ theme }) => theme.content};
   }
 
   & > div:not(:first-child) {

@@ -33,6 +33,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^8.0.2",
+    "react-spring": "^9.5.5",
+    "react-spring-scroll-to-hook": "^1.0.3",
     "redux": "^4.2.0",
     "styled-components": "^5.3.5",
     "wagmi": "^0.2.28",
