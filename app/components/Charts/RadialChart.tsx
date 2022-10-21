@@ -99,18 +99,72 @@ const theme = {
   },
 };
 
-const MyResponsiveRadialBar = ({ data, data2 }) => {
-  const [dataChart, setDataChart] = useState(data);
-  const [year, setYear] = useState("2021");
+const MyResponsiveRadialBar = ({}) => {
+  // const [dataChart, setDataChart] = useState(data);
+  // const [year, setYear] = useState("2021");
 
-  const set = (data: any, selectedYear: string) => {
-    setDataChart(data);
-    setYear(selectedYear);
-  };
+  // const set = (data: any, selectedYear: string) => {
+  //   setDataChart(data);
+  //   setYear(selectedYear);
+  // };
+
+  const data = [
+    {
+      id: "Supermarket",
+      data: [
+        {
+          x: "Vegetables",
+          y: 201,
+        },
+        {
+          x: "Fruits",
+          y: 87,
+        },
+        {
+          x: "Meat",
+          y: 152,
+        },
+      ],
+    },
+    {
+      id: "Combini",
+      data: [
+        {
+          x: "Vegetables",
+          y: 96,
+        },
+        {
+          x: "Fruits",
+          y: 56,
+        },
+        {
+          x: "Meat",
+          y: 261,
+        },
+      ],
+    },
+    {
+      id: "Online",
+      data: [
+        {
+          x: "Vegetables",
+          y: 101,
+        },
+        {
+          x: "Fruits",
+          y: 295,
+        },
+        {
+          x: "Meat",
+          y: 204,
+        },
+      ],
+    },
+  ];
   const theme = useTheme();
   return (
     <>
-      <Accordion
+      {/* <Accordion
         items={[
           [
             <div>Filtered year</div>,
@@ -123,9 +177,9 @@ const MyResponsiveRadialBar = ({ data, data2 }) => {
           ],
         ]}
       />
-      <Year>{year}</Year>
+      <Year>{year}</Year> */}
       <ResponsiveRadialBar
-        data={dataChart}
+        data={data}
         startAngle={-136}
         endAngle={184}
         padding={0.35}

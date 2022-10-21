@@ -123,24 +123,17 @@ const Outflows = () => {
           (acc[v.transferAt.month] || 0) + Number(v.requestedAmount);
         return acc;
       },
-      //return object with month and total requ amou od that month
+      //return object with month and total request amount of that month
       {}
     );
 
     return SUM_byMonthAndyear;
   };
 
-  // const my = filtereByMonthAndYear(outflows, "Jun", "2021")
-
-  // console.log(filtereByMonthAndYear(outflows, "Jun", "2021"));
   return (
     <>
       <Test />
-      <Wrapper compactMode={below("medium")}>
-        {/* <Test /> */}
-        {below("medium") && <div>small</div>}
-        {within("medium", "large") && <div>medium</div>}
-        {above("large") && <div>large</div>}
+      {/* <Wrapper compactMode={below("medium")}>
         <CardDashboard />
         <DisplayChart
           total={TOTAL_HNY_FUNDING_SUM}
@@ -148,7 +141,7 @@ const Outflows = () => {
           data2={datafrom2022}
           data3={Beneficary_SUM}
         />
-      </Wrapper>
+      </Wrapper> */}
     </>
   );
 };
