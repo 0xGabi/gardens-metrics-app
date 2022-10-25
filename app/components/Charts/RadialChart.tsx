@@ -1,5 +1,7 @@
 import { useTheme, Accordion } from "@1hive/1hive-ui";
 import { ResponsiveRadialBar } from "@nivo/radial-bar";
+import { useLoaderData } from "@remix-run/react";
+
 import { useState } from "react";
 import styled from "styled-components";
 
@@ -99,7 +101,13 @@ const theme = {
   },
 };
 
-const MyResponsiveRadialBar = ({}) => {
+const MyResponsiveRadialBar = ({ example }) => {
+  const { gardensOutflows, gardensBeneficiaries } = useLoaderData();
+  const outflows = gardensOutflows;
+
+  console.log(gardensOutflows);
+
+  console.log(example);
   // const [dataChart, setDataChart] = useState(data);
   // const [year, setYear] = useState("2021");
 
@@ -107,6 +115,52 @@ const MyResponsiveRadialBar = ({}) => {
   //   setDataChart(data);
   //   setYear(selectedYear);
   // };
+  const filtereByMonthAndYearTEST_2021 = (obj: any, month: any, year: any) => {
+    const data1 = [];
+
+    for (let i = 0; i <= month.length; i++) {
+      //filter month and year
+      const byMonthAndyear = obj.filter((out: any) => {
+        return (
+          out.transferAt.month === month[i] && out.transferAt.year === year
+        );
+      });
+      if (byMonthAndyear.length !== 0) data1.push(byMonthAndyear);
+    }
+    //sum total of byMonthAndyear requested amount
+    const SUM_byMonthAndyear = data1.map((any) =>
+      any.reduce(function (acc: any, v: any) {
+        acc[v.transferAt.month] =
+          (acc[v.transferAt.month] || 0) + Number(v.requestedAmount);
+        return acc;
+      }, {})
+    );
+    //
+    const xMonth_yValue = SUM_byMonthAndyear.map((xAndy) => ({
+      x: Object.keys(xAndy).toString(),
+      y: Number(Object.values(xAndy)),
+    }));
+
+    const data = [
+      {
+        id: year,
+        data: xMonth_yValue,
+      },
+    ];
+
+    return data;
+  };
+
+  const datafrom2021 = filtereByMonthAndYearTEST_2021(
+    outflows,
+    example,
+    "2021"
+  );
+  const datafrom2022 = filtereByMonthAndYearTEST_2021(
+    outflows,
+    example,
+    "2022"
+  );
 
   const data = [
     {
@@ -179,7 +233,7 @@ const MyResponsiveRadialBar = ({}) => {
       />
       <Year>{year}</Year> */}
       <ResponsiveRadialBar
-        data={data}
+        data={datafrom2022}
         startAngle={-136}
         endAngle={184}
         padding={0.35}

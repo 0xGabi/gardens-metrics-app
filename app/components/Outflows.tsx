@@ -10,8 +10,6 @@ const Outflows = () => {
   const theme = useTheme();
   const outflows = gardensOutflows;
 
-  console.log(gardensOutflows);
-
   const { below, within, above } = useViewport();
 
   // const beneficiaries = gardensBeneficiaries;
