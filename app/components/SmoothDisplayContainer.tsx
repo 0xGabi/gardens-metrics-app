@@ -13,7 +13,7 @@ export const SmoothDisplayContainer = ({
 
   return (
     <a.div
-      className="flex min-h-screen container mx-auto "
+      className="flex min-h-screen "
       style={{
         ...smoothDisplayStyles,
         width: "100%",

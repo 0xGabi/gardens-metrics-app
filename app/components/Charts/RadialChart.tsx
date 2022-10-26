@@ -141,6 +141,11 @@ const MyResponsiveRadialBar = ({ example }) => {
       y: Number(Object.values(xAndy)),
     }));
 
+    //total del año seleccionado
+    const sumTotalYear = SUM_byMonthAndyear.map((year) =>
+      Number(Object.values(year))
+    ).reduce((prev, curr) => prev + curr, 0);
+
     const data = [
       {
         id: year,
@@ -148,7 +153,7 @@ const MyResponsiveRadialBar = ({ example }) => {
       },
     ];
 
-    return data;
+    return { data, sumTotalYear };
   };
 
   const datafrom2021 = filtereByMonthAndYearTEST_2021(
@@ -162,59 +167,6 @@ const MyResponsiveRadialBar = ({ example }) => {
     "2022"
   );
 
-  const data = [
-    {
-      id: "Supermarket",
-      data: [
-        {
-          x: "Vegetables",
-          y: 201,
-        },
-        {
-          x: "Fruits",
-          y: 87,
-        },
-        {
-          x: "Meat",
-          y: 152,
-        },
-      ],
-    },
-    {
-      id: "Combini",
-      data: [
-        {
-          x: "Vegetables",
-          y: 96,
-        },
-        {
-          x: "Fruits",
-          y: 56,
-        },
-        {
-          x: "Meat",
-          y: 261,
-        },
-      ],
-    },
-    {
-      id: "Online",
-      data: [
-        {
-          x: "Vegetables",
-          y: 101,
-        },
-        {
-          x: "Fruits",
-          y: 295,
-        },
-        {
-          x: "Meat",
-          y: 204,
-        },
-      ],
-    },
-  ];
   const theme = useTheme();
   return (
     <>
@@ -233,7 +185,7 @@ const MyResponsiveRadialBar = ({ example }) => {
       />
       <Year>{year}</Year> */}
       <ResponsiveRadialBar
-        data={datafrom2022}
+        data={datafrom2022.data}
         startAngle={-136}
         endAngle={184}
         padding={0.35}
@@ -278,6 +230,8 @@ const MyResponsiveRadialBar = ({ example }) => {
           },
         ]}
       />
+      <div>{datafrom2022.sumTotalYear}</div>
+      <div>{datafrom2021.sumTotalYear}</div>
     </>
   );
 };

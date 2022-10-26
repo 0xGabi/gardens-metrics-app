@@ -1,9 +1,9 @@
 const SideBar = ({ handleRef }) => {
   return (
-    <aside className="hidden md:block shrink border-dashed border-2 border-sky-500 bg-gray-900 ">
+    <aside className="hidden md:block  border-dashed border-2 border-sky-500 bg-gray-900 ">
       <nav>
         <h2 className="px-5">Sidebar</h2>
-        {/* <button onClick={handleRef}>Go!</button> */}
+        <button>Gooo!</button>
       </nav>
     </aside>
   );

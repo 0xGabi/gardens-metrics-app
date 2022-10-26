@@ -25,6 +25,8 @@ specifiers:
   autoprefixer: ^10.4.12
   clipboard-polyfill: ^4.0.0-rc1
   concurrently: ^7.4.0
+  countup: ^1.8.2
+  countup.js: ^2.3.2
   cross-env: ^7.0.3
   eslint: ^8.22.0
   ethers: ^5.6.9
@@ -32,8 +34,10 @@ specifiers:
   postcss: ^8.4.18
   react: ^17.0.2
   react-dom: ^17.0.2
+  react-ranger: ^2.1.0
   react-redux: ^8.0.2
   react-spring: ^9.5.5
+  react-spring-scroll-to-hook: ^1.0.3
   redux: ^4.2.0
   styled-components: ^5.3.5
   tailwindcss: ^3.1.8
@@ -56,12 +60,16 @@ dependencies:
   '@vercel/node': 2.5.8
   add: 2.0.6
   clipboard-polyfill: 4.0.0-rc1
+  countup: 1.8.2
+  countup.js: 2.3.2
   ethers: 5.6.9
   lodash.debounce: 4.0.8
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
+  react-ranger: 2.1.0_react@17.0.2
   react-redux: 8.0.2_opcinvsmcyxqy2ts74g6mzaene
   react-spring: 9.5.5_sfoxds7t5ydpegc3knd667wn6m
+  react-spring-scroll-to-hook: 1.0.3_sfoxds7t5ydpegc3knd667wn6m
   redux: 4.2.0
   styled-components: 5.3.5_sfoxds7t5ydpegc3knd667wn6m
   wagmi: 0.2.28_ethers@5.6.9+react@17.0.2
@@ -5369,6 +5377,14 @@ packages:
       yaml: 1.10.2
     dev: false
 
+  /countup.js/2.3.2:
+    resolution: {integrity: sha512-dQ7F/CmKGjaO6cDfhtEXwsKVlXIpJ89dFs8PvkaZH9jBVJ2Z8GU4iwG/qP7MgY8qwr+1skbwR6qecWWQLUzB8Q==}
+    dev: false
+
+  /countup/1.8.2:
+    resolution: {integrity: sha512-1qOuy+h+dgLY4TroLb4ZC2hK7HYS2Z7mnSUvdzoYAU7EZbqOse1mKZta/KYPhDPfd9lPDyP3Tb4pH6a10RkoCw==}
+    dev: false
+
   /create-hash/1.2.0:
     resolution: {integrity: sha512-z00bCGNHDG8mHAkP7CtT1qVu+bFQUPjYq/4Iv3C3kWjTFV10zIjfSoeqXo9Asws8gwSHDGj/hl2u4OGIjapeCg==}
     dependencies:
@@ -10106,6 +10122,15 @@ packages:
       warning: 4.0.3
     dev: false
 
+  /react-ranger/2.1.0_react@17.0.2:
+    resolution: {integrity: sha512-d8ezhyX3v/KlN8SkyoE5e8Dybsdmn94eUAqBDsAPrVhZde8sVt6pLJw4fC784KiMmS4LyAjvtjGxhAEqjjGYgw==}
+    requiresBuild: true
+    peerDependencies:
+      react: ^16.6.3
+    dependencies:
+      react: 17.0.2
+    dev: false
+
   /react-redux/8.0.2_opcinvsmcyxqy2ts74g6mzaene:
     resolution: {integrity: sha512-nBwiscMw3NoP59NFCXFf02f8xdo+vSHT/uZ1ldDwF7XaTpzm+Phk97VT4urYBl5TYAPNVaFm12UHAEyzkpNzRA==}
     peerDependencies:
@@ -10158,6 +10183,18 @@ packages:
     dependencies:
       history: 5.3.0
       react: 17.0.2
+
+  /react-spring-scroll-to-hook/1.0.3_sfoxds7t5ydpegc3knd667wn6m:
+    resolution: {integrity: sha512-IZRXxqeTbN/yHPSf5bF5AKhznqvRkJ3B5lzON1zxaeONFUdcftC/zXB9jXIDxZIz6AV4wl4h9I+mPGMkKZcXwQ==}
+    engines: {node: '>=8', npm: '>=5'}
+    peerDependencies:
+      react: '>=16.9.0'
+      react-dom: '>=16.9.0'
+    dependencies:
+      '@react-spring/web': 9.5.5_sfoxds7t5ydpegc3knd667wn6m
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    dev: false
 
   /react-spring/9.5.5_sfoxds7t5ydpegc3knd667wn6m:
     resolution: {integrity: sha512-vMGVd2yjgxWcRCzoLn9AD1d24+WpunHBRg5DoehcRdiBocaOH6qgle0xN9C5LPplXfv4yIpS5QWGN5MKrWxSZg==}
