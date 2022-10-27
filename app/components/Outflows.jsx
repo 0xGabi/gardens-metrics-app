@@ -5,16 +5,17 @@ import {
   CardsWrap,
   SectionOne,
   RadialChartWrapper,
+  ChartsWrap,
 } from "./Styled/Wrappers";
 import SideBar from "./helpers/SideBar";
 import InfoCard from "./InfoCard";
 import TotalHNY from "../components/TotalHNY";
 import LastFundings from "../components/LastFundings";
-import RadialChart from "./Charts/RadialChart";
+import RadialChartsComponent from "./Charts/RadialChartsComponent";
 import Slider from "./helpers/Slider";
 
 const Outflows = () => {
-  const [values, setValues] = useState([0, 11]);
+  const [values, setValues] = useState([0, 12]);
 
   const MONTHS = [
     "Jan",
@@ -53,7 +54,10 @@ const Outflows = () => {
           <LastFundings />
         </SectionOne>
         <RadialChartWrapper>
-          {/* <RadialChart example={example} /> */}
+          <Slider values={values} setValues={setValues} />
+          <ChartsWrap>
+            <RadialChartsComponent example={example} />
+          </ChartsWrap>
         </RadialChartWrapper>
       </MainWrapper>
     </>

@@ -1,6 +1,6 @@
 import { useRanger } from "react-ranger";
-import { useState } from "react";
 import styled from "styled-components";
+import { useTheme } from "@1hive/1hive-ui";
 
 const Slider = ({ values, setValues }) => {
   const { getTrackProps, ticks, segments, handles } = useRanger({
@@ -23,6 +23,7 @@ const Slider = ({ values, setValues }) => {
     "Sep",
     "Oct",
     "Nov",
+    "Dec",
     "Dec",
   ];
 
@@ -67,10 +68,10 @@ const Slider = ({ values, setValues }) => {
 export default Slider;
 
 export const Track = styled("div")`
-  display: inline-block;
+  display: block;
   height: 8px;
-  width: 90%;
-  margin: 0 5%;
+  width: 97%;
+  margin: auto;
 `;
 
 export const Tick = styled("div")`
@@ -97,28 +98,32 @@ export const TickLabel = styled("div")`
 export const Segment = styled("div")`
   background: ${(props) =>
     props.index === 0
-      ? "#3e8aff"
+      ? "rgb(124 224 214)"
       : props.index === 1
-      ? "#00d5c0"
+      ? "#65779a"
       : props.index === 2
-      ? "#f5c200"
-      : "#ff6050"};
+      ? "rgb(124 224 214)"
+      : "rgb(124 224 214)"};
   height: 100%;
+  width: 100%;
+  border-radius: 10px;
 `;
 
 export const Handle = styled("div")`
-  background: #ff1a6b;
+  background: ${({ theme }) => theme.surface};
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1.6rem;
-  height: 1.6rem;
-  border-radius: 100%;
-  font-size: 0.7rem;
+  width: 3.6rem;
+  height: 1.8rem;
+  border-radius: 10px;
+  border: 1px solid rgb(124 224 214);
+  font-size: 0.9rem;
   white-space: nowrap;
   color: white;
+
   font-weight: ${(props) => (props.active ? "bold" : "normal")};
   transform: ${(props) =>
-    props.active ? "translateY(-100%) scale(1.3)" : "translateY(0) scale(0.9)"};
+    props.active ? "translateY(-100%) scale(1.2)" : "translateY(0) scale(0.9)"};
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 `;

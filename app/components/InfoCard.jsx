@@ -5,7 +5,7 @@ const InfoCard = ({ title, number }) => {
         <div className="flex-auto p-4 ">
           <div className="flex flex-row -mx-3">
             <div className="flex-none w-2/3 max-w-full px-3">
-              <p class="mb-0 font-sans font-semibold leading-normal text-sm text-xl">
+              <p className="mb-0 font-sans font-semibold leading-normal text-sm text-xl">
                 {title}
               </p>
               <h3 className="mb-0 font-bold text-3xl ">{number}</h3>
