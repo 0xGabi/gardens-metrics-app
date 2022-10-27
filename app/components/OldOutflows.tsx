@@ -1,18 +1,11 @@
 import { useLoaderData } from "@remix-run/react";
 import { useTheme, GU, useViewport } from "@1hive/1hive-ui";
 import styled from "styled-components";
-import CardDashboard from "../components/Card";
-import DisplayChart from "../components/DisplayChart";
-import Test from "../components/Test";
 
 const Outflows = () => {
   const { gardensOutflows, gardensBeneficiaries } = useLoaderData();
   const theme = useTheme();
   const outflows = gardensOutflows;
-
-  const { below, within, above } = useViewport();
-
-  // const beneficiaries = gardensBeneficiaries;
 
   // TOTAL SUM of FUNDING PROPOSALS in HNY --- OK
   const TOTAL_HNY_FUNDING_SUM = outflows
@@ -128,20 +121,7 @@ const Outflows = () => {
     return SUM_byMonthAndyear;
   };
 
-  return (
-    <>
-      <Test />
-      {/* <Wrapper compactMode={below("medium")}>
-        <CardDashboard />
-        <DisplayChart
-          total={TOTAL_HNY_FUNDING_SUM}
-          data={datafrom2021}
-          data2={datafrom2022}
-          data3={Beneficary_SUM}
-        />
-      </Wrapper> */}
-    </>
-  );
+  return <></>;
 };
 
 export default Outflows;
