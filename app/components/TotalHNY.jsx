@@ -15,7 +15,7 @@ const TotalHNY = ({ amount = "6812" }) => {
           </div>
         </div>
         <div className="w-full min-h-max md:px-2 lg:w-1/2  ml-auto ">
-          <div className="h-full bg-gradient-to-tl from-purple-700 to-pink-500 rounded-xl text-center">
+          <div className="h-full bg-gradient-to-tl from-blue-700 to-black-500 rounded-xl text-center">
             <h2 className="h-64 ">HNY IMAGE</h2>
           </div>
         </div>

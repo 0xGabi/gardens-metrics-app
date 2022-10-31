@@ -46,18 +46,18 @@ const MyResponsiveRadialBar = ({ example }) => {
     return { data, sumTotalYear };
   };
 
-  const datafrom2021 = filtereByMonthAndYear(outflows, example, "2021");
-  const datafrom2022 = filtereByMonthAndYear(outflows, example, "2022");
+  const dataFrom2021 = filtereByMonthAndYear(outflows, example, "2021");
+  const dataFrom2022 = filtereByMonthAndYear(outflows, example, "2022");
 
   return (
     <>
       <RadialChart
-        data={datafrom2021.data}
-        totalSum={datafrom2021.sumTotalYear}
+        data={dataFrom2021.data}
+        totalSum={dataFrom2021.sumTotalYear}
       />
       <RadialChart
-        data={datafrom2022.data}
-        totalSum={datafrom2022.sumTotalYear}
+        data={dataFrom2022.data}
+        totalSum={dataFrom2022.sumTotalYear}
       />
     </>
   );

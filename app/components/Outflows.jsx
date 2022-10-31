@@ -13,6 +13,8 @@ import TotalHNY from "../components/TotalHNY";
 import LastFundings from "../components/LastFundings";
 import RadialChartsComponent from "./Charts/RadialChartsComponent";
 import Slider from "./helpers/Slider";
+import AddressFlow from "../components/Charts/AddressFlow";
+import DataTable from "../components/Charts/DataTable";
 
 const Outflows = () => {
   const [values, setValues] = useState([0, 12]);
@@ -59,6 +61,8 @@ const Outflows = () => {
             <RadialChartsComponent example={example} />
           </ChartsWrap>
         </RadialChartWrapper>
+        <AddressFlow />
+        <DataTable />
       </MainWrapper>
     </>
   );

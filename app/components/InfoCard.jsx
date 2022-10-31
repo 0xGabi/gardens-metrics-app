@@ -12,7 +12,7 @@ const InfoCard = ({ title, number }) => {
             </div>
 
             <div className="px-3 text-right basis-1/3">
-              <div className="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
+              <div className="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-blue-700 to-black-500">
                 <i className="ni leading-none ni-money-coins text-lg relative top-3.5 text-white">
                   Icon
                 </i>
