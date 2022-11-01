@@ -661,22 +661,6 @@ video {
   height: 100vh;
 }
 
-.h-3\/6 {
-  height: 50%;
-}
-
-.h-1\/2 {
-  height: 50%;
-}
-
-.h-\[32rem\] {
-  height: 32rem;
-}
-
-.h-\[38rem\] {
-  height: 38rem;
-}
-
 .min-h-max {
   min-height: -moz-max-content;
   min-height: max-content;

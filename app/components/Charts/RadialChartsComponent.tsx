@@ -5,6 +5,8 @@ const MyResponsiveRadialBar = ({ example }) => {
   const { gardensOutflows, gardensBeneficiaries } = useLoaderData();
   const outflows = gardensOutflows;
 
+  console.log(outflows);
+
   const filtereByMonthAndYear = (obj: any, month: any, year: any) => {
     const data1 = [];
 
