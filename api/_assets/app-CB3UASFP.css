@@ -566,11 +566,6 @@ video {
   z-index: 10;
 }
 
-.mx-4 {
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-
 .-mx-3 {
   margin-left: -0.75rem;
   margin-right: -0.75rem;
@@ -579,6 +574,21 @@ video {
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.mx-3 {
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
+
+.mx-8 {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .mb-6 {
@@ -763,6 +773,10 @@ video {
   border-width: 2px;
 }
 
+.border-4 {
+  border-width: 4px;
+}
+
 .border-solid {
   border-style: solid;
 }
@@ -773,11 +787,6 @@ video {
 
 .border-dotted {
   border-style: dotted;
-}
-
-.border-\[\#243c5a\] {
-  --tw-border-opacity: 1;
-  border-color: rgb(36 60 90 / var(--tw-border-opacity));
 }
 
 .border-sky-100 {
@@ -795,14 +804,63 @@ video {
   border-color: rgb(14 165 233 / var(--tw-border-opacity));
 }
 
-.bg-\[\#05295D\] {
+.border-rose-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(244 63 94 / var(--tw-border-opacity));
+}
+
+.border-red-100 {
+  --tw-border-opacity: 1;
+  border-color: rgb(254 226 226 / var(--tw-border-opacity));
+}
+
+.border-slate-50 {
+  --tw-border-opacity: 1;
+  border-color: rgb(248 250 252 / var(--tw-border-opacity));
+}
+
+.border-indigo-500\/100 {
+  border-color: rgb(99 102 241 / 1);
+}
+
+.border-\[\#05295D\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(5 41 93 / var(--tw-border-opacity));
+}
+
+.border-\[\#f4f4f4\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(244 244 244 / var(--tw-border-opacity));
+}
+
+.border-\[\#243c5a\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(36 60 90 / var(--tw-border-opacity));
+}
+
+.bg-gray-800 {
   --tw-bg-opacity: 1;
-  background-color: rgb(5 41 93 / var(--tw-bg-opacity));
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
 
 .bg-gray-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#1da1f2\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(29 161 242 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#041f46\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(4 31 70 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#05295D\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(5 41 93 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-tl {
@@ -891,6 +949,16 @@ video {
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
+}
+
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
 .font-semibold {

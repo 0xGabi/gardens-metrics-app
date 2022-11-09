@@ -9,7 +9,7 @@ export const MainWrapper = ({ children }) => {
 };
 //Wraps the InfoCards component
 export const CardsWrap = ({ children }) => {
-  return <div className="flex flex-wrap">{children}</div>;
+  return <div className="flex flex-wrap ">{children}</div>;
 };
 
 //Wraps sectionOne --- Info, Total HNY + hny SVG

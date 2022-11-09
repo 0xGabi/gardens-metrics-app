@@ -1,8 +1,10 @@
 import { useRanger } from "react-ranger";
+import { DataContext } from "~/providers/DataProvider";
+import { useContext } from "react";
 import styled from "styled-components";
-import { useTheme } from "@1hive/1hive-ui";
 
-const Slider = ({ values, setValues }) => {
+const Slider = () => {
+  const { values, setValues, MONTHS } = useContext(DataContext);
   const { getTrackProps, ticks, segments, handles } = useRanger({
     min: 0,
     max: 11,
@@ -10,22 +12,6 @@ const Slider = ({ values, setValues }) => {
     values,
     onChange: setValues,
   });
-
-  const MONTHS = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-    "Dec",
-  ];
 
   const valueToMonth = (val) => {
     return MONTHS.map((month, idx) => {
@@ -46,7 +32,7 @@ const Slider = ({ values, setValues }) => {
         {segments.map(({ getSegmentProps }, i) => (
           <Segment {...getSegmentProps()} index={i} />
         ))}
-        {handles.map(({ value, active, getHandleProps, activeHandleIndex }) => (
+        {handles.map(({ value, active, getHandleProps }) => (
           <button
             {...getHandleProps({
               style: {

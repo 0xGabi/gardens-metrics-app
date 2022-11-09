@@ -5,7 +5,7 @@ import {
   formatDate_TWO,
   formatAmount,
   formatAddress,
-} from "~/utils/format";
+} from "~/lib/format";
 import { Network, ResponsiveNetwork } from "@nivo/network";
 import { useState } from "react";
 import { IconEthereum } from "@1hive/1hive-ui";

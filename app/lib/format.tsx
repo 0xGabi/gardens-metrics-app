@@ -12,9 +12,10 @@ export const formatDate_TWO = (date: any) => {
   return newDate;
 };
 
+//cambiando las comas a false, funciona todo OK y me trae las dos proposlas de 1,888 y 6,100 que llevan (,)
 export const formatAmount = (
   value: string,
-  { decimals = 18, commas = true, precision = 3, displaySign = false } = {}
+  { decimals = 18, commas = false, precision = 3, displaySign = false } = {}
 ) => {
   const formatedAmount = formatUnits(value, decimals, {
     digits: precision,
@@ -28,7 +29,7 @@ export const formatAmount = (
 //Same func from above, returns STRING
 export const formatAmount_STRING = (
   value: string,
-  { decimals = 18, commas = true, precision = 3, displaySign = false } = {}
+  { decimals = 18, commas = false, precision = 3, displaySign = false } = {}
 ) => {
   const formatedAmount = formatUnits(value, decimals, {
     digits: precision,

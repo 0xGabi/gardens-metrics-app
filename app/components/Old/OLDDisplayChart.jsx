@@ -2,7 +2,7 @@ import { Card, GU, useViewport, Tag } from "@1hive/1hive-ui";
 
 import styled from "styled-components";
 
-import RadialChart from "../components/Charts/RadialChart";
+import RadialChart from "../Charts/RadialChart";
 import AddressFlow from "../components/AddressFlow";
 
 const DisplayChart = ({ total, data, data2, data3 }) => {

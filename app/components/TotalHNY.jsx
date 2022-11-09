@@ -1,4 +1,9 @@
-const TotalHNY = ({ amount = "6812" }) => {
+import { useContext } from "react";
+import { DataContext } from "~/providers/DataProvider";
+
+const TotalHNY = ({ amount }) => {
+  const { TOTAL_HNY_FUNDING_SUM } = useContext(DataContext);
+
   return (
     <div className="flex-auto p-4 ">
       <div className="flex flex-wrap">
@@ -6,8 +11,8 @@ const TotalHNY = ({ amount = "6812" }) => {
           <div className="flex flex-col h-full">
             <h2 className="pt-2 mb-4">TOTAL HNY for funding Proposals</h2>
             <h3 className="text-5xl">
-              {amount}
-              <span className="text-sm"> +450</span>
+              {TOTAL_HNY_FUNDING_SUM}
+              <span className="text-sm">{"+ 450"}</span>
             </h3>
 
             <p className="mb-44">...</p>

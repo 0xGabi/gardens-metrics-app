@@ -5,7 +5,7 @@ import {
   formatAmount_STRING,
   formatAmount,
   formatDate,
-} from "../format";
+} from "~/lib/format";
 
 const gql = String.raw;
 

@@ -1,14 +1,16 @@
 const InfoCard = ({ title, number }) => {
   return (
-    <div className="flex-1 px-3 mb-6  xl:mb-0  ">
-      <div className="relative flex flex-col min-w-0 break-words bg-gray-800 shadow-soft-xl rounded-2xl bg-clip-border">
+    <div className="flex-1 px-3 mb-6  xl:mb-0 border-2  border-[#243c5a] mx-4  rounded-2xl bg-clip-border bg-[#05295D">
+      <div className="relative flex flex-col min-w-0 break-words bg-[#05295D]shadow-soft-xl ">
         <div className="flex-auto p-4 ">
           <div className="flex flex-row -mx-3">
             <div className="flex-none w-2/3 max-w-full px-3">
-              <p className="mb-0 font-sans font-semibold leading-normal text-sm text-xl">
+              <p className="mb-0 font-sans  leading-normal text-sm text-xl">
                 {title}
               </p>
-              <h3 className="mb-0 font-bold text-3xl ">{number}</h3>
+              <h3 className="mb-0 font-semibold text-3xl md:text-5xl 	">
+                {number}
+              </h3>
             </div>
 
             <div className="px-3 text-right basis-1/3">
