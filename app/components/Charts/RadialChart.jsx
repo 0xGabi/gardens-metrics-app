@@ -5,7 +5,7 @@ const RadialCharttt = ({ data, totalSum }) => {
   const theme = useTheme();
 
   return (
-    <div className="border-dotted border-2 border-sky-100 h-96 mt-5 w-full flex flex-col">
+    <div className="border-dotted border-2 border-sky-100 h-[496px] mt-5 w-full flex flex-col">
       {/* <div>{datafrom2022.sumTotalYear}</div>
   <div>{datafrom2021.sumTotalYear}</div> */}
       <ResponsiveRadialBar

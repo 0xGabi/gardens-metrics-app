@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { DataContext } from "~/providers/DataProvider";
+import CountUp from "react-countup";
 
-const TotalHNY = ({ amount }) => {
+const TotalHNY = ({}) => {
   const { TOTAL_HNY_FUNDING_SUM } = useContext(DataContext);
 
   return (
@@ -11,8 +12,14 @@ const TotalHNY = ({ amount }) => {
           <div className="flex flex-col h-full">
             <h2 className="pt-2 mb-4">TOTAL HNY for funding Proposals</h2>
             <h3 className="text-5xl">
-              {TOTAL_HNY_FUNDING_SUM}
-              <span className="text-sm">{"+ 450"}</span>
+              <CountUp
+                end={TOTAL_HNY_FUNDING_SUM}
+                duration={1.3}
+                enableScrollSpy={true}
+                scrollSpyDelay={1000}
+                prefix=""
+              ></CountUp>
+              <span className="text-sm">{"+ 36.77"}</span>
             </h3>
 
             <p className="mb-44">...</p>

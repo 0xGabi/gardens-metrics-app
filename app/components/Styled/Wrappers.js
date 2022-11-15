@@ -18,12 +18,12 @@ export const SectionOne = ({ children }) => {
 };
 
 export const RadialChartWrapper = ({ children }) => {
-  return <div className="min-w-full flex-col flex h-fit p-4	 ">{children}</div>;
+  return <div className=" flex-col flex h-fit p-4 mt-2">{children}</div>;
 };
 
 export const ChartsWrap = ({ children }) => {
   return (
-    <div className="ms:flex-col  md:flex mt-5 p-3 mb-2 border-dashed border-2 border-sky-800">
+    <div className="ms:flex-col  md:flex mt-5 p-3 mb-2 border-dashed border-2 border-sky-300 h-full">
       {children}
     </div>
   );

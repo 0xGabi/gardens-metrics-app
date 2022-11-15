@@ -14,16 +14,31 @@ import RadialChartsComponent from "~/components/Charts/RadialChartsComponent";
 import Slider from "~/components/helpers/Slider";
 // import NetworkChart from "./Charts/NetworkChart";
 import Sankey from "~/components/Charts/Sankey";
+import AddressFlow from "../Charts/AddressFlow";
+
+import { IconCoin, IconUser, IconGroup } from "@1hive/1hive-ui";
 
 const Main = () => {
-  const { ProposalsCount } = useContext(DataContext);
+  const { ProposalsCount, SumTotalBeneficiaries } = useContext(DataContext);
 
   return (
     <>
       <CardsWrap>
-        <InfoCard title={"Proposals"} number={ProposalsCount} />
-        <InfoCard title={"Beneficiaries"} number={"37"} />
-        <InfoCard title={"Contributors"} number={"84"} />
+        <InfoCard
+          title={"Funding Proposals"}
+          number={ProposalsCount}
+          icon={<IconCoin size="large" />}
+        />
+        <InfoCard
+          title={"Beneficiaries"}
+          number={SumTotalBeneficiaries}
+          icon={<IconUser size="large" />}
+        />
+        <InfoCard
+          title={"Contributors"}
+          number={"84"}
+          icon={<IconGroup size="large" />}
+        />
       </CardsWrap>
       {/* chart */}
       <SectionOne>
@@ -36,7 +51,8 @@ const Main = () => {
           <RadialChartsComponent />
         </ChartsWrap>
       </RadialChartWrapper>
-      <Sankey />
+      {/* <Sankey />
+      <AddressFlow /> */}
       {/* <NetworkChart /> */}
     </>
   );

@@ -5,6 +5,7 @@ import {
   formatAmount_STRING,
   formatAmount,
   formatDate,
+  formatDate_TWO,
 } from "~/lib/format";
 
 const gql = String.raw;
@@ -30,6 +31,7 @@ const parseGardensOutflowsResult = (gardenResult: GardenResult) => {
     address: data.beneficiary,
     beneficiary: formatAddress(data.beneficiary),
     requestedAmount: formatAmount_STRING(data.requestedAmount),
+    date: formatDate_TWO(data.transferAt),
     transferAt: {
       month: formatDate(data.transferAt).slice(0, 3),
       year: formatDate(data.transferAt).slice(-4),

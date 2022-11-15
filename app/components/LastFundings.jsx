@@ -1,23 +1,108 @@
-import React from "react";
+import { useContext } from "react";
+import { DataContext } from "~/providers/DataProvider";
+import {
+  Table,
+  TableHeader,
+  TableRow,
+  TableCell,
+  Text,
+  useViewport,
+  IdentityBadge,
+} from "@1hive/1hive-ui";
 
 const LastFundings = () => {
+  const { LastProposals } = useContext(DataContext);
+  const { below } = useViewport();
+
   return (
-    <div className="realtive z-10 flex flex-col flex-aut0 h-fit mt-8 px-3  md:w-1/3 ">
-      <h5 className="pt-2 mb-6 font-bold text-white">
-        Last Fundings Proposals
-      </h5>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
-        perferendis ab facere temporibus labore nihil est dolorem quidem dolores
-        cumque?
-      </p>
-      <p className="mt-8">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
-        perferendis ab facere temporibus labore nihil est dolorem quidem dolores
-        cumque?
-      </p>
+    <div className="realtive z-10 flex flex-col flex-aut0 h-fit mt-4   md:w-1/3  rounded-2xl bg-clip-border mb-10 px-6   ">
+      <div className="border-black/12.5 shadow-soft-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-[#041F46] bg-clip-border  ">
+        <div className="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solidbg-[#041F46] p-2 pb-0 ">
+          <div className="flex flex-wrap mt-0 -mx-3">
+            <div className="flex-none w-7/12 max-w-full px-3 mt-0 lg:w-1/2 lg:flex-none">
+              <h3>Last Fundings Proposals</h3>
+            </div>
+            <div className="flex-none w-5/12 max-w-full px-3 my-auto text-right lg:w-1/2 lg:flex-none">
+              <small>svg</small>
+            </div>
+          </div>
+        </div>
+        <div className="mb-4 mt-4">
+          <div className="">
+            <table class="w-full">
+              <thead>
+                <tr className="mb-8">
+                  <th className="w-1/2 border-solid py-4">Beneficiary</th>
+                  <th className="w-1/5 border-solid">Amount</th>
+                  <th className="w-1/5 border-solid">Date</th>
+                </tr>
+              </thead>
+              <tbody className="mt-4">
+                {LastProposals.map((proposal) => (
+                  <tr className="px-8">
+                    {below(1500) ? (
+                      <td className="w-fit border-t-2 border-[#063374]  py-4 text-middle px-3 ">
+                        <IdentityBadge
+                          customLabel={proposal.beneficiary}
+                          entity={proposal.address}
+                        />
+                      </td>
+                    ) : (
+                      <td className="w-fit border-t-2 border-[#063374]  py-4 text-middle px-3 text-center ">
+                        <IdentityBadge
+                          customLabel={proposal.address}
+                          entity={proposal.address}
+                        />
+                      </td>
+                    )}
+
+                    <td className="border-t-2 border-[#063374]   text-center">
+                      {proposal.requestedAmount}
+                    </td>
+                    <td className="text-center border-t-2 border-[#063374] px-3">
+                      {proposal.date}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
+//ui 1hive
+{
+  /* <Table
+          noSideBorders={true}
+          header={
+            <TableRow>
+              <TableHeader title="Beneficiary" />
+              <TableHeader title="Amount" />
+              <TableHeader title="Month" />
+              <TableHeader title="Year" />
+            </TableRow>
+          }
+        >
+          {LastProposals.map((proposal) => (
+            <TableRow>
+              <TableCell>
+                <Text>{proposal.beneficiary}</Text>
+              </TableCell>
+              <TableCell>
+                <Text>{proposal.requestedAmount}</Text>
+              </TableCell>
+              <TableCell>
+                <Text>{proposal.transferAt.month}</Text>
+              </TableCell>
+              <TableCell>
+                <Text>{proposal.transferAt.year}</Text>
+              </TableCell>
+            </TableRow>
+          ))}
+        </Table>
+        */
+}
 
 export default LastFundings;

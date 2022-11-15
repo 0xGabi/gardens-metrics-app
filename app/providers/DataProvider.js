@@ -1,5 +1,5 @@
 import { useLoaderData } from "@remix-run/react";
-import { createContext } from "react";
+import { createContext, useEffect } from "react";
 import { useState } from "react";
 import { filtereByMonthAndYear, MONTHS } from "~/lib/funcs";
 
@@ -11,10 +11,12 @@ export const DataProvider = ({ children }) => {
 
   //valores y funcs para el Slider
   const [values, setValues] = useState([0, 11]);
+
   const sliceFunc = (array, start, end) => {
     const newArr = array.slice(start, end);
     return newArr;
   };
+  //filtra los meses de acuerdo al Slider
   const sliceame = sliceFunc(MONTHS, values[0], values[1]);
   //
 
@@ -27,8 +29,22 @@ export const DataProvider = ({ children }) => {
   //cantidad de propuestas:
   const ProposalsCount = outflows.length;
 
+  //data filtrada para RadialChart, año 21, 22
   const dataFrom2021 = filtereByMonthAndYear(outflows, sliceame, "2021");
   const dataFrom2022 = filtereByMonthAndYear(outflows, sliceame, "2022");
+
+  //get the total of beneficiaries
+  const Beneficaries_SUM = outflows.reduce(function (acc, v) {
+    acc[v.address] = (acc[v.address] || 0) + Number(v.requestedAmount);
+    return acc;
+  }, {});
+  const SumTotalBeneficiaries = Object.values(Beneficaries_SUM).length;
+  //
+
+  //get the last 3 fundings proposals
+  const LastProposals = outflows.slice(-3);
+
+  console.log(LastProposals);
 
   return (
     <DataContext.Provider
@@ -41,6 +57,8 @@ export const DataProvider = ({ children }) => {
         values,
         setValues,
         MONTHS,
+        SumTotalBeneficiaries,
+        LastProposals,
       }}
     >
       {children}
