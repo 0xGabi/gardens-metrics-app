@@ -27,7 +27,7 @@ const LastFundings = () => {
             </div>
           </div>
         </div>
-        <div className="mb-4 mt-4">
+        <div className="mb-2 mt-4">
           <div className="">
             <table class="w-full">
               <thead>
@@ -37,7 +37,7 @@ const LastFundings = () => {
                   <th className="w-1/5 border-solid">Date</th>
                 </tr>
               </thead>
-              <tbody className="mt-4">
+              <tbody className="mt-2">
                 {LastProposals.map((proposal) => (
                   <tr className="px-8">
                     {below(1500) ? (
@@ -52,6 +52,7 @@ const LastFundings = () => {
                         <IdentityBadge
                           customLabel={proposal.address}
                           entity={proposal.address}
+                          
                         />
                       </td>
                     )}

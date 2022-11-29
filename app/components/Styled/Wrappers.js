@@ -1,7 +1,7 @@
 //Wraps all the info area, NOT the sideBar
 export const MainWrapper = ({ children }) => {
   return (
-    <div className="w-full px-6 py-6 border-solid border-2 border-sky-500  ">
+    <div className="w-full px-6 py-6">
       <div className=""></div>
       {children}
     </div>
@@ -9,7 +9,11 @@ export const MainWrapper = ({ children }) => {
 };
 //Wraps the InfoCards component
 export const CardsWrap = ({ children }) => {
-  return <div className="flex flex-wrap ">{children}</div>;
+  return (
+    <div className="flex flex-col xl:flex-row flex-wrap -mx-3 border-2 border-[#067427]">
+      {children}
+    </div>
+  );
 };
 
 //Wraps sectionOne --- Info, Total HNY + hny SVG

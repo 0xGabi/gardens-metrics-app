@@ -14,10 +14,8 @@ const TotalHNY = ({}) => {
             <h3 className="text-5xl">
               <CountUp
                 end={TOTAL_HNY_FUNDING_SUM}
-                duration={1.3}
-                enableScrollSpy={true}
+                duration={1.1}
                 scrollSpyDelay={1000}
-                prefix=""
               ></CountUp>
               <span className="text-sm">{"+ 36.77"}</span>
             </h3>
