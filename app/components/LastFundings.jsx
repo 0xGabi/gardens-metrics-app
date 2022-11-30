@@ -15,11 +15,11 @@ const LastFundings = () => {
   const { below } = useViewport();
 
   return (
-    <div className="realtive z-10 flex flex-col flex-aut0 h-fit mt-4   md:w-1/3  rounded-2xl bg-clip-border mb-10 px-6   ">
+    <div className="flex flex-col flex-auto min-h-fit rounded-2xl bg-clip-border mb-10 px-3 w-full max-w-full lg:w-5/12 ">
       <div className="border-black/12.5 shadow-soft-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-[#041F46] bg-clip-border  ">
-        <div className="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solidbg-[#041F46] p-2 pb-0 ">
-          <div className="flex flex-wrap mt-0 -mx-3">
-            <div className="flex-none w-7/12 max-w-full px-3 mt-0 lg:w-1/2 lg:flex-none">
+        <div className="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid bg-[#041F46] p-2 pb-0 ">
+          <div className="flex flex-wrap -mx-3">
+            <div className="flex-none w-7/12 max-w-full px-3 mt-2 lg:w-1/2 lg:flex-none">
               <h3>Last Fundings Proposals</h3>
             </div>
             <div className="flex-none w-5/12 max-w-full px-3 my-auto text-right lg:w-1/2 lg:flex-none">
@@ -31,15 +31,15 @@ const LastFundings = () => {
           <div className="">
             <table class="w-full">
               <thead>
-                <tr className="mb-8">
-                  <th className="w-1/2 border-solid py-4">Beneficiary</th>
+                <tr className="">
+                  <th className="w-1/2 border-solid py-10">Beneficiary</th>
                   <th className="w-1/5 border-solid">Amount</th>
                   <th className="w-1/5 border-solid">Date</th>
                 </tr>
               </thead>
               <tbody className="mt-2">
                 {LastProposals.map((proposal) => (
-                  <tr className="px-8">
+                  <tr className="px-3">
                     {below(1500) ? (
                       <td className="w-fit border-t-2 border-[#063374]  py-4 text-middle px-3 ">
                         <IdentityBadge
@@ -48,11 +48,10 @@ const LastFundings = () => {
                         />
                       </td>
                     ) : (
-                      <td className="w-fit border-t-2 border-[#063374]  py-4 text-middle px-3 text-center ">
+                      <td className="w-fit border-t-2 border-[#063374]  py-4 text-middle text-center ">
                         <IdentityBadge
                           customLabel={proposal.address}
                           entity={proposal.address}
-                          
                         />
                       </td>
                     )}

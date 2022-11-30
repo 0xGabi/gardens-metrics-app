@@ -10,15 +10,13 @@ export const MainWrapper = ({ children }) => {
 //Wraps the InfoCards component
 export const CardsWrap = ({ children }) => {
   return (
-    <div className="flex flex-col xl:flex-row flex-wrap -mx-3 border-2 border-[#067427]">
-      {children}
-    </div>
+    <div className="flex flex-col xl:flex-row flex-wrap -mx-3 ">{children}</div>
   );
 };
 
 //Wraps sectionOne --- Info, Total HNY + hny SVG
 export const SectionOne = ({ children }) => {
-  return <section className="flex-wrap md:flex mt-10">{children}</section>;
+  return <section className="flex flex-wrap mt-6 -mx-3 ]">{children}</section>;
 };
 
 export const RadialChartWrapper = ({ children }) => {
