@@ -727,10 +727,6 @@ video {
   margin-left: 0.25rem;
 }
 
-.mt-8 {
-  margin-top: 2rem;
-}
-
 .block {
   display: block;
 }
@@ -952,10 +948,6 @@ video {
 
 .overflow-y-scroll {
   overflow-y: scroll;
-}
-
-.overscroll-contain {
-  overscroll-behavior: contain;
 }
 
 .whitespace-nowrap {

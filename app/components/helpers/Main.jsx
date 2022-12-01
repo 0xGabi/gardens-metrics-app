@@ -51,8 +51,8 @@ const Main = () => {
           <RadialChartsComponent />
         </ChartsWrap>
       </RadialChartWrapper>
-      <Sankey />
-      <AddressFlow />
+      {/* <Sankey />
+      <AddressFlow /> */}
     </>
   );
 };

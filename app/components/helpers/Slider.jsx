@@ -22,7 +22,7 @@ const Slider = () => {
   };
 
   return (
-    <div className="">
+    <div className="mt-4">
       <Track {...getTrackProps()}>
         {ticks.map(({ value }) => (
           <Tick>
@@ -55,8 +55,8 @@ export default Slider;
 
 export const Track = styled("div")`
   display: block;
-  height: 8px;
-  width: 97%;
+  height: 6px;
+  width: 98%;
   margin: auto;
 `;
 
@@ -65,7 +65,6 @@ export const Tick = styled("div")`
     content: "";
     position: absolute;
     left: 0;
-    background: rgba(0, 0, 0, 0.2);
     height: 5px;
     width: 2px;
     transform: translate(-50%, 0.7rem);
@@ -86,7 +85,7 @@ export const Segment = styled("div")`
     props.index === 0
       ? "rgb(124 224 214)"
       : props.index === 1
-      ? "#65779a"
+      ? "#063374"
       : props.index === 2
       ? "rgb(124 224 214)"
       : "rgb(124 224 214)"};

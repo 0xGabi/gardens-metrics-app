@@ -22,11 +22,7 @@ export const AppLayout = ({
 
   return (
     <Container compactMode={compactMode} tabletMode={tabletMode}>
-      {displayTopBar && (
-        <div style={{ flex: "none" }}>
-          <TopBar />
-        </div>
-      )}
+      {displayTopBar && <div style={{ flex: "none" }}>{/* <TopBar /> */}</div>}
       <ChildrenWrapper>{children}</ChildrenWrapper>
       {displayBottomBar && (
         <div style={{ flex: "none" }}>

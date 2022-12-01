@@ -1,7 +1,7 @@
 //Wraps all the info area, NOT the sideBar
 export const MainWrapper = ({ children }) => {
   return (
-    <div className="w-full px-6 py-6">
+    <div className="w-full px-6 overflow-y-scroll overscroll-contain">
       <div className=""></div>
       {children}
     </div>
@@ -16,16 +16,22 @@ export const CardsWrap = ({ children }) => {
 
 //Wraps sectionOne --- Info, Total HNY + hny SVG
 export const SectionOne = ({ children }) => {
-  return <section className="flex flex-wrap mt-6 -mx-3 ]">{children}</section>;
+  return (
+    <section className="flex flex-wrap mt-6 -mx-3 -z-50">{children}</section>
+  );
 };
 
 export const RadialChartWrapper = ({ children }) => {
-  return <div className=" flex-col flex h-fit p-4 mt-2">{children}</div>;
+  return (
+    <div className="flex flex-col rounded-2xl bg-clip-border bg-[#041F46] h-content">
+      {children}
+    </div>
+  );
 };
 
 export const ChartsWrap = ({ children }) => {
   return (
-    <div className="ms:flex-col  md:flex mt-5 p-3 mb-2 border-dashed border-2 border-sky-300 h-full">
+    <div className="flex flex-col lg:flex-row mb-2 bg-[#041F46]">
       {children}
     </div>
   );

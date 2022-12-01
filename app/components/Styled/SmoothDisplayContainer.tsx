@@ -13,7 +13,7 @@ export const SmoothDisplayContainer = ({
 
   return (
     <a.div
-      className="flex min-h-screen "
+      className="h-full max-h-screen rounded-xl transition-all duration-200 flex"
       style={{
         ...smoothDisplayStyles,
         width: "100%",

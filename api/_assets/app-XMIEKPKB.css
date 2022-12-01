@@ -727,10 +727,6 @@ video {
   margin-left: 0.25rem;
 }
 
-.mt-8 {
-  margin-top: 2rem;
-}
-
 .block {
   display: block;
 }
@@ -789,14 +785,6 @@ video {
 
 .h-8 {
   height: 2rem;
-}
-
-.h-48 {
-  height: 12rem;
-}
-
-.h-24 {
-  height: 6rem;
 }
 
 .max-h-screen {
@@ -948,14 +936,6 @@ video {
 
 .overflow-y-auto {
   overflow-y: auto;
-}
-
-.overflow-y-scroll {
-  overflow-y: scroll;
-}
-
-.overscroll-contain {
-  overscroll-behavior: contain;
 }
 
 .whitespace-nowrap {

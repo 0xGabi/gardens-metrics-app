@@ -2,8 +2,9 @@ import { DataProvider } from "~/providers/DataProvider";
 
 import { MainWrapper } from "./Styled/Wrappers";
 
-import SideBar from "../components/helpers/SideBar";
+import SideBar from "./SideBar";
 import Main from "~/components/helpers/Main";
+import TopNav from "./TopNav";
 
 const Outflows = () => {
   return (
@@ -11,6 +12,7 @@ const Outflows = () => {
       <DataProvider>
         <SideBar />
         <MainWrapper>
+          <TopNav />
           <Main />
         </MainWrapper>
       </DataProvider>
