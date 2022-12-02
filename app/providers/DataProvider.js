@@ -29,11 +29,11 @@ export const DataProvider = ({ children }) => {
   //cantidad de propuestas:
   const ProposalsCount = outflows.length;
 
-  //data filtrada para RadialChart, año 21, 22
+  //data filtrada para RadialChart, año 2021, 2022
   const dataFrom2021 = filtereByMonthAndYear(outflows, sliceame, "2021");
   const dataFrom2022 = filtereByMonthAndYear(outflows, sliceame, "2022");
 
-  //get the total of beneficiaries
+  //total  beneficiaries
   const Beneficaries_SUM = outflows.reduce(function (acc, v) {
     acc[v.address] = (acc[v.address] || 0) + Number(v.requestedAmount);
     return acc;

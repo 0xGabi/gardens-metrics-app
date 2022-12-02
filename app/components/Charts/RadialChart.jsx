@@ -1,11 +1,16 @@
+import { RefContext } from "~/providers/RefProvider";
+import { useContext } from "react";
 import { ResponsiveRadialBar } from "@nivo/radial-bar";
 import { useTheme } from "@1hive/1hive-ui";
 
 const RadialCharttt = ({ data, totalSum }) => {
   const theme = useTheme();
+  const { ChartRef } = useContext(RefContext);
+
+  console.log(ChartRef);
 
   return (
-    <div className="h-[696px] mt-5 w-full flex flex-col">
+    <div ref={ChartRef} className="h-[696px] mt-5 w-full flex flex-col">
       <ResponsiveRadialBar
         data={data}
         startAngle={-136}

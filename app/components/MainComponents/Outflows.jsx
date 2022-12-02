@@ -1,6 +1,6 @@
 import { DataProvider } from "~/providers/DataProvider";
 
-import { useState } from "react";
+import { RefProvider } from "~/providers/RefProvider";
 
 import { MainWrapper } from "../Styled/Wrappers";
 
@@ -13,11 +13,13 @@ const Outflows = () => {
   return (
     <>
       <DataProvider>
-        <SideBar />
-        <MainWrapper>
-          <TopNav />
-          <Main />
-        </MainWrapper>
+        <RefProvider>
+          <SideBar />
+          <MainWrapper>
+            <TopNav />
+            <Main />
+          </MainWrapper>
+        </RefProvider>
       </DataProvider>
     </>
   );

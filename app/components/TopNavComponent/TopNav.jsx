@@ -11,7 +11,7 @@ const TopNav = () => {
     <>
       <nav
         className={
-          "bg-white px-2 sm:px-4 py-4  fixed w-full z-20 top-0 left-0 bg-[#031A3A] sticky transition-all shadow-none duration-550 ease-soft-in rounded-2xl mb-8"
+          "px-2 sm:px-4 py-4  fixed w-full z-20 top-0 left-0 bg-[#031A3A] sticky transition-all shadow-none duration-550 ease-soft-in rounded-2xl mb-8 border-2"
         }
       >
         <div className="flex flex-wrap items-center justify-between">
