@@ -21,6 +21,7 @@ export const SectionOne = ({ children }) => {
   );
 };
 
+//Wraps Slider and the Charts=Wrap
 export const RadialChartWrapper = ({ children }) => {
   return (
     <div className="flex flex-col rounded-2xl bg-clip-border bg-[#041F46] h-content">
@@ -29,10 +30,40 @@ export const RadialChartWrapper = ({ children }) => {
   );
 };
 
+//Wraps the RadialChart
 export const ChartsWrap = ({ children }) => {
   return (
     <div className="flex flex-col lg:flex-row mb-2 bg-[#041F46]">
       {children}
     </div>
+  );
+};
+
+//Wraps entire SideBar
+export const SideBarWrapper = ({ children, toggle }) => {
+  // const [toggleSidebar, setToogleSidebar] = useState(false);
+  // const toggleClass = "fixed top-0 left-0 z-30 bg-[#031A3A]";
+
+  // const openLargeScreen =
+  //   "hidden lg:block min-w-62.5 h-screen shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 xl:bg-transparent ml-4  mr-4 2xl:mr-8 border-2";
+
+  // const closeMediumScreen =
+  //   "fixed top-0 left-0 z-30 bg-[#031A3A] min-w-62.5 h-screen shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 xl:bg-transparent ml-4  mr-4 2xl:mr-8 border-2 lg:relative block";
+
+  return (
+    <aside
+      className={
+        "hidden lg:block min-w-62.5 h-screen shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 xl:bg-transparent ml-4  mr-4 2xl:mr-8"
+        // toggle ? openLargeScreen : closeMediumScreen
+
+        // +
+        // // "fixed top-0 left-0 z-30 bg-[#031A3A]"
+        // "hidden lg:relative block min-w-62.5 h-screen shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 xl:bg-transparent ml-4  mr-4 2xl:mr-8 border-2"
+        // +
+        // (toggle ? null : toggleClass)
+      }
+    >
+      {children}
+    </aside>
   );
 };

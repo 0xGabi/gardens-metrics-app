@@ -1,6 +1,7 @@
-import { useContext } from "react";
 import { DataContext } from "~/providers/DataProvider";
+import { useContext } from "react";
 import CountUp from "react-countup";
+import { Tag } from "@1hive/1hive-ui";
 
 const TotalHNY = ({}) => {
   const { TOTAL_HNY_FUNDING_SUM } = useContext(DataContext);
@@ -19,7 +20,10 @@ const TotalHNY = ({}) => {
                     duration={1.1}
                     scrollSpyDelay={1000}
                   ></CountUp>
-                  <span className="text-sm">{"+ 36.77"}</span>
+                  <Tag className="ml-2 animate-pulse " background={"#041F46"}>
+                    {"+ 85"}
+                  </Tag>
+                  {/* <span className="text-sm">{"+ 36.77"}</span> */}
                 </h3>
 
                 <p className="mb-44"></p>

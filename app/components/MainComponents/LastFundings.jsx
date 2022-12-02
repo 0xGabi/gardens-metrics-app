@@ -1,14 +1,6 @@
 import { useContext } from "react";
 import { DataContext } from "~/providers/DataProvider";
-import {
-  Table,
-  TableHeader,
-  TableRow,
-  TableCell,
-  Text,
-  useViewport,
-  IdentityBadge,
-} from "@1hive/1hive-ui";
+import { Tag, useViewport, IdentityBadge } from "@1hive/1hive-ui";
 
 const LastFundings = () => {
   const { LastProposals } = useContext(DataContext);
@@ -57,7 +49,12 @@ const LastFundings = () => {
                     )}
 
                     <td className="border-t-2 border-[#063374]   text-center">
-                      {proposal.requestedAmount}
+                      <Tag
+                        className="ml-2 animate-pulse"
+                        background={"#041F46"}
+                      >
+                        {proposal.requestedAmount}
+                      </Tag>
                     </td>
                     <td className="text-center border-t-2 border-[#063374] px-3">
                       {proposal.date}

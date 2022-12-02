@@ -7,7 +7,7 @@ import {
 import { useCatch } from "@remix-run/react";
 import { AppScreen } from "~/components/AppLayout/AppScreen";
 import { SmoothDisplayContainer } from "~/components/Styled/SmoothDisplayContainer";
-import Outflows from "~/components/Outflows";
+import Outflows from "~/components/MainComponents/Outflows";
 
 export const loader: LoaderFunction = async () => {
   const gardensOutflows = await fetchGardensOutflows();

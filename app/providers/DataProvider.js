@@ -44,8 +44,6 @@ export const DataProvider = ({ children }) => {
   //get the last 3 fundings proposals
   const LastProposals = outflows.slice(-3);
 
-  console.log(LastProposals);
-
   return (
     <DataContext.Provider
       value={{

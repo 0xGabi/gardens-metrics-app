@@ -1,12 +1,15 @@
 import { DataProvider } from "~/providers/DataProvider";
 
-import { MainWrapper } from "./Styled/Wrappers";
+import { useState } from "react";
 
-import SideBar from "./SideBar";
+import { MainWrapper } from "../Styled/Wrappers";
+
+import SideBar from "../SideBarComponents/SideBar";
 import Main from "~/components/helpers/Main";
-import TopNav from "./TopNav";
+import TopNav from "../TopNavComponent/TopNav";
 
 const Outflows = () => {
+  // const [toggleSidebar, setToogleSidebar] = useState(false);
   return (
     <>
       <DataProvider>

@@ -7,9 +7,9 @@ import {
   ChartsWrap,
 } from "../Styled/Wrappers";
 
-import InfoCard from "../InfoCard";
-import TotalHNY from "~/components/TotalHNY";
-import LastFundings from "~/components/LastFundings";
+import InfoCard from "../MainComponents/InfoCard";
+import TotalHNY from "~/components/MainComponents/TotalHNY";
+import LastFundings from "~/components/MainComponents/LastFundings";
 import RadialChartsComponent from "~/components/Charts/RadialChartsComponent";
 import Slider from "~/components/helpers/Slider";
 // import NetworkChart from "./Charts/NetworkChart";
