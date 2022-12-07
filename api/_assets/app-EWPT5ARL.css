@@ -1543,10 +1543,6 @@ video {
 }
 
 @media (min-width: 1024px) {
-  .lg\:absolute {
-    position: absolute;
-  }
-
   .lg\:relative {
     position: relative;
   }
@@ -1642,10 +1638,6 @@ video {
 @media (min-width: 1536px) {
   .\32xl\:top-20 {
     top: 5rem;
-  }
-
-  .\32xl\:top-0 {
-    top: 0px;
   }
 
   .\32xl\:mr-8 {

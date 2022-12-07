@@ -1,8 +1,9 @@
 import { DataContext } from "~/providers/DataProvider";
 import { useContext } from "react";
 import CountUp from "react-countup";
+import HoneyAmount from "../helpers/HoneyAmount";
 import { Tag } from "@1hive/1hive-ui";
-import iconHoney from "~/assets/honey_logo_dark.png";
+
 import beeSvg from "~/assets/bee.svg";
 
 const TotalHNY = ({}) => {
@@ -14,21 +15,27 @@ const TotalHNY = ({}) => {
         <div className="flex-auto p-4 ">
           <div className="flex flex-col xl:flex-row -mx-3 ">
             <div className="max-w-full px-3 lg:w-1/2 lg:flex-none ">
-              <div className="flex flex-col h-full">
-                <h2 className="pt-2 mb-4">TOTAL HNY for funding Proposals</h2>
-                <h3 className="text-5xl">
-                  <CountUp
-                    end={TOTAL_HNY_FUNDING_SUM}
-                    duration={1.1}
-                    scrollSpyDelay={1000}
-                  ></CountUp>
-                  <Tag className="animate-pulse " background={"#041F46"}>
-                    {"+85"}
-                  </Tag>
-                  {/* <span className="text-sm">{"+ 36.77"}</span> */}
-                </h3>
+              <div className="flex flex-col h-full relative  ">
+                <h2 className="pt-2 mb-4 text-center ">
+                  TOTAL HNY for funding Proposals
+                </h2>
+                <div className=" w-full py-3 flex items-center justify-evenly lg:absolute top-20 2xl:top-25 justify-around ">
+                  <div className="">
+                    <HoneyAmount h={12} w={12} />
+                  </div>
+                  <div className="">
+                    <h3 className="text-6xl 2xl:text-9xl">
+                      <CountUp
+                        end={TOTAL_HNY_FUNDING_SUM}
+                        duration={1.1}
+                        scrollSpyDelay={1000}
+                      ></CountUp>
+                    </h3>
+                  </div>
 
-                <p className="mb-44"></p>
+                  {/* <span className="text-sm">{"+ 36.77"}</span> */}
+                </div>
+                <p className="mb-32"></p>
               </div>
             </div>
             <div className="max-w-full px-3 lg:w-1/2  lg:flex-none  ">

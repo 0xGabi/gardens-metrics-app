@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import { DataContext } from "~/providers/DataProvider";
+import HoneyAmount from "../helpers/HoneyAmount";
+
 import { Tag, useViewport, IdentityBadge } from "@1hive/1hive-ui";
 
 const LastFundings = () => {
@@ -8,14 +10,15 @@ const LastFundings = () => {
 
   return (
     <div className="flex flex-col flex-auto min-h-fit rounded-2xl bg-clip-border mb-10 px-3 w-full max-w-full lg:w-5/12 ">
-      <div className="border-black/12.5 shadow-soft-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-[#041F46] bg-clip-border  ">
-        <div className="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid bg-[#041F46] p-2 pb-0 ">
-          <div className="flex flex-wrap -mx-3">
-            <div className="flex-none w-7/12 max-w-full px-3 mt-2 lg:w-1/2 lg:flex-none">
-              <h3>Last Fundings Proposals</h3>
+      <div className="border-black/12.5 shadow-soft-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-[#041F46] bg-clip-border">
+        <div className="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid bg-[#041F46] p-2 pb-0">
+          <div className="flex flex-wrap">
+            <div className="w-full">
+              <h3 className="text-center">Last Fundings Proposals</h3>
             </div>
             <div className="flex-none w-5/12 max-w-full px-3 my-auto text-right lg:w-1/2 lg:flex-none">
-              <small>svg</small>
+              {/* possible svg ??? */}
+              {/* <small>svg</small> */}
             </div>
           </div>
         </div>
@@ -24,7 +27,9 @@ const LastFundings = () => {
             <table class="w-full">
               <thead>
                 <tr className="">
-                  <th className="w-1/2 border-solid py-10">Beneficiary</th>
+                  <th className="w-1/2 border-solid py-4 2xl:py-8">
+                    Beneficiary
+                  </th>
                   <th className="w-1/5 border-solid">Amount</th>
                   <th className="w-1/5 border-solid">Date</th>
                 </tr>
@@ -49,12 +54,13 @@ const LastFundings = () => {
                     )}
 
                     <td className="border-t-2 border-[#063374]   text-center">
-                      <Tag
+                      {/* <Tag
                         className="ml-2 animate-pulse"
                         background={"#041F46"}
                       >
                         {proposal.requestedAmount}
-                      </Tag>
+                      </Tag> */}
+                      <HoneyAmount amount={proposal.requestedAmount} />
                     </td>
                     <td className="text-center border-t-2 border-[#063374] px-3">
                       {proposal.date}

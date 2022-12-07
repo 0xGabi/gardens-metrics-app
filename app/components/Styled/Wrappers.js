@@ -17,14 +17,16 @@ export const CardsWrap = ({ children }) => {
 //Wraps sectionOne --- Info, Total HNY + hny SVG
 export const SectionOne = ({ children }) => {
   return (
-    <section className="flex flex-wrap mt-8 mb-8 -z-50 ">{children}</section>
+    <section className="flex flex-wrap mt-14 mb-12 lg:mb-6 2xl:mb-12 -z-50  ">
+      {children}
+    </section>
   );
 };
 
 //Wraps Slider and the Charts=Wrap
 export const RadialChartWrapper = ({ children }) => {
   return (
-    <div className="flex flex-col rounded-2xl bg-clip-border bg-[#041F46] h-content">
+    <div className="flex flex-col rounded-2xl bg-clip-border bg-[#041F46] h-content  mb-12">
       {children}
     </div>
   );
@@ -45,7 +47,7 @@ export const SideBarWrapper = ({ children, toggle }) => {
   // const toggleClass = "fixed top-0 left-0 z-30 bg-[#031A3A]";
 
   // const openLargeScreen =
-  //   "hidden lg:block min-w-62.5 h-screen shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 xl:bg-transparent ml-4  mr-4 2xl:mr-8 border-2";
+  //   "hidden lg:block min-w-62.5 h-screen shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 xl:bg-transparent ml-4  mr-4 2xl:mr-8 ";
 
   // const closeMediumScreen =
   //   "fixed top-0 left-0 z-30 bg-[#031A3A] min-w-62.5 h-screen shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 xl:bg-transparent ml-4  mr-4 2xl:mr-8 border-2 lg:relative block";

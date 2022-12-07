@@ -1543,10 +1543,6 @@ video {
 }
 
 @media (min-width: 1024px) {
-  .lg\:absolute {
-    position: absolute;
-  }
-
   .lg\:relative {
     position: relative;
   }
@@ -1644,10 +1640,6 @@ video {
     top: 5rem;
   }
 
-  .\32xl\:top-0 {
-    top: 0px;
-  }
-
   .\32xl\:mr-8 {
     margin-right: 2rem;
   }
@@ -1683,10 +1675,5 @@ video {
 
   .\32xl\:pr-24 {
     padding-right: 6rem;
-  }
-
-  .\32xl\:text-9xl {
-    font-size: 8rem;
-    line-height: 1;
   }
 }

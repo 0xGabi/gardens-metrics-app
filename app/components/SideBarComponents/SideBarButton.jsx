@@ -4,10 +4,8 @@ import { useContext } from "react";
 const SideBarButton = ({ Icon, Img, Title, item }) => {
   const { handleScroll } = useContext(RefContext);
 
-  const { ChartRef } = useContext(RefContext);
-
   return (
-    <li className="w-full cursor-pointer mb-4">
+    <li className="w-full cursor-pointer mb-4 2xl:mb-8">
       <button
         onMouseEnter={() => handleScroll(item)}
         className="text-m rounded-2xl bg-clip-border font-semibold text-slate-300  pl-4 pr-8 2xl:pr-24 py-[2px] flex items-center w-full transition ease-in-out duration-300 drop-shadow-2xl hover:bg-[#063374] "

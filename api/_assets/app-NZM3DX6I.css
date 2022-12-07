@@ -1222,11 +1222,6 @@ video {
   line-height: 1;
 }
 
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
-}
-
 .font-semibold {
   font-weight: 600;
 }
@@ -1543,10 +1538,6 @@ video {
 }
 
 @media (min-width: 1024px) {
-  .lg\:absolute {
-    position: absolute;
-  }
-
   .lg\:relative {
     position: relative;
   }
@@ -1640,14 +1631,6 @@ video {
 }
 
 @media (min-width: 1536px) {
-  .\32xl\:top-20 {
-    top: 5rem;
-  }
-
-  .\32xl\:top-0 {
-    top: 0px;
-  }
-
   .\32xl\:mr-8 {
     margin-right: 2rem;
   }
@@ -1683,10 +1666,5 @@ video {
 
   .\32xl\:pr-24 {
     padding-right: 6rem;
-  }
-
-  .\32xl\:text-9xl {
-    font-size: 8rem;
-    line-height: 1;
   }
 }
