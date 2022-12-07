@@ -877,14 +877,6 @@ video {
   width: 9rem;
 }
 
-.w-32 {
-  width: 8rem;
-}
-
-.w-28 {
-  width: 7rem;
-}
-
 .min-w-0 {
   min-width: 0px;
 }
@@ -1150,11 +1142,6 @@ video {
   padding-bottom: 1.5rem;
 }
 
-.py-\[2px\] {
-  padding-top: 2px;
-  padding-bottom: 2px;
-}
-
 .pb-0 {
   padding-bottom: 0px;
 }
@@ -1173,14 +1160,6 @@ video {
 
 .pt-1 {
   padding-top: 0.25rem;
-}
-
-.pr-12 {
-  padding-right: 3rem;
-}
-
-.pr-8 {
-  padding-right: 2rem;
 }
 
 .text-center {
@@ -1245,11 +1224,6 @@ video {
 
 .outline {
   outline-style: solid;
-}
-
-.drop-shadow-2xl {
-  --tw-drop-shadow: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .filter {
@@ -1643,10 +1617,6 @@ video {
 
   .\32xl\:w-48 {
     width: 12rem;
-  }
-
-  .\32xl\:w-36 {
-    width: 9rem;
   }
 
   .\32xl\:pr-24 {

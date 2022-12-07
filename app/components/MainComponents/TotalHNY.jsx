@@ -2,13 +2,15 @@ import { DataContext } from "~/providers/DataProvider";
 import { useContext } from "react";
 import CountUp from "react-countup";
 import { Tag } from "@1hive/1hive-ui";
+import iconHoney from "~/assets/honey_logo_dark.png";
+import beeSvg from "~/assets/bee.svg";
 
 const TotalHNY = ({}) => {
   const { TOTAL_HNY_FUNDING_SUM } = useContext(DataContext);
 
   return (
     <div className="w-full px-3 mb-6 lg:mb-0 lg:w-7/12 lg:flex-none ">
-      <div className="relative flex flex-col min-w-0 break-words bg-[#041f46] shadow-soft-xl rounded-2xl bg-clip-border ">
+      <div className="relative flex flex-col min-w-0 break-words bg-[#041f46] shadow-soft-xl rounded-2xl bg-clip-border  ">
         <div className="flex-auto p-4 ">
           <div className="flex flex-col xl:flex-row -mx-3 ">
             <div className="max-w-full px-3 lg:w-1/2 lg:flex-none ">
@@ -20,19 +22,21 @@ const TotalHNY = ({}) => {
                     duration={1.1}
                     scrollSpyDelay={1000}
                   ></CountUp>
-                  <Tag className="ml-2 animate-pulse " background={"#041F46"}>
-                    {"+ 85"}
+                  <Tag className="animate-pulse " background={"#041F46"}>
+                    {"+85"}
                   </Tag>
                   {/* <span className="text-sm">{"+ 36.77"}</span> */}
                 </h3>
 
                 <p className="mb-44"></p>
-                <a className="mb-8 lg:mb-0">1hive.org</a>
               </div>
             </div>
             <div className="max-w-full px-3 lg:w-1/2  lg:flex-none  ">
-              <div className="bg-gradient-to-tl from-blue-700 to-black-500 rounded-xl relative flex items-center justify-center max-h-content h-80 md:h-96 lg:h-80">
-                <svg
+              <div className="bg-gradient-to-tl from-blue-700 to-black-500 rounded-xl relative flex items-center justify-center max-h-content h-80 md:h-96 lg:h-64 2xl:h-80 ">
+                <picture className="w-36 2xl:w-48 flex items-center justify-center ">
+                  <img className="w-full" src={beeSvg} />
+                </picture>
+                {/* <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="100%"
                   height="100%"
@@ -61,7 +65,7 @@ const TotalHNY = ({}) => {
                       />
                     </g>
                   </g>
-                </svg>
+                </svg> */}
               </div>
             </div>
           </div>

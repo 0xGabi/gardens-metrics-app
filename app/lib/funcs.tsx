@@ -22,17 +22,17 @@ export const filtereByMonthAndYear = (obj: any, month: any, year: any) => {
     y: Number(Object.values(xAndy)),
   }));
 
-  //total del año seleccionado, cambia de acuerdo a los filtros del Slider, empieza de ene a dic
-  const sumTotalYear = SUM_byMonthAndyear.map((year) =>
-    Number(Object.values(year))
-  ).reduce((prev, curr) => prev + curr, 0);
-
   const data = [
     {
       id: year,
       data: xMonth_yValue,
     },
   ];
+
+  //total del año seleccionado, cambia de acuerdo a los filtros del Slider, empieza de ene a dic
+  const sumTotalYear = SUM_byMonthAndyear.map((year) =>
+    Number(Object.values(year))
+  ).reduce((prev, curr) => prev + curr, 0);
 
   return { data, sumTotalYear };
 };

@@ -11,17 +11,17 @@ const TopNav = () => {
     <>
       <nav
         className={
-          "px-2 sm:px-4 py-4  fixed w-full z-20 top-0 left-0 bg-[#031A3A] sticky transition-all shadow-none duration-550 ease-soft-in rounded-2xl mb-8 border-2"
+          "px-2 sm:px-3 py-6  fixed w-full z-20 top-0 left-0 bg-[#031A3A] sticky rounded-2xl mb-8"
         }
       >
         <div className="flex flex-wrap items-center justify-between">
           <a href="https://flowbite.com/" className="flex items-center">
-            <img
+            {/* <img
               src={ethereumLogo}
               className="h-6 mr-3 sm:h-9"
               alt="Flowbite Logo"
-            />
-            <span className="self-center text-xl whitespace-nowrap dark:text-white">
+            /> */}
+            <span className="self-center text-xl whitespace-nowrap dark:text-white mt-1">
               Metrics Dashboard
             </span>
           </a>

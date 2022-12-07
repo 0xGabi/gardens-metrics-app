@@ -877,14 +877,6 @@ video {
   width: 9rem;
 }
 
-.w-32 {
-  width: 8rem;
-}
-
-.w-28 {
-  width: 7rem;
-}
-
 .min-w-0 {
   min-width: 0px;
 }
@@ -1177,10 +1169,6 @@ video {
 
 .pr-12 {
   padding-right: 3rem;
-}
-
-.pr-8 {
-  padding-right: 2rem;
 }
 
 .text-center {
@@ -1643,10 +1631,6 @@ video {
 
   .\32xl\:w-48 {
     width: 12rem;
-  }
-
-  .\32xl\:w-36 {
-    width: 9rem;
   }
 
   .\32xl\:pr-24 {

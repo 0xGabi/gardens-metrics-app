@@ -3,7 +3,8 @@
     "remix.env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "app/providers/DataProvider.js"
+    "app/providers/DataProvider.js",
+    "app/components/Charts/AddressFlow.jsx"
   ],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2019"],

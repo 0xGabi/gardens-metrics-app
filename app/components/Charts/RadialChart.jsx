@@ -6,9 +6,6 @@ import { useTheme } from "@1hive/1hive-ui";
 const RadialCharttt = ({ data, totalSum }) => {
   const theme = useTheme();
   const { ChartRef } = useContext(RefContext);
-
-  console.log(ChartRef);
-
   return (
     <div ref={ChartRef} className="h-[696px] mt-5 w-full flex flex-col">
       <ResponsiveRadialBar

@@ -5,6 +5,8 @@ export const RefContext = createContext(null);
 
 export const RefProvider = ({ children }) => {
   const ChartRef = useRef(null);
+  const DashboardRef = useRef(null);
+  const AddressFlowRef = useRef(null);
 
   const handleScroll = (ref) => {
     ref?.current.scrollIntoView({
@@ -17,6 +19,8 @@ export const RefProvider = ({ children }) => {
     <RefContext.Provider
       value={{
         ChartRef,
+        DashboardRef,
+        AddressFlowRef,
         handleScroll,
       }}
     >

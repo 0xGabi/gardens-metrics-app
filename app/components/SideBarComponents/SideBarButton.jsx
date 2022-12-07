@@ -10,7 +10,7 @@ const SideBarButton = ({ Icon, Img, Title, item }) => {
     <li className="w-full cursor-pointer mb-4">
       <button
         onMouseEnter={() => handleScroll(item)}
-        className="text-m rounded-2xl bg-clip-border bg-[#041F46] font-semibold text-slate-300  pl-4 pr-16 2xl:pr-24 py-[4px] flex items-center w-full transition ease-in-out duration-300 hover:bg-[#063374]"
+        className="text-m rounded-2xl bg-clip-border font-semibold text-slate-300  pl-4 pr-8 2xl:pr-24 py-[2px] flex items-center w-full transition ease-in-out duration-300 drop-shadow-2xl hover:bg-[#063374] "
       >
         <div className="bg-gradient-to-tl from-blue-700 to-black-500 shadow-soft-2xl mr-2 flex h-12 w-12 items-center justify-center rounded-lg text-center xl:p-2.5">
           {Icon && <i>{Icon}</i>}

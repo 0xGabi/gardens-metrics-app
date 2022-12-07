@@ -41,8 +41,8 @@ export const DataProvider = ({ children }) => {
   const SumTotalBeneficiaries = Object.values(Beneficaries_SUM).length;
   //
 
-  //get the last 3 fundings proposals
-  const LastProposals = outflows.slice(-3);
+  //get the last 3 fundings proposals from top to bottom date
+  const LastProposals = outflows.slice(-3).reverse();
 
   return (
     <DataContext.Provider

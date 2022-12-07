@@ -17,7 +17,7 @@ export const CardsWrap = ({ children }) => {
 //Wraps sectionOne --- Info, Total HNY + hny SVG
 export const SectionOne = ({ children }) => {
   return (
-    <section className="flex flex-wrap mt-6 -mx-3 -z-50">{children}</section>
+    <section className="flex flex-wrap mt-8 mb-8 -z-50 ">{children}</section>
   );
 };
 
@@ -53,7 +53,7 @@ export const SideBarWrapper = ({ children, toggle }) => {
   return (
     <aside
       className={
-        "hidden lg:block min-w-62.5 h-screen shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 xl:bg-transparent ml-4  mr-4 2xl:mr-8 border-2 "
+        "hidden lg:block min-w-62.5 h-screen xl:left-0 2xl:mr-4"
         // toggle ? openLargeScreen : closeMediumScreen
 
         // +
