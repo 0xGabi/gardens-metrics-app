@@ -5,7 +5,7 @@ import { RefProvider } from "~/providers/RefProvider";
 import { MainWrapper } from "../Styled/Wrappers";
 
 import SideBar from "../SideBarComponents/SideBar";
-import Main from "~/components/helpers/Main";
+import Main from "~/components/MainComponents/Main";
 import TopNav from "../TopNavComponent/TopNav";
 
 const Outflows = () => {

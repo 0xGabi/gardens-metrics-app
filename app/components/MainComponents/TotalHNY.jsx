@@ -1,7 +1,7 @@
 import { DataContext } from "~/providers/DataProvider";
 import { useContext } from "react";
 import CountUp from "react-countup";
-import HoneyAmount from "../helpers/HoneyAmount";
+import HoneyAmount from "../HelperComponents/HoneyAmount";
 import { Tag } from "@1hive/1hive-ui";
 
 import beeSvg from "~/assets/bee.svg";

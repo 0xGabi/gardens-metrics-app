@@ -10,6 +10,7 @@ const MyResponsiveRadialBar = ({}) => {
         data={dataFrom2021.data}
         totalSum={dataFrom2021.sumTotalYear}
       />
+
       <RadialChart
         data={dataFrom2022.data}
         totalSum={dataFrom2022.sumTotalYear}

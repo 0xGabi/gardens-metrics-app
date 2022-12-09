@@ -966,10 +966,6 @@ video {
   flex-wrap: wrap;
 }
 
-.place-items-center {
-  place-items: center;
-}
-
 .content-center {
   align-content: center;
 }
@@ -1622,14 +1618,6 @@ video {
 @media (min-width: 1536px) {
   .\32xl\:left-\[450px\] {
     left: 450px;
-  }
-
-  .\32xl\:left-\[650px\] {
-    left: 650px;
-  }
-
-  .\32xl\:left-\[550px\] {
-    left: 550px;
   }
 
   .\32xl\:mb-8 {

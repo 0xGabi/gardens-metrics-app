@@ -7,13 +7,13 @@ import {
   ChartsWrap,
 } from "../Styled/Wrappers";
 
-import InfoCard from "../MainComponents/InfoCard";
+import InfoCard from "./InfoCard";
 import TotalHNY from "~/components/MainComponents/TotalHNY";
 import LastFundings from "~/components/MainComponents/LastFundings";
 import RadialChartsComponent from "~/components/Charts/RadialChartsComponent";
-import Slider from "~/components/helpers/Slider";
+import Slider from "~/components/helperComponents/Slider";
 // import NetworkChart from "./Charts/NetworkChart";
-import Sankey from "~/components/Charts/Sankey";
+import Sankey from "~/components/Charts/SankeyChart";
 import AddressFlow from "../Charts/AddressFlow";
 
 import { IconCoin, IconUser, IconGroup } from "@1hive/1hive-ui";

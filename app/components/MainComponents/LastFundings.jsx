@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { DataContext } from "~/providers/DataProvider";
-import HoneyAmount from "../helpers/HoneyAmount";
+import HoneyAmount from "../HelperComponents/HoneyAmount";
 
 import { Tag, useViewport, IdentityBadge } from "@1hive/1hive-ui";
 
