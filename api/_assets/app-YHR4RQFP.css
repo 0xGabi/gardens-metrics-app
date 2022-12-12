@@ -995,10 +995,6 @@ video {
   border-radius: 0.75rem;
 }
 
-.rounded {
-  border-radius: 0.25rem;
-}
-
 .rounded-t-2xl {
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;

@@ -36,10 +36,20 @@ const SideBar = ({ toggle }) => {
               Icon={<IconGraph />}
               Title={"AddressesFlow"}
             />
-            <SideBarButton Title={"Others"} Icon={<IconSettings />} />
+            {/* <SideBarButton Title={"Others"} Icon={<IconSettings />} /> */}
           </ul>
         </div>
-        <div className="w-full h-24 flex-none"></div>
+        <div className="w-full h-24 flex items-center justify-center">
+          <button className="w-full">
+            <a
+              className="w-full rounded bg-clip-border  w-full  bg-gradient-to-tl from-blue-700 to-black-500 px-8 py-2 text-gray"
+              href="https://forum.1hive.org/c/ideas/11"
+              target="_blank"
+            >
+              Documentation
+            </a>
+          </button>
+        </div>
       </div>
     </SideBarWrapper>
   );

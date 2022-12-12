@@ -22,12 +22,20 @@ export const filtereByMonthAndYear = (obj: any, month: any, year: any) => {
     y: Number(Object.values(xAndy)),
   }));
 
+  // data object for RadialChart
   const data = [
     {
       id: year,
       data: xMonth_yValue,
     },
   ];
+
+  //Data object for PieChart
+  const DataValuesForPieChart = SUM_byMonthAndyear.map((xAndy) => ({
+    id: Object.keys(xAndy).toString(),
+    label: Object.keys(xAndy).toString(),
+    value: Number(Object.values(xAndy)),
+  }));
 
   //total del año seleccionado, cambia de acuerdo a los filtros del Slider, empieza de ene a dic
   const sumTotalYear = SUM_byMonthAndyear.map((year) =>
@@ -36,7 +44,7 @@ export const filtereByMonthAndYear = (obj: any, month: any, year: any) => {
     .reduce((prev, curr) => prev + curr, 0)
     .toFixed(0);
 
-  return { data, sumTotalYear };
+  return { data, sumTotalYear, DataValuesForPieChart };
 };
 
 export const MONTHS = [

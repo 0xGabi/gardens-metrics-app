@@ -2,7 +2,7 @@ import { DataContext } from "~/providers/DataProvider";
 import { useContext } from "react";
 import RadialChart from "./RadialChart";
 
-const MyResponsiveRadialBar = ({}) => {
+const MyResponsiveRadialBar = () => {
   const { dataFrom2021, dataFrom2022 } = useContext(DataContext);
   return (
     <>

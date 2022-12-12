@@ -37,7 +37,21 @@ const RadialCharttt = ({ data, totalSum }) => {
           labelsTextColor={theme.helpContent}
           motionConfig="molasses"
           transitionMode="pushOut"
-          legends={[]}
+          legends={[
+            {
+              dataFrom: "keys",
+              anchor: "left",
+              direction: "row",
+              justify: false,
+              translateX: 105,
+              translateY: -300,
+              itemWidth: 20,
+              itemHeight: 10,
+              itemsSpacing: 19,
+              symbolSize: 17,
+              itemDirection: "left-to-right",
+            },
+          ]}
         />
         {/* <div className="absolute top-[460px] lg:left-[250px] 2xl:left-[550px]"> */}
         <div className="absolute top-[480px] w-full text-center  flex items-center justify-center">

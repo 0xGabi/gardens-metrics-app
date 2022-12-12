@@ -15,6 +15,7 @@ import Slider from "~/components/helperComponents/Slider";
 // import NetworkChart from "./Charts/NetworkChart";
 import Sankey from "~/components/Charts/SankeyChart";
 import AddressFlow from "../Charts/AddressFlow";
+import PieChartComponent from "../Charts/PieChartComponent";
 
 import { IconCoin, IconUser, IconGroup } from "@1hive/1hive-ui";
 
@@ -48,7 +49,8 @@ const Main = () => {
       <RadialChartWrapper>
         <Slider />
         <ChartsWrap>
-          <RadialChartsComponent />
+          <PieChartComponent />
+          {/* <RadialChartsComponent /> */}
         </ChartsWrap>
       </RadialChartWrapper>
       <AddressFlow />
