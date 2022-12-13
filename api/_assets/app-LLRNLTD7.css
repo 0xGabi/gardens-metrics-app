@@ -1440,10 +1440,6 @@ video {
     margin-bottom: 2.5rem;
   }
 
-  .md\:mb-20 {
-    margin-bottom: 5rem;
-  }
-
   .md\:flex {
     display: flex;
   }

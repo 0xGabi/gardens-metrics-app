@@ -38,21 +38,6 @@ const AddressFlow = ({}) => {
     return acc;
   }, {});
 
-  console.log(filterMonth_Year(outflows));
-  // const items = [
-  //   { name: "Edward", value: 21 },
-  //   { name: "Sharpe", value: 37 },
-  //   { name: "And", value: 45 },
-  //   { name: "The", value: -12 },
-  //   { name: "Magnetic", value: 13 },
-  //   { name: "Zeros", value: 37 },
-  // ];
-  // console.log("consol", Beneficary_SUM);
-
-  // const sorter = items.sort((a, b) => a.value - b.value);
-
-  // const Beneficary_SUM_SORT = Beneficary_SUM.sort({});
-
   const BeneficiariesAndAmounts = Object.entries(Beneficary_SUM);
 
   return (

@@ -60,7 +60,10 @@ export const MONTHS = [
   "Oct",
   "Nov",
   "Dec",
+  "Dec",
 ];
+
+console.log(MONTHS);
 
 // export const sliceFunc = (array, start, end) => {
 //   const newArr = array.slice(start, end);

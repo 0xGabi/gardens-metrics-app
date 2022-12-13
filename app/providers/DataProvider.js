@@ -10,7 +10,7 @@ export const DataProvider = ({ children }) => {
   const outflows = gardensOutflows;
 
   //valores y funcs para el Slider
-  const [values, setValues] = useState([0, 11]);
+  const [values, setValues] = useState([0, 12]);
 
   const sliceFunc = (array, start, end) => {
     const newArr = array.slice(start, end);

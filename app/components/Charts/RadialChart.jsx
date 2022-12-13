@@ -61,53 +61,6 @@ const RadialCharttt = ({ data, totalSum }) => {
           {/* {totalSum} */}
         </div>
       </div>
-      {/* <ResponsiveRadialBar
-        data={data}
-        startAngle={-143}
-        endAngle={143}
-        padding={0.3}
-          padAngle={2}
-        // margin={{ top: 40, right: 120, bottom: 40, left: 40 }}
-        colors={{ scheme: "blues" }}
-        borderColor={{
-          from: "color",
-          modifiers: [["darker", "0.7"]],
-        }}
-        borderWidth={1}
-        enableTracks={false}
-        tracksColor="#fffafa"
-        enableRadialGrid={false}
-        enableCircularGrid={false}
-        radialAxisStart={{ tickSize: 5, tickPadding: 5, tickRotation: 0 }}
-        circularAxisOuter={{ tickSize: 5, tickPadding: 12, tickRotation: 0 }}
-        enableLabels={true}
-        labelsSkipAngle={3}
-        labelsTextColor={theme.helpContent}
-        // legends={[
-        //   {
-        //     anchor: "right",
-        //     direction: "column",
-        //     justify: false,
-        //     translateX: 60,
-        //     translateY: 0,
-        //     itemsSpacing: 14,
-        //     itemDirection: "right-to-left",
-        //     itemWidth: 100,
-        //     itemHeight: 18,
-        //     itemTextColor: "#DEE2E7",
-        //     symbolSize: 18,
-        //     symbolShape: "circle",
-        //     effects: [
-        //       {
-        //         on: "hover",
-        //         style: {
-        //           itemTextColor: "#000",
-        //         },
-        //       },
-        //     ],
-        //   },
-        // ]}
-      /> */}
     </div>
   );
 };

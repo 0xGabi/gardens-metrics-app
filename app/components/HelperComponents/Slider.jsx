@@ -5,9 +5,11 @@ import styled from "styled-components";
 
 const Slider = () => {
   const { values, setValues, MONTHS } = useContext(DataContext);
+
+  //handelea el slider:
   const { getTrackProps, ticks, segments, handles } = useRanger({
     min: 0,
-    max: 11,
+    max: 12,
     stepSize: 1,
     values,
     onChange: setValues,
@@ -29,8 +31,8 @@ const Slider = () => {
             <TickLabel>{value}</TickLabel>
           </Tick>
         ))}
-        {segments.map(({ getSegmentProps }, i) => (
-          <Segment {...getSegmentProps()} index={i} />
+        {segments.map(({ getSegmentProps }, idx) => (
+          <Segment {...getSegmentProps()} index={idx} />
         ))}
         {handles.map(({ value, active, getHandleProps }) => (
           <button
@@ -110,5 +112,5 @@ export const Handle = styled("div")`
   font-weight: ${(props) => (props.active ? "bold" : "normal")};
   transform: ${(props) =>
     props.active ? "translateY(-100%) scale(1.2)" : "translateY(0) scale(0.9)"};
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.4s cubic-bezier(0.175, 0.745, 0.29, 1.115);
 `;

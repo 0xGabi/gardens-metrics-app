@@ -13,7 +13,7 @@ import LastFundings from "~/components/MainComponents/LastFundings";
 import RadialChartsComponent from "~/components/Charts/RadialChartsComponent";
 import Slider from "~/components/helperComponents/Slider";
 // import NetworkChart from "./Charts/NetworkChart";
-import Sankey from "~/components/Charts/SankeyChart";
+// import Sankey from "~/components/Charts/SankeyChart";
 import AddressFlow from "../Charts/AddressFlow";
 import PieChartComponent from "../Charts/PieChartComponent";
 

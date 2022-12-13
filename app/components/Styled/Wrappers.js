@@ -1,7 +1,7 @@
 //Wraps all the info area, NOT the sideBar
 export const MainWrapper = ({ children }) => {
   return (
-    <div className="w-full px-6 overflow-y-scroll overscroll-contain">
+    <div className="w-full px-6 overflow-y-scroll overscroll-contain scrollbar-hide">
       <div className=""></div>
       {children}
     </div>
@@ -43,28 +43,8 @@ export const ChartsWrap = ({ children }) => {
 
 //Wraps entire SideBar
 export const SideBarWrapper = ({ children, toggle }) => {
-  // const [toggleSidebar, setToogleSidebar] = useState(false);
-  // const toggleClass = "fixed top-0 left-0 z-30 bg-[#031A3A]";
-
-  // const openLargeScreen =
-  //   "hidden lg:block min-w-62.5 h-screen shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 xl:bg-transparent ml-4  mr-4 2xl:mr-8 ";
-
-  // const closeMediumScreen =
-  //   "fixed top-0 left-0 z-30 bg-[#031A3A] min-w-62.5 h-screen shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 xl:bg-transparent ml-4  mr-4 2xl:mr-8 border-2 lg:relative block";
-
   return (
-    <aside
-      className={
-        "hidden lg:block min-w-62.5 h-screen xl:left-0 2xl:mr-4"
-        // toggle ? openLargeScreen : closeMediumScreen
-
-        // +
-        // // "fixed top-0 left-0 z-30 bg-[#031A3A]"
-        // "hidden lg:relative block min-w-62.5 h-screen shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 xl:bg-transparent ml-4  mr-4 2xl:mr-8 border-2"
-        // +
-        // (toggle ? null : toggleClass)
-      }
-    >
+    <aside className={"hidden lg:block min-w-62.5 h-screen xl:left-0 2xl:mr-4"}>
       {children}
     </aside>
   );
