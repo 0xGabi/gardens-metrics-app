@@ -4,24 +4,17 @@ import {
   fetchGardensOutflows,
   fetchGardensBeneficiaries,
 } from "~/utils/server/subgraph.server";
-import { useViewport, GU } from "@1hive/1hive-ui";
 import { useCatch } from "@remix-run/react";
-import { useSigner } from "wagmi";
-import styled from "styled-components";
 import { AppScreen } from "~/components/AppLayout/AppScreen";
-import { SmoothDisplayContainer } from "~/components/SmoothDisplayContainer";
-import Outflows from "~/components/Outflows";
+import { SmoothDisplayContainer } from "~/components/Styled/SmoothDisplayContainer";
+import Outflows from "~/components/MainComponents/Outflows";
 
 export const loader: LoaderFunction = async () => {
   const gardensOutflows = await fetchGardensOutflows();
-  // const gardensBeneficiaries = await fetchGardensBeneficiaries();
   return json({ gardensOutflows });
 };
 
 export default function Home() {
-  const { below } = useViewport();
-  const [{ data }] = useSigner();
-
   return (
     <AppScreen>
       <SmoothDisplayContainer>
@@ -30,15 +23,6 @@ export default function Home() {
     </AppScreen>
   );
 }
-
-const MainContainer = styled.div<{ compactMode: boolean }>`
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding-top: ${({ compactMode }) => (compactMode ? 7 * GU : 23 * GU)}px;
-  width: 100%;
-  height: 100%;
-`;
 
 // https://remix.run/docs/en/v1/api/conventions#catchboundary
 export function CatchBoundary() {

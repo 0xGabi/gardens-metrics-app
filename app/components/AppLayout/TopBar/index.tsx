@@ -38,7 +38,8 @@ const NavContainer = styled.nav`
   position: relative;
   margin: 0 auto;
   height: ${8 * GU}px;
-  background-color: ${(props) => props.theme.surface};
+  background-color: ${(props) => props.theme.background};
+  border: 3px solid red;
 `;
 
 const AnimatedContainer = styled(a.div)<{ $compactMode: boolean }>`

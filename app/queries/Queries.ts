@@ -19,7 +19,10 @@ export const GardensData = gql`
 export const OutflowsData = gql`
   {
     gardens {
-      outflows(where: { stable: false, transferAt_not: null }) {
+      outflows(
+        where: { stable: false, transferAt_not: null }
+        orderBy: transferAt
+      ) {
         id
         requestedAmount
         beneficiary

@@ -11,7 +11,7 @@ import {
 import type { MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { App } from "~/App";
-import { theme } from "public/aragon-ui/types";
+import styles from "./styles/app.css";
 
 export const meta: MetaFunction = () => {
   return {
@@ -20,6 +20,9 @@ export const meta: MetaFunction = () => {
     viewport: "width=device-width,initial-scale=1",
   };
 };
+export function links() {
+  return [{ rel: "stylesheet", href: styles }];
+}
 
 export async function loader() {
   return json({
@@ -43,7 +46,7 @@ const Document = ({ children }: DocumentProps) => {
       <head>
         <Meta />
         <Links />
-        {typeof document === "undefined" ? "__STYLES__" : null}
+        {/* {typeof document === "undefined" ? "__STYLES__" : null} */}
       </head>
       <body>
         {children}

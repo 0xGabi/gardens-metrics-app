@@ -5,17 +5,12 @@ import {
   formatDate_TWO,
   formatAmount,
   formatAddress,
-} from "~/utils/format";
+} from "~/lib/format";
 import { Network, ResponsiveNetwork } from "@nivo/network";
 import { useState } from "react";
-import { GardensData } from "~/queries/Queries";
-import { id } from "ethers/lib/utils";
-import {
-  identity,
-  xor,
-} from ".pnpm/@types+lodash@4.14.182/node_modules/@types/lodash";
+import { IconEthereum } from "@1hive/1hive-ui";
 
-const MyResponsiveNetwork = () => {
+const NetworkChart = () => {
   const data = {
     nodes: [
       {
@@ -638,546 +633,6 @@ const MyResponsiveNetwork = () => {
     },
   };
 
-  const datashi = {
-    nodes: [
-      {
-        id: "Node 7.2",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.3",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.4",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.5",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.6",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.7",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.8",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.9",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.10",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.11",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.12",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.13",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.14",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.15",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.16",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.17",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.18",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.16",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.16",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.19",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.20",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.21",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.22",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.23",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.24",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.25",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.26",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.27",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.28",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.29",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.30",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.31",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.32",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.33",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.34",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.35",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.36",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.37",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.38",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.39",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.40",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.41",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.42",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.43",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.44",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.45",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.46",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "Node 7.47",
-        height: 0,
-        size: 12,
-        color: "rgb(232, 193, 160)",
-      },
-      {
-        id: "1Hive",
-        height: 0,
-        size: 24,
-        color: "rgb(194, 160, 232)",
-      },
-    ],
-    links: [
-      {
-        source: "1Hive",
-        target: "Node 7.2",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.3",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.4",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.2",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.5",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.6",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.2",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.2",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.7",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.8",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.9",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.10",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.11",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.12",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.13",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.2",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.2",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.2",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.14",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.15",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.16",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.17",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.18",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.19",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.20",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.21",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.22",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.23",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.24",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.25",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.26",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.27",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.28",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.29",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.30",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.31",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.32",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.33",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.34",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.35",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.36",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.37",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.38",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.39",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.40",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.41",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.42",
-        distance: 50,
-      },
-      {
-        source: "1Hive",
-        target: "Node 7.43",
-        distance: 50,
-      },
-    ],
-  };
   const [nodeId, setNodeId] = useState<string | null>(null);
   const [repul, setRepul] = useState<number>(100);
 
@@ -1257,6 +712,62 @@ const MyResponsiveNetwork = () => {
     return dataaaaaa;
   };
 
+  const LastData = {
+    nodes: [
+      {
+        id: "1Hive",
+        height: 1,
+        size: 24,
+        color: "rgb(97, 205, 187)",
+      },
+      {
+        id: "0x661b…e7po",
+        height: 1,
+        size: 24,
+        color: "rgb(97, 205, 187)",
+      },
+      {
+        id: "0x661b…e7el",
+        height: 1,
+        size: 24,
+        color: "rgb(97, 205, 187)",
+      },
+      {
+        id: "0x661b…e7ty",
+        height: 1,
+        size: 24,
+        color: "rgb(97, 205, 187)",
+      },
+      {
+        id: "0x661b…e7er",
+        height: 1,
+        size: 24,
+        color: "rgb(97, 205, 187)",
+      },
+    ],
+    links: [
+      {
+        source: "1Hive",
+        target: "0x661b…e7po",
+        distance: 80,
+      },
+      {
+        source: "1Hive",
+        target: "0x661b…e7el",
+        distance: 80,
+      },
+      {
+        source: "1Hive",
+        target: "0x661b…e7ty",
+        distance: 80,
+      },
+      {
+        source: "1Hive",
+        target: "0x661b…e7er",
+        distance: 80,
+      },
+    ],
+  };
   // let nodes = [];
   // let links = [];
   // const LETSSEE = (address: any) => {
@@ -1278,8 +789,9 @@ const MyResponsiveNetwork = () => {
 
   return (
     <div
-      style={{ height: "400px", border: "3px solid red", marginTop: "20px" }}
+      style={{ height: "600px", border: "1px solid red", marginTop: "20px" }}
     >
+      <IconEthereum />
       <button
         style={{
           color: "#042940",
@@ -1298,22 +810,23 @@ const MyResponsiveNetwork = () => {
       </button>
       {nodeId && <h2>node: {nodeId}</h2>}
       <ResponsiveNetwork
-        data={data}
+        data={LastData}
         margin={{ top: 76, right: 0, bottom: 0, left: 0 }}
         linkDistance={function (e) {
           return e.distance;
         }}
         theme={theme}
         centeringStrength={0.1}
+        repulsivity={300}
+        iterations={350}
+        nodeComponent={`nodeComponent`}
         //
-        distanceMin={500}
-        distanceMax={300}
+
         //obtengo el ID del nodo!!!
-        onClick={(node) => {
-          setNodeId(nodeId === node.id ? null : node.id);
-        }}
+        // onClick={(node) => {
+        //   setNodeId(nodeId === node.id ? null : node.id);
+        // }}
         //
-        repulsivity={repul}
         nodeSize={function (n) {
           return n.size;
         }}
@@ -1329,7 +842,7 @@ const MyResponsiveNetwork = () => {
           modifiers: [["darker", 0]],
         }}
         linkThickness={function (n) {
-          return 2 + 2 * n.target.data.height;
+          return 1 + 1 * n.target.data.height;
         }}
         linkColor="#affb8e
         "
@@ -1338,4 +851,12 @@ const MyResponsiveNetwork = () => {
   );
 };
 
-export default MyResponsiveNetwork;
+export const SVG = () => {
+  return (
+    <svg>
+      <circle cx={50} cy={50} r={10} fill="red" />
+    </svg>
+  );
+};
+
+export default NetworkChart;

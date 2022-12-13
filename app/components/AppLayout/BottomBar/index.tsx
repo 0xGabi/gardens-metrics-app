@@ -20,7 +20,7 @@ export const BottomBar = () => {
             >
               {/* <div style={{ color: theme.surfaceContent }}>
                 <span style={{ opacity: 0.4 }}></span>&copy; Copyright 2022,
-                Gardens - Metrics <BlossomLabsLogo />
+                Gardens - Metrics
               </div> */}
             </AnimatedContainer>
           )
